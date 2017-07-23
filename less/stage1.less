@@ -1,0 +1,446 @@
+@import 'style';
+
+    #section1 {
+    .bg_navy();
+    width:100%;
+    height:auto;
+    .inner {.inner();width:950px;padding:150x 0 80px;}
+    header {padding: 150px 0 80px;}
+    header > h2 {.font('Quantico', 30px, @theme-color, 300, center);}
+    header > h3 {.font('Quantico', 50px, #fff, 300, center);}
+    
+    .part_one {
+        div.subtitle {float:left;width:230px;margin-right:50px;height:auto;padding-top:20px;border-top:1px solid @theme-color;
+            h2 {font-size:42px;font-weight:300;line-height:1.2;letter-spacing:-1px;
+                span {letter-spacing:-3px;}
+            }
+            h3 {font-size:30px;line-height:1.2;font-weight:300;
+                span {font-size:20px;line-height:1.2;}
+            }
+        }
+        div.contents {float:right;width:670px;height:auto;
+                p {width:600px; }
+        }
+    }
+}
+    #section2 {
+         .bg_navy();
+          .inner {.inner();width:950px;}
+    .part_two {
+        div.subtitle {float:left;width:230px;height:auto;margin-right:50px;
+            .imgBox {position:relative;margin-bottom:50px;width:220px;height:220px;}
+            .drawSquare {z-index:2;width:220px;height:220px;
+                rect {x:10px;fill:none;width:200px;height:200px;stroke-width:1px;stroke:@theme-color;}
+            }
+            .interviewBox1 {position:absolute;top:10px;z-index:-1;background-image:url('@{img-url}/stage1_boxImg1.jpg');width:200px;height:200px;display:block;}
+            .interviewBox2 {position:absolute;top:10px;z-index:-1;background-image:url('@{img-url}/stage1_boxImg2.jpg');width:200px;height:200px;display:block;}
+        }
+        div.contents {float:right;width:670px;height:auto;text-align:center;
+            h2 {font-size:35px;line-height:35px;margin:30px 0;}
+            p {font-size:18px;margin:20px 0 50px;
+                .bridge {display:inline-block;padding:20px 0 50px;}
+            }
+        }
+        .section1_bottom {width:100%;background-image:url('@{img-url}/stage1_bg_section1_bottom.jpg');background-size:cover;height:650px;background-position: 50% 50%;}
+      .jsySwiper {padding:120px 0 0;height:261px;}
+    .jsySwiper .swiper-slide {background-size:cover;width:419px;height:261px;display:block;}
+    .jsy1 {background-image:url('@{img-url}/stage1_jsy1.png');}
+    .jsy2 {background-image:url('@{img-url}/stage1_jsy2.png');}
+    .jsy3 {background-image:url('@{img-url}/stage1_jsy3.png');}
+    .jsy4 {background-image:url('@{img-url}/stage1_jsy4.png');}
+    .jsy5 {background-image:url('@{img-url}/stage1_jsy5.png');}
+    .jsy6 {background-image:url('@{img-url}/stage1_jsy6.png');}
+
+    }
+    .part_three {
+        background-color:#fff;
+        color:#000;
+        padding:150px 0 80px;
+
+        header > h2 {.font('Quantico', 45px, #000, 300, center);text-transform: uppercase;margin:50px 0 100px;}
+        .contentsBusiness{
+            .inner();
+                        max-width: 1160px;
+    width: 1060px;
+    margin-bottom: 30px;
+            .clearfix();
+            div.item {float:left;letter-spacing:-1px;width:50%;text-align:center;font-size:80px;font-weight:300;color:#000;line-height:32px;
+                span.unit {font-size:40px;}
+                label {font-size:18px;color:@theme-color;letter-spacing:-2px;}
+            }
+        }
+
+
+    }
+}
+#section4 {background-color:#000;}
+#section5 {
+    p {font-weight:200;
+        label {color:@dark-color;font-weight:300;
+            span {color:inherit;}
+        }
+        span {color:#fff;}
+    }
+}
+#section6 {background-color:#060a14;
+        p {font-size:40px;}
+        // .interview {}
+        // .interview_quote {display:block;}
+        .interview_video_content {top:calc(~'50% - 169px');}
+    }
+#section7 {text-align:center;
+    header > h2 {font-size:45px;color:@dark-color;padding:150px 0 80px;}
+    #webtoon_title {background-image:url('@{img-url}/stage1_webtoon_logo.png');width:296px;height:171px;margin:0 auto;background-size:cover;}
+    .webtoon {.clearfix();display:inline-block;
+        .webtoon1 {width:560px;height:310px;}
+        .webtoon2 {width:520px;height:310px;}
+        .webtoon3 {width:518px;height:310px;}
+        div {float:left;display:inline-block;background-size:cover;}
+    }
+    }
+#section8 {
+    p {
+        font-weight:200;
+        label {color:@theme-color;}
+    }
+}
+#section9 {
+    background-color:#060a14;
+    &.pinImage {
+            position: relative;
+            width: 100%;
+            min-height: 900px;
+            width:100%;
+            height:100%;
+            display:block;
+            text-align: center;
+            h3 {
+                font-style: normal;
+                font-weight: 300;
+                font-size: 46px;
+                opacity: 1;
+            }
+            #pinContainer {
+                position: relative;
+                overflow: hidden;
+                background-color: #fff;
+                width: 100%;
+                height: 100vh;
+            }
+            .panel {
+                width:100%;
+                height:100%;
+                position:relative;
+            }
+            .pinScene {
+                background-position: 50% 50%;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-color: #fff;
+                width:50%;height:100%;
+                position:absolute;
+
+               }
+
+            .panel p {
+                position: relative;
+                width: 100%;
+                color: #fff;
+                font-style: normal;
+                font-weight: 300;
+                font-size: 20px;
+                line-height: 20px;
+ 
+            }
+            .desc {
+                width:50%;
+                height:100%;
+                color:#fff;
+                margin-left:50%;
+                position:absolute;
+                top:0px;
+                .inner {width:420px;height:350px;margin:0 auto;position:absolute;top:calc(~"50% - 175px");left:calc(~"50% - 210px");
+                    p {font-size:18px;line-height:1.6;}
+                }
+            }
+            .pin1 {
+                .image {background-image: url('@{img-url}/stage1_pin1.jpg'); }
+                .desc {background-color:#1d3363;
+                    header > h2 {font-size:40px;letter-spacing:-2px;}
+                }
+            }
+            .pin2 {
+                .image {background-image: url('@{img-url}/stage1_pin2.jpg'); }
+                .desc {background-color:#0f1a32;}
+            }
+  .fixedPinNavi {
+                    position:absolute;
+                    width:50%;
+                    top:80%;
+                    left:50%;
+
+                span {
+                    margin:20px 10px;
+                    display:inline-block;
+                    text-align:center;
+                    width:30px;height:30px;
+                    position:relative;
+                    &:after {
+                        content:'';
+                        border:1px solid #fff;
+                        border-radius:50%;
+                        display:inline-block;
+                        width:30px;
+                        height:30px;
+                        position:absolute;
+                        left:0;
+                    }
+                &.swiper-pagination-bullet-active {background:none;color:@theme-color;
+                &:after {
+                        content:'';
+                        border:1px solid @theme-color;
+                        border-radius:50%;
+                        display:inline-block;
+                        width:30px;
+                        height:30px;
+                        position:absolute;
+                        left:0;
+                    }}
+                }
+            }
+        }  
+    }
+#section10 { .bg_star_navy();height:auto;
+
+    header > h2 {font-size:35px;text-align:center;}
+    header > h3 {font-size:13px;}
+    .innerBox {width:350px;height:auto;border:1px solid @theme-color;margin:0 auto;position:relative;    position: relative;
+    padding-top: 72px;
+    margin-top: 140px;
+        p {font-size:18px;line-height:18px;text-align:center;
+            span {color:@theme-color;}
+        }
+        .dinosEle {position:absolute;display:block;}
+        .dinosEmblem {background-image: url('@{img-url}/stage1_dinosEmblem.png');width:250px;height:168px;  height: 168px;
+    top: -90px;
+    left: 50%;
+    margin-left: -125px;}
+        .m1 {width:222px;height:264px;background-image: url('@{img-url}/stage1_dinos_mascot1.png');position:absolute;bottom:-10px;left:-170px;}
+        .m2 {width:222px;height:382px;right:-180px;bottom:-10px;background-image: url('@{img-url}/stage1_dinos_mascot2.png');}
+        }
+    .status_one {
+        margin:0px auto 100px auto;padding-top:150px;
+        .contents {.clearfix();position:relative;}
+
+    }
+
+    .status_two {.inner();
+    .contents {
+        h2 {text-align:center;font-size:35px;}
+        .dinosStory {text-align:center;
+            &.inner {
+                width: 630px;
+                margin: 0 auto;
+                h2 {margin:50px 0;}
+                p {line-height:30px;}
+                span {
+                    &.underline {text-decoration:underline;margin-bottom:50px;display:inline-block;}
+                }
+            }
+        }
+        .dinosCode {.clearfix();margin:50px auto;width:726px;
+            li {float:left;width:200px;margin:0 20px;height:200px;text-align:center;border:1px solid @theme-color;
+                label {width:180px;margin:35px auto 0;display:block;font-size: 40px; color: #d8b17e; font-weight: 500;line-height:24px;}
+                    span p {margin:0;}
+                     }
+        }
+        .statusBox {margin:50px 0;display:block;
+            .dinos_history {
+                h1 {color:@theme-color;}
+                p {line-height:22px;font-size:.9em;}
+                .boll_01 {width: 505px; height: 505px; margin: 0 auto; background-image: url(/project/NCsoft/img/stage1_baseball_new.png); background-position: center top; background-repeat: no-repeat; background-size: cover; position: relative; margin-top: 50px; }
+            }
+            }
+        }
+
+.dinos_history .boll_01 .boll_history1 {
+    position: absolute;
+    width: 150px;
+    height: 155px;
+    top: 28px;
+    left: 173px;
+    text-align: center;
+    /*border: 1px solid #ddd;*/
+}
+.dinos_history .boll_01 .boll_history2 {
+    position: absolute;
+    width: 150px;
+    height: 140px;
+    top: 150px;
+    left: 339px;
+    text-align: center;
+    /*border: 1px solid #ddd;*/
+}
+.dinos_history .boll_01 .boll_history3 {
+    position: absolute;
+    width: 150px;
+    height: 120px;
+    top: 349px;
+    left: 282px;
+    text-align: center;
+    /*border: 1px solid #ddd;*/
+}
+.dinos_history .boll_01 .boll_history4 {
+    position: absolute;
+    width: 150px;
+    height: 135px;
+    top: 337px;
+    left: 93px;
+    text-align: center;
+    /*border: 1px solid #ddd;*/
+}
+.dinos_history .boll_01 .boll_history5 {
+    position: absolute;
+    width: 150px;
+    height: 152px;
+    top: 157px;
+    left: 16px;
+    text-align: center;
+    /*border: 1px solid #ddd;*/
+}
+
+    }
+
+
+}
+#section11 {.bg_star_navy();height:auto;padding-bottom:150px;
+    .box_inner {display:block;padding:150px 0 0;}
+    .interview_video_content {top: calc(~'50% - 169px');}
+    .videoInterview {position:relative;height:auto;padding:250px 0 80px;
+        p {font-size:40px;}
+    }
+    .article {.clearfix();.inner();
+    .baseballInterview {float:left;width:50%;
+        p {width:80%;margin:0 auto;}}
+    }
+    .interview_qa_content > div > article > div > p {
+        padding-bottom:20px;
+    }
+    }
+#section13 {
+    max-height: 1280px;
+    height: 1270px;
+    background-size:cover;
+    background-position:50% 50%;
+    .inner {width:791px;height:456px;padding-top:100px;}
+    header > h2 {font-size:40px;text-align:center;}
+    header > h3 {font-size:28px;text-align:center;}
+}
+#section14 {  
+    background: #060a14 url('@{img-url}/bg_type_a.jpg') no-repeat 50% 50%;
+    background-size: cover;
+}
+    #foot { 
+        .next_stage {
+             background-image:url('@{img-url}/stage1_next_stage_bg.jpg');
+    &_btn {background-image:url('@{img-url}/stage1_next_stage_btn.png');}
+       &_box {top:162px}
+
+            &_text {height:60px;}
+        }
+     }
+
+
+/*이기석 추가내용*/
+
+
+
+.gp_class_box01 {
+}
+
+
+
+.gp_class_set{
+    width: 1000px;
+}
+.gp_class_set .gp_class_box03_left,
+.gp_class_set .gp_class_box04_left,
+.gp_class_set .gp_class_box05_left {
+    float: left;
+    width: 50%;
+
+    font-size: 30px;
+    /*border: 1px solid #fff;*/
+}
+.gp_class_set .gp_class_box03,
+.gp_class_set .gp_class_box04,
+.gp_class_set .gp_class_box05 {
+    float: right;
+    width: 49%;
+    /*border: 1px solid #fff;*/
+}
+
+.gp_class_box03_line {
+    border-top: 1px solid #d8b17e;
+    width: 200px;
+    margin-bottom: 10px;
+}
+.gp_class_box04_line {
+    border-top: 1px solid #d8b17e;
+    width: 200px;
+    margin-bottom: 10px;
+    margin-top: 50px;
+}
+.gp_class_box05_line {
+    border-top: 1px solid #d8b17e;
+    width: 200px;
+    margin-bottom: 10px;
+    margin-top: 50px;
+}
+
+.gp_class_box03 {
+    width:353px; height:374px;
+}
+.gp_class_box04 {
+    width:276px; height:359px;
+    margin-top: 50px;
+}
+
+.gp_class_box05 {
+    width:357px; height:150px;
+    margin-top: 50px;
+}
+.clearboth{
+    clear: both;
+}
+.gp_class_box01 canvas {
+    top:initial;
+    left:initial;
+}
+.gp_class_box02 canvas {
+    top:initial;
+    left:auto;
+}
+.gp_class_box03 canvas {
+    top:initial;
+    left: auto;
+}
+.gp_class_box04 canvas {
+    top:initial;
+    left: auto;
+}
+.gp_class_box05 canvas {
+    top:initial;
+    left: auto;
+}
+
+
+
+
+#canvas {transform: rotate(0);}
+#canvas2 {transform: rotate(0);}
+#canvas3 {transform: rotate(0);}
+#canvas4 {transform: rotate(0);}
+#canvas5 {transform: rotate(0);}
+
+

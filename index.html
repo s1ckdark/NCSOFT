@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+
+    <title>엔.씨.소.프.트 - The Essence of NCSOFT</title>
+    <link rel="shortcut icon" type="cover_bottom/x-icon" href="/common/img/favicon.ico">
+    
+    <meta name="viewport" content="width=1200, initial-scale=1, minimum-scale=1, maximum-scale=3, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="“게임회사가 왜 인공지능을 연구해?”, “야구단은 또 왜 만들었대?”, “게임회사의 꿈이 ‘우주정복’이라고?” NCSOFT에 따라붙는 질문들이다. ‘게임회사가 도대체 왜….’ 창업 20주년을 맞은 NCSOFT에서 그 질문의 답을 찾았다.">
+    <meta name="author" content="Innovation Lab">
+    <meta name="keyword" content="엔씨소프트, NCSOFT, NC, 다이노스, 게임, 야구, 김택진, 윤송이, 나성범, 양방언, 윤상, 김보통, 이병욱, 임선남, 심민규, 이재준, 허정윤, 류지원, 여동재, 이차선, 박준오, 이준성, 황연택, 이은조, 나의진, 게임 디자이너, 리니지, 리니지2, 리니지M, 블레이드&소울, 블소, 아이온, 데이터분석, 그래픽 아트, 게임 시나리오, 폴리, 아티스트, 웹툰, 엔전꿈, 오케스트라, 게임 음악, 게임 OST, 인공지능, 게임문화, 게임사전, AAC, 엔씨소프트문화재단, 게임사전, 게임산업, 지식재산권, IP, 넷마블, 넥슨, 오락실, 갤라가, 스마트폰, 게임 유저">
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="엔.씨.소.프.트 - The Essence of NCSOFT" />
+    <meta name="twitter:description" content="“게임회사가 왜 인공지능을 연구해?”, “야구단은 또 왜 만들었대?”, “게임회사의 꿈이 ‘우주정복’이라고?” NCSOFT에 따라붙는 질문들이다. ‘게임회사가 도대체 왜….’ 창업 20주년을 맞은 NCSOFT에서 그 질문의 답을 찾았다.">
+    <meta name="twitter:image:src" content="/project/NCsoft/img/stage2_1280X670.jpg">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="엔.씨.소.프.트 - The Essence of NCSOFT">
+    <meta property="og:description" content="SNS디스크립션">
+    <meta property="og:url" content="http://www.innovationlab.co.kr/project/NCSOFT/">
+    <meta property="og:image" content="/project/NCSOFT/img/1280X670.jpg">
+    <meta property="og:site_name" content="엔.씨.소.프.트 - The Essence of NCSOFT">
+    <meta property="og:locale" content="ko">
+    <meta property="article:author" content="http://www.innovationlab.co.kr/project/NCSOFT/">
+    <meta property="article:publisher" content="http://www.innovationlab.co.kr/project/NCSOFT/">
+
+    <script type="text/javascript">
+        if( navigator.userAgent.toUpperCase().indexOf("MOBI") > 0) {
+            location.replace("/project/NCSOFT/mobile/");
+        }
+    </script>
+    
+    <!-- Content Style -->
+    <link rel="stylesheet" href="/common/css/common.css?v=1">
+    <link rel="stylesheet" href="/project/NCSOFT/css/swiper.min.css?v=20170721">
+    <link rel="stylesheet" href="/project/NCSOFT/css/style.css?v=20170721">
+    <!-- // Content Style -->
+    
+    <!-- Common JS -->
+    <script src="/common/js/jquery-1.11.3.min.js"></script>
+    <script src="/common/js/transparency.js"></script>
+    <script src="/common/js/jquery.utils.js"></script>
+    <script src="/common/js/utils.js"></script>
+    <script src="/common/js/layout.js"></script>
+    <script src="/common/js/kakao.min.js"></script>
+    <!--[if lt IE 9]>
+        <script src="/project/common/js/html5.js"></script>
+    <![endif]-->
+    <!-- // Common JS -->
+    
+    <!-- Custom JS -->
+    <script src="/project/NCSOFT/js/jquery.lazyload.min.js"></script>
+    <script src="/project/NCSOFT/js/jquery.vide.min.js"></script>
+    <script src="/project/NCSOFT/js/swiper.jquery.min.js"></script>
+    <script src="/project/NCSOFT/js/TweenMax.min.js"></script>
+    <script src="/project/NCSOFT/js/ScrollMagic.min.js"></script>
+    <script src="/project/NCSOFT/js/animation.gsap.min.js"></script>
+    <script src="/project/NCSOFT/js/functions.js?v=201703021"></script>
+    <!-- <script src="/project/NCSOFT/js/functions.min.js?v=201703021"></script> js 개발 완료 후 min으로 압축 -->
+    <!-- // Custom JS -->
+
+    <!-- Default(SNS, Analytics) JS -->
+    <script>
+        //Begin Set Vod OneTime URL
+        $.fn.fnSetVideo = function(setVideo) {
+            var $Video = $(this);
+            
+            $.ajax({
+                type: "get",
+                url: "/common/lib/GetOvpVod.aspx?mediakey=" + setVideo.ovpUrl + "&ro=" + setVideo.ovpRo,
+                contentType: "text/html; charset=utf-8",
+                dataType: "text",
+                success: function (data, status) {
+                    if (status == "success") {
+                        $Video.attr({
+                            'src': data, 
+                            'poster': setVideo.poster,
+                            'preload': setVideo.preload,
+                            'autoplay': (setVideo.auto || false),
+                            'controls': (setVideo.ctrls || false),
+                            'loop': (setVideo.loop || false),
+                            'volume': (setVideo.volume || 0)
+                        });
+                    }
+                },
+                error: function () {}
+            });
+        }
+        //End Set Vod OneTime URL
+        
+        //SNS 공유
+        Kakao.init('0ea6b97767c7ca7b384389c25beb691f');
+        
+        //공유 PC
+        function fnSendSns(sns, url, txt) {
+            var o;
+            var _url = encodeURIComponent(url || $("meta[property='og:url']").attr("content")); //공유 URL
+            var _txt = encodeURIComponent(txt || $("interview_title").text());                            //공유 제목
+            var _br  = encodeURIComponent('\r\n');
+            var _img = encodeURIComponent($("meta[property='og:image']").attr("content"));      //공유 이미지
+    
+            switch(sns) {
+                case 'facebook':
+                    o = { type:sns, method:'popup', url:'http://www.facebook.com/sharer/sharer.php?u=' + _url, width:555, height:608, resize:'no' };
+                    break;
+                case 'twitter':
+                    o = { type:sns, method:'popup', url:'http://twitter.com/intent/tweet?text=' + _txt + '&url=' + _url, width:555, height:500, resize:'no' };
+                    break;
+                case 'kakaostory':
+                    o = {};
+                    Kakao.Story.share({ url: $("meta[property='og:url']").attr("content"), text: $("interview_title").text() });
+                    break;
+                case 'band':
+                    o = { type:sns, method:'popup', url:'http://band.us/plugin/share?body=' + _txt + '&route=' + _url, width:410, height:540, resize:'no' };
+                    break;
+                case 'naverblog':
+                    o = { type:sns, method:'popup', url:'http://share.naver.com/web/shareView.nhn?url=' + _url + '&title=' + _txt, width:557, height:558, resize:'no' };
+                    break;
+                case 'googleplus':
+                    o = { type:sns, method:'popup', url:'https://plus.google.com/share?url=' + _url + '&hl=ko', width:490, height:490, resize:'no'};
+                    break;
+                case 'pinterest':
+                    o = { type:sns, method:'popup', url:'https://www.pinterest.com/pin/create/button/?url=' + _url + '&media=' + _img + '&description=' + _txt, width:750, height:650, resize:'no'};
+                    break;
+                default:
+                    alert('지원하지 않는 SNS입니다.');
+                    return false;
+            }
+         
+            if (o.method == "popup") {
+                window.open(o.url, o.type + "_sns", "width=" + o.width + ",height=" + o.height + ",resizable=" + o.resize);
+            }
+        }
+    </script>
+
+
+    <!-- Begin GA -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+         
+          ga('create', 'UA-40895666-12', 'auto');
+          ga('send', 'pageview');
+    </script>
+    <!-- End GA -->
+
+    <!-- Dable 스크립트 시작 / 문의 support@dable.io -->
+    <script>
+    (function(d,a,b,l,e,_) {
+    d[b]=d[b]||function(){(d[b].q=d[b].q||[]).push(arguments)};e=a.createElement(l);
+    e.async=1;e.charset='utf-8';e.src='//static.dable.io/dist/dablena.min.js';
+    _=a.getElementsByTagName(l)[0];_.parentNode.insertBefore(e,_);
+    })(window,document,'dablena','script');
+    dablena('init', '외부사이트링크');
+    dablena('track', 'PageView');
+    </script>
+    <!-- Dable 스크립트 종료 / 문의 support@dable.io -->
+
+    <!-- Facebook Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '174966746210568'); // Insert your pixel ID here.
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=174966746210568&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- DO NOT MODIFY -->
+    <!-- End Facebook Pixel Code -->
+    <!-- // Default(SNS, Analytics) JS -->
+
+</head>
+<body>
+    <div id="viewport" class="">
+        <!-- 상단공통 -->
+        <div id="roof" class="rooftop on">
+            <script type="text/javascript">
+                layout.gnb.renderHtml();
+                $(function() {
+                    $(".rooftop").addClass("on");
+                });
+            </script>
+            <div class="forehead">
+                <div class="inner">
+                    <div class="brandsolution-logo"><a href="/" title="Innovation Lab"></a></div>
+                    <div class="brand-identity"><a href="index.html"><img src="/project/NCsoft/img/logo_ncsoft.png" alt="NC소프트" width="145" height="28"></a></div>
+                    <div class="sns-share-box">
+                        <ul>
+                            <li><a href="#" onclick="fnSendSns(&#39;facebook&#39;);" class="sns-fb" title="페이스북"></a></li>
+                            <li><a href="#" onclick="fnSendSns(&#39;twitter&#39;);" class="sns-tw" title="트위터"></a></li>
+                            <li><a href="#" onclick="fnSendSns(&#39;kakaostory&#39;);" class="sns-ks" title="카카오스토리"></a></li>
+                            <li><a href="#" class="sns-more" title="더 보기"></a></li>
+                        </ul>
+                        <div id="snsMore" class="sns-more-box">
+                            <ul>
+                                <li><a href="#" onclick="fnSendSns(&#39;googleplus&#39;);" class="sns-gp" title="구글+"><i></i>구글+</a></li>
+                                <li><a href="#" onclick="fnSendSns(&#39;pinterest&#39;);" class="sns-pt" title="핀터레스트"><i></i>핀터레스트</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- //상단공통 -->
+
+        <!-- 콘텐츠 -->
+        <video id="hiddenStage" src="./video/hiddenstage.mp4" style="display:none;"></video>
+
+        <!-- 스테이지 네비게이션 -->
+        <nav id="nav" class="navigation_wrap active">
+
+            <a href="#" class="btn_nav_open" title="메뉴열기"><i></i><i></i><i></i></a>
+
+            <section id="allStageNav" class="stage_nav">
+                <a href="#" class="btn_nav_close" title="닫기"><i></i></a>
+                <div class="stage_nav_container stage1">
+                    <div class="inner">
+                        <header class="nav_title">
+                            <h2>STAGE 1</h2>
+                            <h3>FUN한 세상</h3>
+                        </header>
+                        <ol class="menus">
+                            <li><a href="stage1.html#section1">1 - [Video] 오케스트라와 만난 게임</a></li>
+                            <li><a href="stage1.html#section2">2 - 예술과 기술 사이, 즐거움</a></li>
+                            <li><a href="stage1.html#section3">3 - [interview] 이병욱, 게임을 지휘하다</a></li>
+                            <li><a href="stage1.html#section4">4 - [interview] 윤상이 게임을 만났을 때</a></li>
+                            <li><a href="stage1.html#section5">5 - [interview] 양방언, 예술이 된 게임음악 </a></li>
+                            <li><a href="stage1.html#section6">6 - [Video] &lt;아이온&gt; 뮤직비디오</a></li>
+                            <li><a href="stage1.html#section7">7 - [interview] 김보통, 웹툰으로 그린 사회</a></li>
+                            <li><a href="stage1.html#section8">8 - “게임 회사가 왜 야구단을 창단해?”</a></li>
+                            <li><a href="stage1.html#section9">9 - 야구도 벤처다, NC다이노스</a></li>
+                            <li><a href="stage1.html#section10">10 - [interview] NC다이노스 나성범</a></li>
+                            <li><a href="stage1.html#section11">11 - [interview] ‘야구 데이터 덕후’가 말한다 </a></li>
+                            <li><a href="stage1.html#section12">12 - [interview] “맨유보다 NC”</a></li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="stage_nav_container stage2">
+                    <div class="inner">
+                        <header class="nav_title">
+                            <h2>STAGE 2</h2>
+                            <h3>도전 DNA</h3>
+                        </header>
+                        <ol class="menus">
+                            <li><a href="stage2.html#section1">1 - [Video] “낮엔 게임 개발, 밤엔 디제잉” </a></li>
+                            <li><a href="stage2.html#section2">2 - 도전하는 사람들</a></li>
+                            <li><a href="stage2.html#section3">3 - [interview] “당신을 울린 그 캐릭터,” </a></li>
+                            <li><a href="stage2.html#section4">4 - [interview] ”게임에 영혼을 불어넣다”</a></li>
+                            <li><a href="stage2.html#section5">5 - [interview] ”소리를 상상하고 만들다”   </a></li>
+                            <li><a href="stage2.html#section6">6 - [interview] ”나, 엔씨의 미생”</a></li>
+                            <li><a href="stage2.html#section7">7 - [interview] ”월요일 출근이 기다려진다” </a></li>
+                            <li><a href="stage2.html#section8">8 - 2억 명이 찾아오는 놀이터</a></li>
+                            <li><a href="stage2.html#section9">9 - [interview] 게임소년 ‘리니지 캡틴’ 되다 </a></li>
+                            <li><a href="stage2.html#section10">10 - [interview ] 인간의 욕망을 담은 문화상품 한예종 이동연 교수</a></li>
+                            <li><a href="stage2.html#section11">11 - 글로벌 IP 제국을 꿈꾸다</a></li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="stage_nav_container stage3">
+                    <div class="inner">
+                        <header class="nav_title">
+                            <h2>STAGE 3</h2>
+                            <h3>즐거운 TECHNOLOGY</h3>
+                        </header>
+                        <ol class="menus">
+                            <li><a href="stage3.html#section1">1 - 갤라가에서 리니지M까지</a></li>
+                            <li><a href="stage3.html#section2">2 - 기술을 품어 게임을 낳다</a></li>
+                            <li><a href="stage3.html#section3">3 - [interview] AI라는 꿈을 쫓는 사람들 </a></li>
+                            <li><a href="stage3.html#section4">4 - 게임 속으로 들어간 VR&middot;AR</a></li>
+                            <li><a href="stage3.html#section5">5 - [interview] 인텔&middot;삼성도 게임회사가 키웠다 </a></li>
+                            <li><a href="stage3.html#section6">6 - 고려대 김휘강 교수</a></li>
+                            <li><a href="stage3.html#section7">7 - [interview] 온라인게임은 일일연속극</a></li>
+                            <li><a href="stage3.html#section8">8 - [Photo] NCSOFT 게임들 </a></li>
+                            <li><a href="stage3.html#section9">9 - 마음과 마음을 연결하는 기술 </a></li>
+                            <li><a href="stage3.html#section10">10 - [interview] ‘착한 기술’의 힘 </a></li></li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+        </nav>
+        <!-- // 스테이지 네비게이션 -->
+
+        <section id="intro" class="intro_wrap">
+            <canvas class="star_black"></canvas>
+            <div id="introTitle" class="intro_title">
+                <div class="intro_mask"></div>
+                      <div class="title inner">
+                       <span class="korTitle">2억 명이 찾아오는 놀이터</span><br>
+                       <span class="engTitle">NCSOFT</span>
+                    </div>
+                <ul id="introText">
+                    <li>
+                        <div class="inner">
+                            <p>
+                                <strong>우리의 발견, 당신의 즐거움</strong>
+                                1969년 지구 밖 38만km 떨어진 달 탐사에 성공한 NASA 아폴로팀, 2005년 인간 최초로 히말라야 14좌와 7대륙 최고봉, 지구 3극점(極點)에 모두 오른 고(故) 박영석 대장…세상을 뒤흔든 탐험가들은 늘 새로운 세계를 향해 도전했습니다. 올해 창업 20주년을 맞은 게임∙기술 기업 NCSOFT는 유난히 이런 탐험 정신을 강조합니다. 
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="inner">
+                            <p>
+                             1997년 봄에 그랬듯이, 2017년 4월 어느 날에도 이들은 ‘우주정복’의 꿈과 도전을 얘기합니다. 회사의 20번째 생일을 축하하는 자리에서 창업자인 김택진 NCSOFT 최고경영자(CEO)는 “실패를 가장 멋지다고 생각하는 회사가 되면 좋겠다”고 했습니다.
+                         </p>
+                     </div>
+                 </li>
+                 <li>
+                    <div class="inner">
+                        <p>
+                            이들을 움직이는 힘이 무엇인지 궁금했습니다. 인공지능(AI)이 ‘먼 미래’로 여겨지던 6년 전부터 AI 연구 조직을 만든 NCSOFT의 시선은 어디를 향하고 있는지 궁금했습니다. 게임 회사가 왜 프로야구단을 창단하고, 왜 장애아동을 위한 소프트웨어를 만드는지 궁금했습니다.  
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="inner">
+                        <p>
+                            그.래.서. 직접 찾아 보기로 나섰습니다. 그.리.고 발견했습니다. NCSOFT가 궁금했던 분들에게 네비게이터가 될 만한 콘텐트를 캐냈습니다. 이번 이노베이션랩의 탐험이 당신의 꿈을 생각하는 시간으로 이어지면 좋겠습니다.
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="intro_progress">
+            <div class="bar"></div>
+        </div>
+
+        <div id="introScroller" class="scroller">
+            <div class="box"></div>
+            <div class="label">scroll</div>
+            <i></i>
+        </div>
+
+    </section>
+
+
+<!--            <section id="intro" class="intro_wrap">
+            <canvas class="star_black"></canvas>
+            <div id="introTitle" class="intro_title">
+                <div class="intro_mask"></div>
+                <ul id="introText">
+                    <li class="first">
+                        <div class="inner">
+                            <p>
+                                <strong>NCSOFT 탐험 미션 컴플리트!</strong>
+                            </p>
+                        </div>
+                    </li>    
+                      </ul>
+        </div>
+        <div class="intro_progress">
+            <div class="bar"></div>
+        </div>
+        
+        <div id="introScroller" class="scroller">
+            <div class="box"></div>
+            <div class="label">scroll</div>
+            <i></i>
+        </div>
+
+    </section> -->
+    <nav class="billboard_nav at_bottom">
+        <ul>
+            <li>
+                <a href="stage1.html" class="stage1">
+                    <span class="hover_cover"></span>
+                    <span class="title_box">
+                        <span class="stage">stage 1</span>
+                        <span class="title">FUN한 세상</span>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="stage2.html" class="stage2">
+                    <span class="hover_cover"></span>
+                    <span class="title_box">
+                        <span class="stage">stage 2</span>
+                        <span class="title">도전 DNA</span>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="stage3.html" class="stage3">
+                    <span class="hover_cover"></span>
+                    <span class="title_box">
+                        <span class="stage">stage 3</span>
+                        <span class="title">즐거운 TECHNOLOGY</span>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- // 콘텐츠 -->
+
+</div>
+
+</body>
+</html>

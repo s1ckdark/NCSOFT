@@ -89,6 +89,12 @@ $(function() {
     $('.btn_nav_close').on('click', function(e){
         e.preventDefault();
         stageNavOpen.reverse();
+    });  
+    $('.stage_nav a').on('click', function(e){
+        e.preventDefault();
+        var jump = $(this).attr('href');
+        console.log(jump);
+        stageNavOpen.reverse();
     });
 
     // 스테이지 네비게이션
@@ -410,9 +416,9 @@ $(function() {
         });
     }
 
-    initCanvasGold();
-    initCanvasDark();
-    initCanvasLight();
+    // initCanvasGold();
+    // initCanvasDark();
+    // initCanvasLight();
 
  
     /*
@@ -513,20 +519,19 @@ function textTween(e, hook, exception){
 })
 }
 
-// $('.star_black').each(function()
-// {
-// var scene = new ScrollMagic.Scene({
-//             triggerElement: this, 
-//             offset: -$(window).height()*0.7,
-//             logleve :2
-//         })
-//         .on('enter', function(){
-//             initCanvasDark();
-//             console.log("FallingStar");})
-//         .addIndicators()
-//         .setClassToggle('.goon')
-//         .addTo(controller);
-// });
+$('.star_black').each(function()
+{
+var scene = new ScrollMagic.Scene({
+            triggerElement: this, 
+            offset: -$(window).height()*0.7,
+            logleve :2
+        })
+        .on('enter', function(){
+            initCanvasDark();
+            console.log("FallingStar");})
+        // .addIndicators()
+        .addTo(controller);
+});
 
  $('.video_wrap.autoplay').each(function(){
 
@@ -632,18 +637,17 @@ var slideLen = $('#pinContainer .swiper-slide').length;
 //         .setPin('#pinContainer')
 //         .addTo(controller);
 
-$('#pinContainer .panel').map(function(i,e){
-    var slideScene = new ScrollMagic.Scene({
-            triggerElement: '.pinContainer', 
-            triggerHook:'onLeave',
-            duration:winHeight*3
-        })
-        .on('start',callback)
-        .setPin('.pin1')
-        // .addIndicators()
-        .addTo(controller);
-
-// // // })
+// $('#pinContainer .panel').map(function(i,e){
+//     var slideScene = new ScrollMagic.Scene({
+//             triggerElement: '.pinContainer', 
+//             triggerHook:'onLeave',
+//             duration:winHeight*3
+//         })
+//         .on('start',callback)
+//         .setPin('.pin1')
+//         // .addIndicators()
+//         .addTo(controller);
+// })
 // function callback(e){
 //     console.log(e.scrollDirection);
 //     if(e.scrollDirection =="FORWARD")

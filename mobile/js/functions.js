@@ -27,10 +27,6 @@ $(function() {
         effect : 'fadeIn'
     });
 
-    //     if ( detectIE() ){
-    //     $('body').addClass('ie ie'+detectIE());
-    // }
-    
     var scrollTop, roofHeight, winHeight;
     var roofHeight = $('#roof').outerHeight();
     var winHeight = $(window).height();
@@ -76,7 +72,7 @@ $(function() {
             .to('#stageNav', .4, {y:'100%'})
             .to('.btn_nav_open i', .4, {scale:0}, 0)
             .to('.btn_nav_open', .2, {autoAlpha:0})
-            .to('#allStageNav', .6, {autoAlpha:1,zIndex:110});
+            .to('#allStageNav', .6, {autoAlpha:1,zIndex:110, height:'100vh'});
 
     $('.btn_nav_open, #stageNav .label').on('click', function(e){
         e.preventDefault();
@@ -91,34 +87,23 @@ $(function() {
         stageNavOpen.reverse();
     });
 
-
     $('.stage_nav_container').on('click', function(){
-      var openNav = $(this).children().children('.menus'), $this=$(this), toggle = openNav.height();
-        console.log(openNav); 
+        var openNav = $(this).find('.menus');
+        var toggle = openNav.height();
+        console.log(openNav);
         console.log(toggle);
-        if(toggle ==0 ) {
-               console.log("-> menu Close");
-        // TweenMax.to($(this).parent(), 0.5, {visibility:'hidden',opacity:0});
-        TweenMax.staggerTo($this, 0.5, {visibility:'hidden',opacity:0});
+        if(toggle !=0 ) {
+        TweenMax.staggerTo($(this).parent(), 0.5, {visibility:'hidden',opacity:0,height:0});
+        TweenMax.staggerTo($(this), 0.5, {visibility:'hidden',opacity:0,height:0});
         TweenMax.staggerTo(openNav, 0.5, {visibility:'hidden',opacity:0});
         TweenMax.staggerTo('.menus_reset', 0.5, {visibility:'hidden',opacity:0});
-        TweenMax.to('openNav', .1, {className:"=+active",visibility:'visible', opacity:1});
 
     } else {
-    console.log("-> menu Open"); 
-    console.log($this);
-        
-        TweenMax.to($this, 0.5, {display:'block',position:'fixed',top:'50px',zIndex:999, height:'calc(100vh - 50xpx)'});
+        TweenMax.staggerTo($(this), 0.5, {visibility:'visible',opacity:1,height:'100%',position:'fixed',top:'50px',background:'black',zIndex:999});
         TweenMax.staggerTo(openNav, 0.5, {visibility:'visible',opacity:1});
         TweenMax.staggerTo('.menus_reset', 0.5, {visibility:'visible',opacity:1});
     }
   })
-    $('.menus_reset').on('click', function(){
-        TweenMax.set('.menus.active', {visibility:'hidden',opacity:0});
-        TweenMax.set('.stage_nav_container', {display:'block'});
-        TweenMax.to($this, 0.5, {display:'block',position:'relative',zIndex:999});
-        TweenMax.staggerTo('.menus_reset', 0.5, {visibility:'hidden',opacity:0});
-    })
     // 스테이지 네비게이션
     var sectionBar = [];
     var sectionCount = $('.section_wrap').length;
@@ -168,6 +153,7 @@ $(function() {
     });
 
     // 인트로 페이지
+    TweenMax.set('ol.menus',{opacity:0,visibility:'hidden',height:0})
     TweenMax.set('#introTitle', {rotationX:20});
     TweenMax.set(['#introText', '#introScroller'], {opacity:0});
 
@@ -456,7 +442,6 @@ $('#sectionSharebtn').click(function(){
         TweenMax.to(toggle, .2, {height: 0,  visibility:'hidden', opacity:0, y:30});
         console.log("close");
     } else {
-        TweenMax.to(toggle, .2, {height: toggle.attr('initH'), visibility:'visible', opacity:1, y:-30});
         TweenMax.to(toggle, .2, {height: toggle.attr('initH'), visibility:'visible', opacity:1, y:-30});
     }
 })

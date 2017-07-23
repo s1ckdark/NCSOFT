@@ -49,7 +49,7 @@
     transition: all .3s ease;
     .clearfix();
 }
-.forehead .inner {width:100%;}
+.forehead .inner {max-width:100% !important;}
 .clearfix(){
   &:before,
   &:after {
@@ -400,7 +400,7 @@ h2 {font-weight:300;}
             float: left;
         }
         .bar_box {
-            width: 330px;
+            width: 320px;
             padding-left: 13px;
             background-color: rgba(29,51,99,.4);
             &:after {
@@ -438,7 +438,7 @@ h2 {font-weight:300;}
             line-height: 30px;
         }
         .num {
-            width: 50px;
+            width: 30px;
             padding: 2px 3px 0px 6px;
             font-family: 'Roboto';
         }
@@ -446,7 +446,7 @@ h2 {font-weight:300;}
             float: right;
             box-sizing: border-box;
             width: 70px;
-            padding-left: 5px;
+            padding:0 5px 2px;
             background-color: #fff;
             white-space: nowrap;
             color: transparent;
@@ -1013,12 +1013,15 @@ canvas {
     .interview_title {
         color: #fff;
     }
-
     .interview_quote {
+        width:400px;
+        height:auto;
+        left:-380px;
+        .box_inner {display:block;}
         .quote {
+            margin:0;
             border-color: #fff;
             text-align: center;
-            margin:0;
             // background-color: rgba(255,255,255,.6);
             .name {font-size:30px;color:@theme-color;margin:20px 0 30px;}
             .job {
@@ -1027,17 +1030,15 @@ canvas {
             .jobDesc p {letter-spacing:-1px;font-size:18px;font-weight:300;text-align:center;line-height:1.7
             }
         }
-
-       }
+        }
     .interview_video_content {
         position:relative;
-        left: calc(~'50% - 80px');
+        left:calc(~'50% - 100px');
         width: 600px;
         height: 338px;
-        top: calc(~'50% - 220px');
-              }
+        top: calc(~'50% - 169px');
 }
-
+}
 .type_left {
     .interview_cover {
     }
@@ -1190,7 +1191,7 @@ canvas {
     background-repeat:no-repeat;
     background-size:cover;
     position:relative;
-    &_box {cursor:pointer;width:200px;height:200px;display:block;position:absolute;border:5px solid #fff;left:calc(~"50% - 100px");top:55%;}
+    &_box {cursor:pointer;width:200px;height:200px;display:block;position:absolute;border:5px solid #fff;left:calc(~"50% - 100px");}
     &_btn {position:absolute;bottom:0px;right:0px;width:199px;height:277px;display:block;}
     &_text {position:absolute;bottom:0px;left:0px;width:calc(~"100% - 20px");height:80px;margin:10px;
         h2 {font-size:40px;line-height:40px;font-weight:400;}
@@ -1230,7 +1231,61 @@ canvas {
 section {position:relative;width:100%;height:auto;}
 #hiddenStage {position:absolute;height:100%;width:100%;top:0;bottom:0;left:0;right:0;}
 
-     .fixedPinNavi {
+  #pinContainer {
+                position: relative;
+                overflow: hidden;
+                background-color: #fff;
+                width: 100%;
+                height: 100vh;
+                text-align: center;
+                display:block;
+         
+        
+            h3 {
+                font-style: normal;
+                font-weight: 300;
+                font-size: 46px;
+                opacity: 1;
+            }
+ 
+            .panel {
+                width:100%;
+                height:100%;
+                position:relative;
+            }
+            .pinScene {
+                background-position: 50% 50%;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-color: #fff;
+                width:50%;height:100%;
+                position:absolute;
+
+               }
+
+            .panel p {
+                position: relative;
+                width: 100%;
+                color: #fff;
+                font-style: normal;
+                font-weight: 300;
+                font-size: 20px;
+                line-height: 20px;
+ 
+            }
+            .desc {
+                width:50%;
+                height:100%;
+                color:#fff;
+                margin-left:50%;
+                position:absolute;
+                top:0px;
+                .inner {width:420px;height:350px;margin:0 auto;position:absolute;top:calc(~"50% - 175px");left:calc(~"50% - 210px");
+                    p {font-size:18px;line-height:1.6;}
+                }
+            }
+
+                  .fixedPinNavi {
                     position:absolute;
                     width:50%;
                     top:80%;
@@ -1265,3 +1320,4 @@ section {position:relative;width:100%;height:auto;}
                     }}
                 }
             }
+        }

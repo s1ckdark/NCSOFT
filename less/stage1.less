@@ -84,9 +84,7 @@
 }
 #section6 {background-color:#060a14;
         p {font-size:40px;}
-        // .interview {}
-        // .interview_quote {display:block;}
-        .interview_video_content {top:calc(~'50% - 169px');}
+        .interview_quote {top:40px;}
     }
 #section7 {text-align:center;
     header > h2 {font-size:45px;color:@dark-color;padding:150px 0 80px;}
@@ -97,120 +95,30 @@
         .webtoon3 {width:518px;height:310px;}
         div {float:left;display:inline-block;background-size:cover;}
     }
-    }
-#section8 {
+ 
+.interview_content {
     p {
         font-weight:200;
         label {color:@theme-color;}
     }
 }
-#section9 {
+}
+#section8 {
     background-color:#060a14;
-    &.pinImage {
-            position: relative;
-            width: 100%;
-            min-height: 900px;
-            width:100%;
-            height:100%;
-            display:block;
-            text-align: center;
-            h3 {
-                font-style: normal;
-                font-weight: 300;
-                font-size: 46px;
-                opacity: 1;
-            }
-            #pinContainer {
-                position: relative;
-                overflow: hidden;
-                background-color: #fff;
-                width: 100%;
-                height: 100vh;
-            }
-            .panel {
-                width:100%;
-                height:100%;
-                position:relative;
-            }
-            .pinScene {
-                background-position: 50% 50%;
-                background-repeat: no-repeat;
-                background-size: cover;
-                background-color: #fff;
-                width:50%;height:100%;
-                position:absolute;
-
-               }
-
-            .panel p {
-                position: relative;
-                width: 100%;
-                color: #fff;
-                font-style: normal;
-                font-weight: 300;
-                font-size: 20px;
-                line-height: 20px;
- 
-            }
-            .desc {
-                width:50%;
-                height:100%;
-                color:#fff;
-                margin-left:50%;
-                position:absolute;
-                top:0px;
-                .inner {width:420px;height:350px;margin:0 auto;position:absolute;top:calc(~"50% - 175px");left:calc(~"50% - 210px");
-                    p {font-size:18px;line-height:1.6;}
-                }
-            }
+           #pinContainer {
             .pin1 {
                 .image {background-image: url('@{img-url}/stage1_pin1.jpg'); }
                 .desc {background-color:#1d3363;
                     header > h2 {font-size:40px;letter-spacing:-2px;}
-                }
             }
+        }
             .pin2 {
                 .image {background-image: url('@{img-url}/stage1_pin2.jpg'); }
-                .desc {background-color:#0f1a32;}
+                    .desc {background-color:#0f1a32;}
             }
-  .fixedPinNavi {
-                    position:absolute;
-                    width:50%;
-                    top:80%;
-                    left:50%;
-
-                span {
-                    margin:20px 10px;
-                    display:inline-block;
-                    text-align:center;
-                    width:30px;height:30px;
-                    position:relative;
-                    &:after {
-                        content:'';
-                        border:1px solid #fff;
-                        border-radius:50%;
-                        display:inline-block;
-                        width:30px;
-                        height:30px;
-                        position:absolute;
-                        left:0;
-                    }
-                &.swiper-pagination-bullet-active {background:none;color:@theme-color;
-                &:after {
-                        content:'';
-                        border:1px solid @theme-color;
-                        border-radius:50%;
-                        display:inline-block;
-                        width:30px;
-                        height:30px;
-                        position:absolute;
-                        left:0;
-                    }}
-                }
-            }
-        }  
+       }
     }
-#section10 { .bg_star_navy();height:auto;
+#section9 { .bg_navy();height:auto;
 
     header > h2 {font-size:35px;text-align:center;}
     header > h3 {font-size:13px;}
@@ -313,10 +221,12 @@
 
 
 }
-#section11 {.bg_star_navy();height:auto;padding-bottom:150px;
-    .box_inner {display:block;padding:150px 0 0;}
-    .interview_video_content {top: calc(~'50% - 169px');}
-    .videoInterview {position:relative;height:auto;padding:250px 0 80px;
+#section10 {
+    .bg_navy();
+     height:auto;
+     padding-bottom:150px;
+    .interview_quote {top:20px;} 
+    .videoInterview {position:relative;height:800px;padding:100px 0 80px;
         p {font-size:40px;}
     }
     .article {.clearfix();.inner();
@@ -327,7 +237,7 @@
         padding-bottom:20px;
     }
     }
-#section13 {
+#section11-1 {
     max-height: 1280px;
     height: 1270px;
     background-size:cover;
@@ -335,46 +245,23 @@
     .inner {width:791px;height:456px;padding-top:100px;}
     header > h2 {font-size:40px;text-align:center;}
     header > h3 {font-size:28px;text-align:center;}
-}
-#section14 {  
-    background: #060a14 url('@{img-url}/bg_type_a.jpg') no-repeat 50% 50%;
-    background-size: cover;
-}
-    #foot { 
-        .next_stage {
-             background-image:url('@{img-url}/stage1_next_stage_bg.jpg');
-    &_btn {background-image:url('@{img-url}/stage1_next_stage_btn.png');}
-       &_box {top:162px}
-
-            &_text {height:60px;}
-        }
-     }
-
-
-/*이기석 추가내용*/
-
-
-
-.gp_class_box01 {
-}
-
-
 
 .gp_class_set{
     width: 1000px;
-}
-.gp_class_set .gp_class_box03_left,
-.gp_class_set .gp_class_box04_left,
-.gp_class_set .gp_class_box05_left {
+    .clearfix();
+
+     .gp_class_box03_left,
+     .gp_class_box04_left,
+     .gp_class_box05_left {
     float: left;
     width: 50%;
 
     font-size: 30px;
     /*border: 1px solid #fff;*/
 }
-.gp_class_set .gp_class_box03,
-.gp_class_set .gp_class_box04,
-.gp_class_set .gp_class_box05 {
+ .gp_class_box03,
+ .gp_class_box04,
+ .gp_class_box05 {
     float: right;
     width: 49%;
     /*border: 1px solid #fff;*/
@@ -410,9 +297,7 @@
     width:357px; height:150px;
     margin-top: 50px;
 }
-.clearboth{
-    clear: both;
-}
+
 .gp_class_box01 canvas {
     top:initial;
     left:initial;
@@ -433,7 +318,24 @@
     top:initial;
     left: auto;
 }
+}
 
+}
+#section12 {  
+    height:1000px;
+    .bg_navy();
+    .interview_quote {top:-75px;}
+ 
+}
+    #foot { 
+        .next_stage {
+             background-image:url('@{img-url}/stage1_next_stage_bg.jpg');
+    &_btn {background-image:url('@{img-url}/stage1_next_stage_btn.png');}
+       &_box {top:162px}
+
+            &_text {height:60px;}
+        }
+     }
 
 
 

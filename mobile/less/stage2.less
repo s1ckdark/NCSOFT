@@ -1,16 +1,7 @@
 @import 'style';
-
-.shareIcon  {
-    a {display:block;width:7vh;height:7vh;}
-    #fb_btn {.sp-img(-70px -55px, 400px);}
-    #tw_btn {.sp-img(-100px -55px, 400px);}
-    #kakao_btn {.sp-img(-137px -55px, 400px);}
-    #kakaoStory_btn {.sp-img(-167px -55px, 400px);}
-    
-}
     #section1 {
         background-color:@navy-color;
-    // .inner {.inner();}
+    .inner {.inner();}
     header {padding:50px 0 30px;}
     header > h2 {.font('Quantico', 1.5rem, @theme-color, 300, center);}
     header > h3 {.font('Quantico', 1.8rem, #fff, 300, center);}
@@ -33,14 +24,12 @@
     .part_one {
         padding:0 0 100px;
         div.subtitle {.inner();.clearfix();
-            .imgBox {position:relative;width:40vw;height:40vw;text-align:center;margin:0 auto;float:left;margin-left:5vw;
-                &:nth-child(2) {position:relative;width:40vw;height:40vw;text-align:center;margin:0 auto;float:right;}
-                }
-            .drawSquare {z-index:2;width:40vw;height:40vw;overflow:visible;
-                rect {fill:none;width:40vw;height:40vw;stroke-width:1px;stroke:@theme-color;}
+            .imgBox {position:relative;width:50vw;height:30vw;float:left;text-align:center;}
+            .drawSquare {z-index:2;width:30vw;height:30vw;
+                rect {fill:none;width:30vw;height:30vw;stroke-width:1px;stroke:@theme-color;}
             }
-            .interviewBox1 {max-width:220px;max-height:220px;position:absolute;top:10px;left:-10px;z-index:-1;background-image:url('@{img-url}/stage2_interviewBoxImg1.jpg');background-size:cover;width:40vw;height:40vw;display:block;}
-            .interviewBox2 {max-width:220px;max-height:220px;position:absolute;top:10px;left:-10px;z-index:-1;background-image:url('@{img-url}/stage2_interviewBoxImg2.jpg');background-size:cover;width:40vw;height:40vw;display:block;}
+            .interviewBox1 {max-width:220px;max-height:220px;position:absolute;top:10px;left:0px;z-index:-1;background-image:url('@{img-url}/stage2_interviewBoxImg1.jpg');background-size:cover;width:30vw;height:30vw;display:block;}
+            .interviewBox2 {max-width:220px;max-height:220px;position:absolute;top:10px;left:0px;z-index:-1;background-image:url('@{img-url}/stage2_interviewBoxImg2.jpg');background-size:cover;width:30vw;height:30vw;display:block;}
         }
         div.contents {width:100%;height:auto;text-align:center;
             h2 {font-size:1.5rem;line-height:35px;margin:20px 0 40px;}
@@ -57,9 +46,9 @@
             width:90vw;
             margin:0 auto;
             .clearfix();
-            div.item {width:calc(~'50% - 1px');min-height:141px;height:auto;padding:10px 0;border:1px solid @theme-color;float:left;text-align:center;color:#000;line-height:32px;position:relative;display:block;
+            div.item {width:calc(~'50% - 1px');height:25vh;border:1px solid @theme-color;float:left;text-align:center;color:#000;line-height:32px;position:relative;display:block;
                 p {.font('Roboto', 3rem, #000, 400, center);letter-spacing:-1px;display:block;line-height:1.2;margin:0;
-                    &.club {font-size:.9rem;line-height:1.4;}
+                    &.club {font-size:1rem;line-height:1.4;}
                 }
                 span.unit {font-size:1.5rem;}
                 span.hoverDesc {font-size:.8rem;text-align:center;color:#000;line-height:1rem;background:#fff;height:0.8rem;content:'';display:inline-block;}
@@ -246,11 +235,6 @@ margin:0 auto;width:345px;height:345px;
     .bgTween {width:100%;height:676px;position:relative;overflow:hidden}
     .fixedWrapper {position:absolute;width:100%;height:676px;}
  }
-#section12 {
-    .interview_cover {background-position:50% 0%;}
-    .swiper-container {background-position:50% 0%;background-size:cover;background-image:url("@{mobile-img-url}/stage2_interview_e_r_image.png");}
-
-}
 #section13 {
     .inner {.inner();.clearfix();;margin:0 auto;
         .pointBlue.point {font-size:28px;}

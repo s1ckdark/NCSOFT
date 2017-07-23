@@ -143,18 +143,19 @@ h2 {font-weight:300;}
     background-repeat:no-repeat;
     background-size:cover;
     display:block;
-.menus_reset {z-index:999;position:fixed;opacity:0;visibility: hidden;bottom:0px;width:30px;height:30px;display:block;background-color:red;}
+    // height:0px;
+.menus_reset {position:fixed;opacity:0;visibility: hidden;bottom:0px;width:30px;height:30px;display:block;background-color:red;}
 }
 .stage_nav_container {
     width: 100vw;
     position: relative;
     background-size: cover;
     height:~'calc((100vh - 50px) / 4)';
-    display:block;
+    display:table;
     .inner {
         width: 100vw;height:100%; 
         transition: all .3s ease;
-        display:block;
+        display:table-cell;
         position:relative;
     }
 
@@ -184,11 +185,7 @@ h2 {font-weight:300;}
     }
     .menus {
         width: 100%;
-        display:block;
         margin: auto;
-        height:100vw;
-        visibility:hidden;
-        opacity:0;
         li {
             margin: 5px;
             line-height: 1.4;
@@ -442,7 +439,7 @@ h2 {font-weight:300;}
             display:block;
             height:30px;
             position:absolute;bottom:0px;right:0px;
-        #sectionSharebtn {width:10vw;height:30px;display:block;background:rgba(0,0,0,0.6);}
+        #sectionSharebtn {width:10vw;height:30px;display:block;background:red;}
         .shareIcon {background:red;width:10vw;height:0;opacity:0;visibility: hidden;display:block;position:absolute;bottom:0px;right:0px;}
         }
         .label {
@@ -511,31 +508,31 @@ h2 {font-weight:300;}
             letter-spacing: -0.08em;
             text-transform: uppercase;
             .font-eng;
-            font-size: 2em;
+            font-size: 2.5em;
         }
     }
     p {
-        width: 80vw;margin:0 auto;font-size:0.8em;
+        width: 80vw;margin:0 auto;
     }
     strong {
         display: block;
         margin-bottom: 1em;
         line-height: 1;
-        font-size: 1em;
+        font-size: 0.4em;
         font-weight: 300;
         &:before,
         &:after {
             content: '';
             display: inline-block;
-            width: 15px; height:8px;
+            width: 30px; height: 15px;
             vertical-align: top;
         }
         &:before {
-            .sp-img(-45px 0, 100px);
-            margin-right: 0px;
+            .sp-img(-90px 0);
+            margin-right: 3px;
         }
         &:after {
-            .sp-img(-63px 0, 100px);
+            .sp-img(-125px 0);
             margin-lef: 5px;
         }
     }
@@ -804,15 +801,15 @@ canvas {
             line-height: 1;
             font-size: 1rem;
             letter-spacing:-1px;
-            // &:after {
-            //     content: '';
-            //     display: inline-block;
-            //     position: relative;
-            //     top: -2px;
-            //     width: 72px; height: 1px;
-            //     vertical-align: middle;
-            //     background-color: @theme-color;
-            // }
+            &:after {
+                content: '';
+                display: inline-block;
+                position: relative;
+                top: -2px;
+                width: 72px; height: 1px;
+                vertical-align: middle;
+                background-color: @theme-color;
+            }
         }
         .jobDesc {
             p {
@@ -833,7 +830,7 @@ canvas {
 }
 .interview_content {
     position: relative; z-index: 20;
-    width:100vw;background-size:cover;
+    width:100vw;background-size:cover;height:calc(~'100vh - 50px');
     text-align:center;
     .container {
         width: 100%;
@@ -849,13 +846,14 @@ canvas {
         bottom:5vh;
         left:0;right:0;
     }
+    .label {font-size:1.2rem;}
     .pointStart {font-size:35px;}
     .point {font-size:25px;}
      p {
         text-align:center;
         font-size:0.9rem;
         // margin-bottom:30px;
-        label {font-size:1.2rem;margin-bottom:10px;color:#d8b17e;}
+        label {font-size:1.2rem;margin-bottom:10px;}
     }
 
 }
@@ -869,7 +867,6 @@ canvas {
         background: #060a14 url('@{img-url}/bg_type_a.jpg') no-repeat 50% 50%;
         background-size: cover;
     }
-
  }
 .type_b {
     color: @dark-color;
@@ -1038,5 +1035,3 @@ canvas {
 
 }
 }
-
-#hiddenStage {position:absolute;height:100%;width:100%;top:0;bottom:0;left:0;right:0;}

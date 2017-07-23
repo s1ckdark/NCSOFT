@@ -1,5 +1,6 @@
 $(function() {
 
+
     var scrollTop, roofHeight, winHeight;
     var roofHeight = $('#roof').outerHeight();
     var winHeight = $(window).height();
@@ -7,6 +8,12 @@ $(function() {
     var currentStage = $('#viewport').attr('class');
         
     var controller = new ScrollMagic.Controller(); 
+
+    init();// 그래프 1번 - 콘텐츠산업 내 수출기여도
+    init2();// 그래프 2번 - 콘텐츠산업 내 매출비중?
+    init3();// 그래프 3번 - 야구장 그래프
+    init4();// 그래프 4번 - 바 그래프
+    init5();// 그래프 5번 - 바 그래프
 
   function jsySwiper(){
     var swiper = new Swiper('.jsySwiper', {

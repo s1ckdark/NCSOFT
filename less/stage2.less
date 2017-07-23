@@ -71,126 +71,35 @@
     }
 }
 #section3 {}
-#section4 {background-color:#000;
+#section4 {
+    background-color:#000;
+    height:1000px;
+   .interview_quote {top:-80px;}
    .jobDesc {margin-top:10px; 
-        p {line-height:1.7;text-align:center;font-weight:200;} 
+    p {line-height:1.7;text-align:center;font-weight:200;} 
 }
 }
-#section6 {background-color:#060a14;}
+#section6 {
+    background-color:#060a14;
+    height:1000px;
+    .interview_quote {top:-80px;}
+    }
 #section8 {
     background-color:#000;
-        &.pinImage {
-            position: relative;
-            width: 100%;
-            min-height: 900px;
-            width:100%;
-            height:100%;
-            display:block;
-            text-align: center;
-            h3 {
-                font-style: normal;
-                font-weight: 300;
-                font-size: 46px;
-                opacity: 1;
-            }
-            #pinContainer {
-                position: relative;
-                overflow: hidden;
-                background-color: #fff;
-                width: 100%;
-                height: 100vh;
-            }
-            .panel {
-                width:100%;
-                height:100%;
-                position:relative;
-            }
-            .pinScene {
-                background-position: 50% 50%;
-                background-repeat: no-repeat;
-                background-size: cover;
-                background-color: #fff;
-                width:50%;height:100%;
-                position:absolute;
-
-               }
-
-            .panel p {
-                position: relative;
-                width: 100%;
-                color: #fff;
-                font-style: normal;
-                font-weight: 300;
-                font-size: 20px;
-                line-height: 20px;
- 
-            }
-            .desc {
-                width:50%;
-                height:100%;
-                color:#fff;
-                margin-left:50%;
-                position:absolute;
-                top:0px;
-                .inner {width:420px;height:350px;margin:0 auto;position:absolute;top:calc(~"50% - 175px");left:calc(~"50% - 210px");
-                    p {font-size:18px;line-height:1.6;}
-                }
-            }
+        
             .pin1 {
-                .image {
-                background-image: url('@{img-url}/stage2_pin1.jpg');
-                }
-                .desc {background-color:#1d3363;
-                    header > h2 {font-size:40px;letter-spacing:-1px;}
+                .image {background-image: url('@{img-url}/stage2_pin1.jpg'); }
+                  .desc {background-color:#1d3363;
+                    header > h2 {font-size:40px;letter-spacing:-2px;}
                 }
             }
             .pin2 {
-                .image {
-                background-image: url('@{img-url}/stage2_pin2.jpg');
-                }
-                .desc {background-color:#0f1a32;}
+                .image {background-image: url('@{img-url}/stage2_pin2.jpg'); }
+                  .desc {background-color:#0f1a32;}
             }
             .pin3 {
-                .image {
-                background-image: url('@{img-url}/stage2_pin3.jpg');
-            }
-                .desc {background-color:#060a14;}
-            }
-
-            .fixedPinNavi {
-                    position:absolute;
-                    width:50%;
-                    top:80%;
-                    left:50%;
-
-                span {
-                    margin:20px 10px;
-                    display:inline-block;
-                    text-align:center;
-                    width:30px;height:30px;
-                    position:relative;
-                    &:after {
-                        content:'';
-                        border:1px solid #fff;
-                        border-radius:50%;
-                        display:inline-block;
-                        width:30px;
-                        height:30px;
-                        position:absolute;
-                        left:0;
-                    }
-                &.swiper-pagination-bullet-active {background:none;color:@theme-color;
-                &:after {
-                        content:'';
-                        border:1px solid @theme-color;
-                        border-radius:50%;
-                        display:inline-block;
-                        width:30px;
-                        height:30px;
-                        position:absolute;
-                        left:0;
-                    }}
-                }
+                .image {background-image: url('@{img-url}/stage2_pin3.jpg'); }
+                 .desc {background-color:#060a14;}
             }
 }
 
@@ -237,7 +146,7 @@
             .barchart {    display:block;position:relative;padding:0;
                 i {padding: 10px 10px 10px;line-height: 100%;border-right: 1px solid #d8b17e;display:block;font-style:normal;font-size:18px;width:100px;text-align:right;}
                 span {border-left:1px solid @theme-color;text-align:right;color:@blue-color;font-size:18px;background-color:#fff;position:absolute;display:block;left:120px;top:0px;height: calc(~"100% - 10px");margin: 5px 0;}
-                .outofgraph {position:absolute;right:-130px;color:#fff;font-weight:400;}
+                .outofgraph {position:absolute;right:-150px;color:#fff;font-weight:400;}
                 .insideofgraph {line-height:100%;font-weight:400;}
                 q {opacity:0;visibility: hidden;margin-right:10px;}
             }
@@ -254,7 +163,7 @@
         }
     }
  
-}}
+}
 #section10 {
     .interview_quote {
         .quote {
@@ -479,10 +388,10 @@
                  q {opacity:0;visibility: hidden;margin-right:10px;font-weight:400;}
             
             &.y2008 {
-                .outofgraph {right:-130px;}
+                .outofgraph {right:-150px;}
             }
             &.y2000 {
-                .outofgraph {right:-120px;}
+                .outofgraph {right:-130px;}
             }
             &.y2016 {
                 i {font-size:25px;color:@theme-color;}

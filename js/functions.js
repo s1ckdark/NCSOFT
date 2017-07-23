@@ -632,16 +632,16 @@ var slideLen = $('#pinContainer .swiper-slide').length;
 //         .setPin('#pinContainer')
 //         .addTo(controller);
 
-// $('#pinContainer .panel').map(function(i,e){
-    // var slideScene = new ScrollMagic.Scene({
-    //         triggerElement: '.pinContainer', 
-    //         triggerHook:'onLeave',
-    //         duration:winHeight*3
-    //     })
-    //     .on('start',callback)
-    //     .setPin('.pin1')
-    //     // .addIndicators()
-    //     .addTo(controller);
+$('#pinContainer .panel').map(function(i,e){
+    var slideScene = new ScrollMagic.Scene({
+            triggerElement: '.pinContainer', 
+            triggerHook:'onLeave',
+            duration:winHeight*3
+        })
+        .on('start',callback)
+        .setPin('.pin1')
+        // .addIndicators()
+        .addTo(controller);
 
 // // // })
 // function callback(e){

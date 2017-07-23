@@ -192,37 +192,38 @@ clubSwiper();
    barChart('.y2000 .bar', 10);
 
 
-   // var pageDown = new TimelineMax()
-   //      .fromTo("#one", 1, {height:0}, {height:'676px'})
-   //      .fromTo("#two", 1, {height:'676px'}, {height:'0px'});
+   var pageDown = new TimelineMax()
+        .fromTo(".event1", 1, {height:0}, {height:'676px'})
+        .fromTo(".event2", 1, {height:'676px'}, {height:'0px'});
 
-    // new ScrollMagic.Scene({
-    //   triggerElement: "#section11",
-    //   triggerHook: 'onLeave',
-    //   duration:"100%"
-    // })
-    // .setPin("#section11")
-    // .addIndicators()
-    // .addTo(controller);
+   //  new ScrollMagic.Scene({
+   //    triggerElement: "#section11",
+   //    triggerHook: 'onLeave',
+   //    duration:"100%"
+   //  })
+   //  .setPin("#section11")
+   //  .addIndicators()
+   //  .addTo(controller);
 
-    // new ScrollMagic.Scene({
-    //   triggerElement: "#pin",
-    //   triggerHook: 'onLeave',
-    //   duration:"676px"
-    // })
-    // .setTween(pageDown)
-    // .setPin("#pin", {pushfollowers:false})
-    // .addIndicators()
-    // .addTo(controller);
-  // $('.event').map((i,d)=>{
-  //   new ScrollMagic.Scene({
-  //     triggerElement: ".event.event2",
-  //     triggerHook: 0.7,
-  //     duration: "676px"
-  //   }).setPin(d.children[0],{
-  //     pushFollowers: false
-  //   })
-  //   .addTo(controller);
-  // })
+   //  new ScrollMagic.Scene({
+   //    triggerElement: "#pin",
+   //    triggerHook: 'onLeave',
+   //    duration:"676px"
+   //  })
+   //  .setTween(pageDown)
+   //  .setPin("#pin", {pushfollowers:false})
+   //  .addIndicators()
+   //  .addTo(controller);
+  $('.event').map((i,d)=>{
+    new ScrollMagic.Scene({
+      triggerElement: ".event",
+      triggerHook: 0.7,
+      duration: "676px"
+    }).setPin(d.children[0],{
+      pushFollowers: false
+    })
+    .setTween(pageDown)
+    .addTo(controller);
+  })
 
 });

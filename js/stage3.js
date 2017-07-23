@@ -62,14 +62,9 @@ $(function() {
     //     )
     //     .addTo(controller);
    
-       function pinContainerText(target) {
-        var $target = $(target);
-        console.log($target.find('p')[0]);
-        new TimelineMax().fromTo($target[0], 0.5, {opacity:0}, {opacity:1})
-                        .fromTo($target.find('p')[0], 1, {opacity:0, y:-40}, {opacity:1, y:0});
-    }   
+ 
 
-    function gameScreenShotSwiper(){
+function gameScreenShotSwiper(){
     var swiper = new Swiper('.gameScreenShotSwiper', {
     preloadImages: false,
     lazyLoading: true,

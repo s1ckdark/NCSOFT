@@ -341,13 +341,13 @@ $(function() {
         });
     }
 
-    function initCanvasGold() {
+   function initCanvasGold() {
         var win = jQuery(window);
+
         jQuery('.star_gold').each(function() {
             var canvas = this;
             var ctx = canvas.getContext("2d");
             var fps = 30;
-            var sectionHeight = jQuery(this).parent().height();
             var winWidth, winHeight;
             var mp; //max particles
             var particles = [];
@@ -357,7 +357,7 @@ $(function() {
 
             function draw() {
                 ctx.clearRect(0, 0, winWidth, winHeight);
-
+                
                 ctx.fillStyle = '#d8b17e';
                 ctx.beginPath();
                 for(var i = 0; i < mp; i++) {
@@ -384,10 +384,10 @@ $(function() {
 
             function resizeHandler() {
                 //canvas dimensions
+                var $star_height=$(canvas.parentNode);
                 winWidth = window.innerWidth;
-                winHeight = window.innerHeight;
-
-                canvas.width = winWidth;
+                winHeight =  $star_height.innerHeight;
+                  canvas.width = winWidth;
                 canvas.height = winHeight;
 
                 mp = 0.35 * winWidth;
@@ -415,6 +415,7 @@ $(function() {
             step();
         });
     }
+   
 
     // initCanvasGold();
     // initCanvasDark();
@@ -532,6 +533,19 @@ var scene = new ScrollMagic.Scene({
         // .addIndicators()
         .addTo(controller);
 });
+  $('.star_gold').each(function()
+    {
+        var scene = new ScrollMagic.Scene({
+            triggerElement: this, 
+            offset: -$(window).height()*0.7
+        })
+        .on('enter', function(){
+            initCanvasGold();
+            console.log("FallingStar");})
+        .addIndicators()
+        .addTo(controller);
+    });
+
 
  $('.video_wrap.autoplay').each(function(){
 
@@ -637,22 +651,22 @@ var slideLen = $('#pinContainer .swiper-slide').length;
 //         .setPin('#pinContainer')
 //         .addTo(controller);
 
-// $('#pinContainer .panel').map(function(i,e){
-//     var slideScene = new ScrollMagic.Scene({
-//             triggerElement: '.pinContainer', 
-//             triggerHook:'onLeave',
-//             duration:winHeight*3
-//         })
-//         .on('start',callback)
-//         .setPin('.pin1')
-//         // .addIndicators()
-//         .addTo(controller);
-// })
-// function callback(e){
-//     console.log(e.scrollDirection);
-//     if(e.scrollDirection =="FORWARD")
-//      { pinSwiper.slideNext(); } else {pinSwiper.slidePrev();}
-// }
+$('#pinContainer .panel').map(function(i,e){
+    var slideScene = new ScrollMagic.Scene({
+            triggerElement: '.pinContainer', 
+            triggerHook:'onLeave',
+            duration:winHeight*3
+        })
+        .on('start',callback)
+        .setPin('.pin1')
+        .addIndicators()
+        .addTo(controller);
+})
+function callback(e){
+    console.log(e.scrollDirection);
+    if(e.scrollDirection =="FORWARD")
+     { pinSwiper.slideNext(); } else {pinSwiper.slidePrev();}
+}
 
 
 // var Slide = new ScrollMagic.Scene({

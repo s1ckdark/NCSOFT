@@ -1,6 +1,6 @@
 @import 'style';
 #section1 {
-    .bg_navy();
+       background-color:black;
     width:100vw;height:auto;
         header {padding:50px 0 30px;}
         header > h2 {.font('Quantico', 1.5rem, @theme-color, 300, center);}
@@ -13,7 +13,7 @@
             }
         }
         div.contents {width:100%;height:auto;margin-top:30px;
-            p {.inner();line-height:1.6;}
+            p {.inner();line-height:1.6;font-size:1rem;padding:30px 0;}
             .technologyImg img {width:100vw;}
         }
 }
@@ -78,7 +78,7 @@
 
 
   div.contents {
-    width: 100%;
+    .inner();
     height: auto;
     text-align: center;
 
@@ -91,7 +91,8 @@
   p {
     font-size: 18px;
     margin: 0 auto;
-    line-height:1.8;
+    line-height:1.6;
+    font-size:1rem;
 }
   p span.pointGold {
     font-size: 30px;
@@ -130,7 +131,11 @@
      .gameScreenShot6 {
     background-image: url(/project/NCsoft/img/stage3_section1_sl6.jpg);
 }
-    .progress_num span {color:@theme-color;}
+    .progress_num span {color:@theme-color;
+        &.last {
+            &:before {}
+        }
+    }
 }
 }
  .part_four {

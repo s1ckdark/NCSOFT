@@ -54,7 +54,7 @@ jsySwiper();
     $('#video1').fnSetVideo({
         'ovpUrl': 'http://v.ovp.joins.com/nxSoq3gI',
         'ovpRo': 1, // 1 = 16:9, 2 = 1:1
-        'ctrls': false,
+        'ctrls': true,
         'loop': false,
         'preload': 'none',
         'poster': '/project/NCsoft/video/stage1_video1.jpg'
@@ -63,7 +63,7 @@ jsySwiper();
       $('#video2').fnSetVideo({
         'ovpUrl': 'http://v.ovp.joins.com/9UcwlLLT',
         'ovpRo': 1, // 1 = 16:9, 2 = 1:1
-        'ctrls': false,
+        'ctrls': true,
         'loop': false,
         'preload': 'none',
         'poster': '/project/NCsoft/video/stage1_video2.jpg'
@@ -72,7 +72,7 @@ jsySwiper();
         $('#video3').fnSetVideo({
         'ovpUrl': 'http://v.ovp.joins.com/2vT0q3gl',
         'ovpRo': 1, // 1 = 16:9, 2 = 1:1
-        'ctrls': false,
+        'ctrls': true,
         'loop': false,
         'preload': 'none',
         'poster': '/project/NCsoft/video/stage1_video3.jpg'
@@ -81,7 +81,7 @@ jsySwiper();
          $('#video4').fnSetVideo({
         'ovpUrl': 'http://v.ovp.joins.com/nY0ox2XE',
         'ovpRo': 1, // 1 = 16:9, 2 = 1:1
-        'ctrls': false,
+        'ctrls': true,
         'loop': false,
         'preload': 'none',
         'poster': '/project/NCsoft/video/stage1_video4.jpg'

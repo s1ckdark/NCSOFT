@@ -28,7 +28,7 @@ $(function() {
     $('#video1').fnSetVideo({
         'ovpUrl': 'http://v.ovp.joins.com/pIdBq3gz',
         'ovpRo': 1, // 1 = 16:9, 2 = 1:1
-        'ctrls': false,
+        'ctrls': true,
         'loop': false,
         'preload': 'none',
         'poster': '/project/NCsoft/video/stage2_video1.jpg'
@@ -37,7 +37,7 @@ $(function() {
       $('#video2').fnSetVideo({
         'ovpUrl': 'http://v.ovp.joins.com/9BGGq3ge',
         'ovpRo': 1, // 1 = 16:9, 2 = 1:1
-        'ctrls': false,
+        'ctrls': true,
         'loop': false,
         'preload': 'none',
         'poster': '/project/NCsoft/video/stage2_video2.jpg'
@@ -46,7 +46,7 @@ $(function() {
         $('#video3').fnSetVideo({
         'ovpUrl': 'http://v.ovp.joins.com/mcozx2XE',
         'ovpRo': 1, // 1 = 16:9, 2 = 1:1
-        'ctrls': false,
+        'ctrls': true,
         'loop': false,
         'preload': 'none',
         'poster': '/project/NCsoft/video/stage2_video3.jpg'

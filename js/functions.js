@@ -162,7 +162,7 @@ $(function() {
     $(window).load(function(){
         var introTextTween = new TimelineMax({onUpdate:introProgress, repeat:-1})
             .fromTo('#introText', .1, {opacity:0}, {opacity:1, ease: Power0.easeNone})
-            .fromTo('#introTitle .title', 2, {opaity:1}, {opacity:0, ease:Power1.easeInOut}, 4)
+            .fromTo('#introTitle .title', 2, {opaity:1}, {opacity:0, ease:Power1.easeInOut}, 1)
             .to('#introText', 40, {y:'-100%', ease: Power0.easeNone}, .1)
 
         var introScrollerTween = new TimelineMax({paused:true})
@@ -246,7 +246,7 @@ $(function() {
                 canvas.width = winWidth;
                 canvas.height = winHeight;
 
-                mp = 0.35 * winWidth;
+                mp = 0.18 * winWidth;
 
                 particles = [];
 

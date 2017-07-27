@@ -67,12 +67,15 @@ $(function() {
         스크립트 시작
     */
 
-    // 네비게이션
+   // 네비게이션
     var stageNavOpen = new TimelineMax({paused:true})
             .to('#stageNav', .4, {y:'100%'})
             .to('.btn_nav_open i', .4, {scale:0}, 0)
             .to('.btn_nav_open', .2, {autoAlpha:0})
             .to('#allStageNav', .6, {autoAlpha:1,zIndex:110, height:'calc(100vh - 50px)',top:'50px'});
+    stageNavOpen.eventCallback('onReverseComplete', function(){
+      $('.menu_ctrl.close').click();
+    });
 
     $('.btn_nav_open, #stageNav .label').on('click', function(e){
         e.preventDefault();
@@ -84,11 +87,10 @@ $(function() {
     });
     $('.btn_nav_close').on('click', function(e){
         e.preventDefault();
-        TweenMax.staggerTo($('ol.menus'), 0.1, {display:'none'});
-        TweenMax.staggerTo($('.stage_nav_container'), 0.5, {display:'block'});
         stageNavOpen.reverse();
     });
-    TweenMax.set('ol.menus',{display:'none'})
+    TweenMax.set('ol.menus',{display:'none'});
+ 
     $('.menu_ctrl').click(function(e){
         e.preventDefault();
 

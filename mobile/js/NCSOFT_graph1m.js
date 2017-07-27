@@ -1122,7 +1122,7 @@ p.nominalBounds = new cjs.Rectangle(-11.7,-158.9,520,553);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		 this.stop();
+		this.stop();
         nc_chart01 = this;
 	}
 	this.frame_74 = function() {

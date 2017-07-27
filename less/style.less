@@ -13,16 +13,12 @@
     background: url('@{img-url}/sprite.png') no-repeat @position;
     background-size: @size;
 }
-.sp-img400(@position) {
-    background: url('@{img-url}/sprite.png') no-repeat @position;
-    background-size: 400px;
-}
 
 .font-eng() {
-    font-family: 'Quantico', sans-serif;
+    font-family: 'Quantico','NotoSansKR','Noto Sans KR';font-weight:300;
 }
 .font-cond() {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Oswald','NotoSansKR','Noto Sans KR';
 }
 .font-def() {
     font-family: 'NotoSansKR','Noto Sans KR','Source Han Sans','맑은 고딕','Malgun Gothic','나눔고딕','NanumGothic',sans-serif;
@@ -324,7 +320,7 @@ h2 {font-weight:300;}
         float: right;
         clear: both;
         height: 30px;
-        margin-bottom: 2px;
+        margin-bottom: 5px;
         transition: all .3s ease;
 
         &:after {
@@ -351,6 +347,9 @@ h2 {font-weight:300;}
             &.nav_hidden {
                 transform: translateX(47px);
             }
+             &.nav_sns {
+                transform: translateX(47px);
+            }
         }
         .at_stage2 & {
             &.nav_stage1 {
@@ -364,10 +363,13 @@ h2 {font-weight:300;}
                 }
             }
             &.nav_stage3 {
-                transform: translateX(47px);                
+                transform: translateX(30px);                
             }
             &.nav_hidden {
-                transform: translateX(47px);
+                transform: translateX(40px);
+            }
+                  &.nav_sns {
+                transform: translateX(50px);
             }
         }
         .at_stage3 & {
@@ -385,6 +387,9 @@ h2 {font-weight:300;}
                 }
             }
             &.nav_hidden {
+                transform: translateX(47px);
+            }
+                  &.nav_sns {
                 transform: translateX(47px);
             }
         }
@@ -447,7 +452,7 @@ h2 {font-weight:300;}
             box-sizing: border-box;
             width: 70px;
             padding:0 5px 2px;
-            background-color: #fff;
+            background-color: #e6c8a1;
             white-space: nowrap;
             color: transparent;
             cursor: pointer;
@@ -617,7 +622,7 @@ h2 {font-weight:300;}
             }
             .title {
                 font-size: 25px;
-                font-weight: 700;
+                font-weight: 300;
             }
         }
 
@@ -900,7 +905,7 @@ canvas {
     }
     .pointGold, .pointWhite, .pointBlue {font-size:25px;}
     .start {font-size:40px !important;}
-    p {margin-bottom:30px;}     
+    p {margin-bottom:30px;font-weight:200;}     
     label {font-size:25px;margin-bottom:10px;}
     
 
@@ -1009,7 +1014,7 @@ canvas {
     }
 }
 .type_e { //video
-    height:800px;
+    height:700px;
     .interview_title {
         color: #fff;
     }
@@ -1025,7 +1030,7 @@ canvas {
             // background-color: rgba(255,255,255,.6);
             .name {font-size:30px;color:@theme-color;margin:20px 0 30px;}
             .job {
-                color: #d79540;
+                color: @theme-color;
             }
             .jobDesc p {letter-spacing:-1px;font-size:18px;font-weight:300;text-align:center;line-height:1.7
             }
@@ -1036,7 +1041,7 @@ canvas {
         left:calc(~'50% - 100px');
         width: 600px;
         height: 338px;
-        top: calc(~'50% - 169px');
+        top: calc(~'50% - 120px');
 }
 }
 .type_left {
@@ -1128,12 +1133,12 @@ canvas {
     }
 
     .btn_play {
-        .sp-img400(5px -50px);
+        .sp-img(5px -50px, 400px);
         &:after {}
     }
     .btn_pause {
         display: none;
-       .sp-img400(-41px -54px);
+       .sp-img(-41px -54px, 400px);
     }
 
     &.paused {
@@ -1193,7 +1198,7 @@ canvas {
     position:relative;
     &_box {cursor:pointer;width:200px;height:200px;display:block;position:absolute;border:5px solid #fff;left:calc(~"50% - 100px");}
     &_btn {position:absolute;bottom:0px;right:0px;width:199px;height:277px;display:block;}
-    &_text {position:absolute;bottom:0px;left:0px;width:calc(~"100% - 20px");height:80px;margin:10px;
+    &_text {position:absolute;bottom:10px;left:0px;width:calc(~"100% - 20px");height:80px;margin:10px;
         h2 {font-size:40px;line-height:40px;font-weight:400;}
         p {font-size:16px;line-height:16px;margin:10px 0;}
     }

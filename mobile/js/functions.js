@@ -72,7 +72,7 @@ $(function() {
             .to('#stageNav', .4, {y:'100%'})
             .to('.btn_nav_open i', .4, {scale:0}, 0)
             .to('.btn_nav_open', .2, {autoAlpha:0})
-            .to('#allStageNav', .6, {autoAlpha:1,zIndex:110, height:'100vh'});
+            .to('#allStageNav', .6, {autoAlpha:1,zIndex:110, height:'calc(100vh - 50px)',top:'50px'});
 
     $('.btn_nav_open, #stageNav .label').on('click', function(e){
         e.preventDefault();
@@ -84,26 +84,38 @@ $(function() {
     });
     $('.btn_nav_close').on('click', function(e){
         e.preventDefault();
+        TweenMax.staggerTo($('ol.menus'), 0.1, {display:'none'});
+        TweenMax.staggerTo($('.stage_nav_container'), 0.5, {display:'block'});
         stageNavOpen.reverse();
     });
-
+    TweenMax.set('ol.menus',{display:'none'})
     $('.stage_nav_container').on('click', function(){
         var openNav = $(this).find('.menus');
         var toggle = openNav.height();
+        if(toggle !=0 ) { 
+        TweenMax.staggerTo($('.stage_nav_container'), 0.1, {display:'block',height:'calc(100vh - 50px)'});
+        TweenMax.staggerTo($(this), 0.5, {display:'block'});
+        TweenMax.staggerTo(openNav, 0.5, {display:'block'});
         console.log(openNav);
-        console.log(toggle);
-        if(toggle !=0 ) {
-        TweenMax.staggerTo($(this).parent(), 0.5, {visibility:'hidden',opacity:0,height:0});
-        TweenMax.staggerTo($(this), 0.5, {visibility:'hidden',opacity:0,height:0});
-        TweenMax.staggerTo(openNav, 0.5, {visibility:'hidden',opacity:0});
-        TweenMax.staggerTo('.menus_reset', 0.5, {visibility:'hidden',opacity:0});
-
+        TweenMax.staggerTo($(this).find('.menu_ctrl.open'), 0.5, {className:'menu_ctrl close',overwrite:'none'});
     } else {
-        TweenMax.staggerTo($(this), 0.5, {visibility:'visible',opacity:1,height:'100%',position:'fixed',top:'50px',background:'black',zIndex:999});
-        TweenMax.staggerTo(openNav, 0.5, {visibility:'visible',opacity:1});
-        TweenMax.staggerTo('.menus_reset', 0.5, {visibility:'visible',opacity:1});
+        TweenMax.staggerTo($(this), 0.5, {display:'block', height:'calc(25vh - 12.5px'});
+        TweenMax.staggerTo(openNav, 0.5, {display:'block'});
+        TweenMax.staggerTo($(this).find('.menu_ctrl.close'), 0.5, {className:'menu_ctrl open',overwrite:'none'});
+
     }
+
   })
+    $('.menu_ctrl.open').click(function(){
+         TweenMax.staggerTo($(this).prev('.menus'), 0.1, {display:'block'});
+         TweenMax.staggerTo($(this), 0.1, {className:'menu_ctrl close',overwrite:'none'});
+    })
+    $('.menu_ctrl.close').click(function(){
+        TweenMax.staggerTo($('ol.menus'), 0.1, {display:'none'});
+        TweenMax.staggerTo($('.stage_nav_container'), 0.5, {display:'block', height:'calc(25vh - 12.5px'});
+        TweenMax.staggerTo($(this), 0.1, {className:'menu_ctrl open',overwrite:'none'});
+
+    })
     // 스테이지 네비게이션
     var sectionBar = [];
     var sectionCount = $('.section_wrap').length;
@@ -153,7 +165,7 @@ $(function() {
     });
 
     // 인트로 페이지
-    TweenMax.set('ol.menus',{opacity:0,visibility:'hidden',height:0})
+
     TweenMax.set('#introTitle', {rotationX:20});
     TweenMax.set(['#introText', '#introScroller'], {opacity:0});
 
@@ -345,11 +357,8 @@ $(function() {
     }
 
     
-    initCanvasDark();
-    initCanvasLight();
-
-
-   
+    // initCanvasDark();
+    // initCanvasLight();
 
     // ovp 연동하기
     // $('#hiddenStage').fnSetVideo({
@@ -365,55 +374,7 @@ $(function() {
         인터뷰 섹션
     */
 
-       // create scene to pin and link animation
-     var $offsetH = $('#pinContainer').innerHeight();
-    var productDesignScene = new ScrollMagic.Scene({
-        triggerElement: "#pinContainer",
-        triggerHook: 0.075,
-        duration: $offsetH*3 // 2100 + 1500
-        })
-        .setPin("#pinContainer")
-        .addTo(controller);
-
-  
-    var productDesign1897 = new ScrollMagic.Scene({
-        triggerElement: "#pinContainer",
-        offset: $offsetH
-        })
-        .setTween(
-            new TimelineMax().fromTo(".panel .image1", 1, {opacity: 1}, {opacity: 1, ease: Linear.easeNone})
-            .fromTo(".illust1 .desc",1, {opacity: 1}, {opacity: 1, ease: Linear.easeNone})
-            .fromTo(".illust1 .desc p",1, {opacity: 0}, {opacity: 1, ease: Linear.easeNone})
-        )
-        .addTo(controller);
-    var productDesign1910 = new ScrollMagic.Scene({
-        triggerElement: "#pinContainer",
-        offset: $offsetH*2
-        })
-        .setTween(
-            new TimelineMax().fromTo(".panel .image2", 1, {opacity: 0}, {opacity: 1, ease: Linear.easeNone})
-         .fromTo(".illust2 .desc",0.5, {opacity: 0}, {opacity: 1, ease: Linear.easeNone})
-         .fromTo(".illust2 .desc p",1, {opacity: 0}, {opacity: 1, ease: Linear.easeNone})
-        )
-        .addTo(controller);
-
-    var productDesign1920 = new ScrollMagic.Scene({
-        triggerElement: "#pinContainer",
-        offset:  $offsetH*3
-        })
-        .setTween(
-            new TimelineMax().fromTo(".panel .image3", 1, {opacity: 0}, {opacity: 1, ease: Linear.easeNone})
-          .fromTo(".illust3 .desc",1, {opacity: 0}, {opacity: 1, ease: Linear.easeNone})
-          .fromTo(".illust3 .desc p",1, {opacity: 0}, {opacity: 1, ease: Linear.easeNone})
-        )
-        .addTo(controller);
    
-       function pinContainerText(target) {
-        var $target = $(target);
-        console.log($target.find('p')[0]);
-        new TimelineMax().fromTo($target[0], 0.5, {opacity:0}, {opacity:1})
-                        .fromTo($target.find('p')[0], 1, {opacity:0, y:-40}, {opacity:1, y:0});
-    }   
 
 
 /* textTween Effect */
@@ -445,6 +406,7 @@ $('#sectionSharebtn').click(function(){
         TweenMax.to(toggle, .2, {height: toggle.attr('initH'), visibility:'visible', opacity:1, y:-30});
     }
 })
+
 // $('.star_black').each(function()
 // {
 // var scene = new ScrollMagic.Scene({
@@ -455,12 +417,44 @@ $('#sectionSharebtn').click(function(){
 //         .on('enter', function(){
 //             initCanvasDark();
 //             console.log("FallingStar");})
-//         .addIndicators()
-//         .setClassToggle('.goon')
 //         .addTo(controller);
 // });
+function pinSwiper(){
+    var swiper = new Swiper('#pinContainer', {
+    preloadImages: false,
+    lazyLoading: true,
+    slidesPerView: '1',
+    paginationClickable: true,
+    nextButton:'.pin-next',
+    prevButton:'.pin-prev',
+    lazyLoadingOnTransitionStart:true,
+    pagination: '.progress_pin',
+    paginationClickable: true,
+    paginationBulletRender: function (swiper, index, className) {
+      return '<span class="' + className + '"></span>';
+  }
+    });
+}  
 
-
+function interviewSwiper(){
+    var swiper = new Swiper('.interviewSwiper', {
+    preloadImages: false,
+    lazyLoading: true,
+    slidesPerView: '1',
+    paginationClickable: true,
+    nextButton:'.interview-next',
+    prevButton:'.interview-prev',
+    lazyLoadingOnTransitionStart:true,
+    pagination: '.progress_num',
+    paginationClickable: true,
+    paginationType: "custom",
+    paginationCustomRender: function (swiper, current, total) {
+      return '<span class="current">'+ current + '</span><span class="last">' + total +'</span>';
+  }
+    });
+}  
+interviewSwiper();
+pinSwiper();
 });
 
 

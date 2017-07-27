@@ -7,7 +7,7 @@ $(function() {
     var currentStage = $('#viewport').attr('class');
         
  var controller = new ScrollMagic.Controller();  
- TweenMax.set('.part_two .hoverDesc',{opacity:0,visibility:'hidden'});
+ // TweenMax.set('.part_two .hoverDesc',{opacity:0,visibility:'hidden'});
  TweenMax.set('.zoomIcon q', {opacity:0,display:'none'});
 
 

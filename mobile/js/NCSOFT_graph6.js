@@ -296,7 +296,7 @@ p.nominalBounds = new cjs.Rectangle(-149.2,-155.7,298.5,304.1);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		// this.stop();
+		 this.stop();
         nc_chart06 = this;
 	}
 	this.frame_68 = function() {
@@ -387,8 +387,8 @@ p.nominalBounds = new cjs.Rectangle(329,306.8,104.1,104);
 // library properties:
 lib.properties = {
 	id: 'C7EF88F8A8CA8E46928A4FD84C5DF09C',
-	width: 345,
-	height: 345,
+	width: '320',
+	height: '320',
 	fps: 24,
 	color: "#333333",
 	opacity: 1.00,

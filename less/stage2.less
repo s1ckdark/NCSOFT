@@ -24,7 +24,7 @@
         .inner();width:980px;
                  div.subtitle {float:left;width:250px;height:auto;margin-right:50px;
             .imgBox {position:relative;margin-bottom:20px;width:220px;height:220px;} 
-            .zoomIcon {bottom:30px;position:relative;right:30px;.sp-img400(0px -92px);width:30px;height:30px;display:block;position:absolute;
+            .zoomIcon {bottom:30px;position:relative;right:30px;.sp-img(0px -92px, 400px);width:30px;height:30px;display:block;position:absolute;
                 q {position:fixed;top:calc(~'50% - 119px');left:calc(~'50% - 300px');width:600px;height:338px;display:block;display:none;opacity:0;}
                 .zoomImg1 {background-image:url('@{img-url}/stage2_zoomImg1.jpg');}
                 .zoomImg2 {background-image:url('@{img-url}/stage2_zoomImg2.jpg');}
@@ -46,8 +46,8 @@
     .part_two { 
                 background-color:#fff;
         color:#000;
-        header {padding:150px 0;}
-        header > h2 {.font('Quantico', 54px, #000, 300, center);text-transform: uppercase;margin:50px 0 0 0px;}
+        header {padding:80px 0 30px;}
+        header > h2 {.font('Quantico', 54px, #000, 300, center);text-transform: uppercase;}
         .NCsoftPeople_status {
             padding:0;
             width:1200px;
@@ -56,8 +56,8 @@
                 p {.font('Roboto', 80px, #000, 400, center);margin:22px 0 0;letter-spacing:-5px;display:block;line-height:1.2;
                      }
                 span.unit {font-size:40px;}
-                span.hoverDesc {opacity:0;visibility: hidden;position:absolute;top:-10px;left:0px;font-size:18px;letter-spacing:-2px;width:calc(~"100% - 40px");text-align:center;color:#000;line-height:18px;border:1px solid @theme-color;padding:15px;display:block;line-height:20px;}
-                label {font-size:18px;color:@theme-color;letter-spacing:-2px;}
+                span.hoverDesc {background:@theme-color;position:absolute;top:-10px;left:0px;font-size:18px;letter-spacing:-2px;width:calc(~"100% - 40px");text-align:center;color:#fff;height:auto;border:1px solid @theme-color;padding:15px;display:block;line-height:20px;}
+                label {font-size:18px;color:#fff;letter-spacing:-2px;}
             }
         }
     .clubSwiper {margin:30px 0 50px;}
@@ -84,6 +84,9 @@
     height:1000px;
     .interview_quote {top:-80px;}
     }
+#section7 {
+.interview_quote .quote {font-weight:300;}
+}
 #section8 {
     background-color:#000;
         
@@ -372,7 +375,7 @@
     header {
         padding:150px 0 80px;
          h2 {.font('NotoSansKR', 50px, @blue-color, 300, center);}
-         h3 {.font('NotoSansKR', 18px, #191919, 300, center);width:720px;margin:30px auto 50px;}
+         h3 {.font('NotoSansKR', 18px, #191919, 300, center);width:720px;margin:30px auto 0px;}
     }
     .desc {width:40%;float:left;.font('NotoSansKR', 18px, #191919, 300, left)}
     .chart {width:50%;float:right;margin:1em 0;

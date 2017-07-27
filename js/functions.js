@@ -93,7 +93,10 @@ $(function() {
     $('.stage_nav a').on('click', function(e){
         e.preventDefault();
         var jump = $(this).attr('href');
-        console.log(jump);
+        if(currentStage == jump.split('#')[0]) 
+        { location.href='#'+jump.split('#')[1];}
+    else 
+        location.href=jump;
         stageNavOpen.reverse();
     });
 
@@ -131,19 +134,21 @@ $(function() {
                         mission.progress = $this.attr('id'); 
                         console.log(JSON.stringify(mission));
                         localStorage.setItem('mission', JSON.stringify(mission));
-                }
+                                              }
                 if ( e.type == 'progress') {
                     // 색깔 칠하기 완료
                     var scrollProgress = Math.floor(e.progress*100);
                     if( scrollProgress == 100 ) {
                        // console.log('색칠 완료')
                         TweenMax.to('#stageNav .bar b:eq('+$this.index()+') i', .3, {opacity:1, backgroundColor:'#d8b17e', clearProps:'all', onComplete:barOn})
-                         $('#stageNav .num').text($this.index()+1+'/'+ sectionCount);
+                 
                     }
                 }
             });
             function barOn(){
                 $('#stageNav .bar b:eq('+$this.index()+')').addClass('on') // B태그에 완료 표시
+                 $('#stageNav .num').text(($this.index()+1) +'/'+ sectionCount);
+
             }
         })
     });
@@ -157,7 +162,7 @@ $(function() {
     $(window).load(function(){
         var introTextTween = new TimelineMax({onUpdate:introProgress, repeat:-1})
             .fromTo('#introText', .1, {opacity:0}, {opacity:1, ease: Power0.easeNone})
-            .fromTo('#introTitle .title', 2, {visibility:'visible',opaity:1}, {visibility:'hidden',opacity:0}, 4)
+            .fromTo('#introTitle .title', 2, {opaity:1}, {opacity:0, ease:Power1.easeInOut}, 4)
             .to('#introText', 40, {y:'-100%', ease: Power0.easeNone}, .1)
 
         var introScrollerTween = new TimelineMax({paused:true})
@@ -418,7 +423,7 @@ $(function() {
    
 
     // initCanvasGold();
-    // initCanvasDark();
+    initCanvasDark();
     // initCanvasLight();
 
  
@@ -520,31 +525,31 @@ function textTween(e, hook, exception){
 })
 }
 
-$('.star_black').each(function()
-{
-var scene = new ScrollMagic.Scene({
-            triggerElement: this, 
-            offset: -$(window).height()*0.7,
-            logleve :2
-        })
-        .on('enter', function(){
-            initCanvasDark();
-            console.log("FallingStar");})
-        // .addIndicators()
-        .addTo(controller);
-});
-  $('.star_gold').each(function()
-    {
-        var scene = new ScrollMagic.Scene({
-            triggerElement: this, 
-            offset: -$(window).height()*0.7
-        })
-        .on('enter', function(){
-            initCanvasGold();
-            console.log("FallingStar");})
-        .addIndicators()
-        .addTo(controller);
-    });
+// $('.star_black').each(function()
+// {
+// var scene = new ScrollMagic.Scene({
+//             triggerElement: this, 
+//             offset: -$(window).height()*0.7,
+//             logleve :2
+//         })
+//         .on('enter', function(){
+//             initCanvasDark();
+//             console.log("FallingStar");})
+//         // .addIndicators()
+//         .addTo(controller);
+// });
+  // $('.star_gold').each(function()
+  //   {
+  //       var scene = new ScrollMagic.Scene({
+  //           triggerElement: this, 
+  //           offset: -$(window).height()*0.7
+  //       })
+  //       .on('enter', function(){
+  //           initCanvasGold();
+  //           console.log("FallingStar");})
+  //       // .addIndicators()
+  //       .addTo(controller);
+  //   });
 
 
  $('.video_wrap.autoplay').each(function(){
@@ -640,50 +645,24 @@ var slideLen = $('#pinContainer .swiper-slide').length;
         }
     })
   
-// $('#pinContainer').each(function()
-// // {
-// var Slide = new ScrollMagic.Scene({
-//             triggerElement: '#pinContainer', 
-//             triggerHook:'onLeave',
-//             duration:winHeight*slideLen
-//         })
-//         .on("change update progress start end enter leave", callback)
-//         .setPin('#pinContainer')
-//         .addTo(controller);
-
-$('#pinContainer .panel').map(function(i,e){
-    var slideScene = new ScrollMagic.Scene({
-            triggerElement: '.pinContainer', 
+var Slide = new ScrollMagic.Scene({
+            triggerElement: '#pinContainer', 
             triggerHook:'onLeave',
-            duration:winHeight*3
+            duration:winHeight*slideLen
         })
-        .on('start',callback)
-        .setPin('.pin1')
-        .addIndicators()
+        .setPin('#pinContainer')
         .addTo(controller);
-})
-function callback(e){
-    console.log(e.scrollDirection);
-    if(e.scrollDirection =="FORWARD")
-     { pinSwiper.slideNext(); } else {pinSwiper.slidePrev();}
-}
 
 
-// var Slide = new ScrollMagic.Scene({
-//             triggerElement: '#pinContainer', 
-//             triggerHook:'onLeave',
-//             // duration:winHeight*slideLen,
-//             offset:winHeight*slideLen
-
-//         })
-//         .on('slideChangeStart ', function(){ 
-//         pinSwiper.slideNext();
-//         })
-//         .setPin('#pinContainer')
-//         .addIndicators()
-//         .addTo(controller);
-
+$('#pinContainer .swiper-slide').each(function(){
+    var indexPin = $(this).index();
+    var Slide = new ScrollMagic.Scene({
+            triggerElement: '#pinContainer', 
+            offset:winHeight*indexPin,
+        })
+        .on('enter',function(){pinSwiper.slideTo(indexPin)})
+        .addTo(controller);
+    });
 });
-
 
 

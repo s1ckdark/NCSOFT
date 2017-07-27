@@ -14,7 +14,7 @@ $(function() {
 		hoverTween.reverse()
 }
  })
-
+    init6(); 
 function clubSwiper(){
     var swiper = new Swiper('.clubSwiper', {
     preloadImages: false,
@@ -24,22 +24,16 @@ function clubSwiper(){
     spaceBetween: 10,
     autoplay:true,
     autoplay: 2500,
-    lazyLoadingOnTransitionStart:true
+    lazyLoadingOnTransitionStart:true,
+    pagination: '.progress_num',
+    paginationClickable: true,
+    paginationType: "custom",
+    paginationCustomRender: function (swiper, current, total) {
+      return '<span class="current">'+ current + '</span><span class="last">' + total +'</span>';
+  }
     });
 }  
 
-function interviewSwiper(){
-    var swiper = new Swiper('.interviewSwiper', {
-    preloadImages: false,
-    lazyLoading: true,
-    slidesPerView: '1',
-    paginationClickable: true,
-    nextButton:'.interview-next',
-    prevButton:'.interview-prev',
-    lazyLoadingOnTransitionStart:true,
-    pagination: '.progress_num',
-    });
-}  
 
 function pinSwiper(){
     var swiper = new Swiper('.pinSwiper', {
@@ -54,7 +48,7 @@ function pinSwiper(){
     });
 }  
 clubSwiper();
-interviewSwiper();
+
 pinSwiper();
 
     var $left = $('.boxImg').offset().left+120;
@@ -287,15 +281,6 @@ pinSwiper();
    barChart('.y2004 .bar', 180);
    barChart('.y2000 .bar', 30);
 
-  var chartScene = new ScrollMagic.Scene({
-        triggerElement: '#chart',
-        triggerHook:0.5,
-    })
-    .on('enter', function(){
-        init6();
-    })
-    .addTo(controller);
-
 //    var pinScene02Tl = new TimelineMax()
 //     .to($('#slide02 h1'), 0.2, {autoAlpha: 0, ease:Power1.easeNone}, 1.5)
 //     .to($('#slide02 section'), 0.2, {autoAlpha: 0, ease:Power1.easeNone}, 1.5)
@@ -324,5 +309,13 @@ pinSwiper();
 //     interviewSwiper('#section3 .inverviewSwiper');
 // })
 // .addTo(controller);
+        var chartnc6 = new ScrollMagic.Scene({
+        triggerElement: '.gp_class_box06',triggerHook:0.5
+    })
+        .addTo(controller)
+        .on('enter', function(){
+            // init6();
+            nc_chart06.gotoAndPlay(1);
+        });
 
 });

@@ -67,7 +67,7 @@ $(function() {
         스크립트 시작
     */
 
-   // 네비게이션
+    // 네비게이션
     var stageNavOpen = new TimelineMax({paused:true})
             .to('#stageNav', .4, {y:'100%'})
             .to('.btn_nav_open i', .4, {scale:0}, 0)
@@ -90,7 +90,23 @@ $(function() {
         stageNavOpen.reverse();
     });
     TweenMax.set('ol.menus',{display:'none'});
- 
+  //   $('.stage_nav_container').on('click', function(){
+  //       var openNav = $(this).find('.menus');
+  //       var toggle = openNav.height();
+  //       if(toggle !=0 ) {
+  //       TweenMax.staggerTo($('.stage_nav_container'), 0.1, {display:'block',height:'calc(100vh - 50px)'});
+  //       TweenMax.staggerTo($(this), 0.5, {display:'block'});
+  //       TweenMax.staggerTo(openNav, 0.5, {display:'block'});
+  //       console.log(openNav);
+  //       TweenMax.staggerTo($(this).find('.menu_ctrl.open'), 0.5, {className:'menu_ctrl close',overwrite:'none'});
+  //   } else {
+  //       TweenMax.staggerTo($(this), 0.5, {display:'block', height:'calc(25vh - 12.5px'});
+  //       TweenMax.staggerTo(openNav, 0.5, {display:'block'});
+  //       TweenMax.staggerTo($(this).find('.menu_ctrl.close'), 0.5, {className:'menu_ctrl open',overwrite:'none'});
+  //
+  //   }
+  // });
+
     $('.menu_ctrl').click(function(e){
         e.preventDefault();
 
@@ -451,6 +467,5 @@ function interviewSwiper(){
 interviewSwiper();
 pinSwiper();
 });
-
 
 

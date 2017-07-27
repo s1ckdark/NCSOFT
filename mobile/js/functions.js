@@ -73,6 +73,9 @@ $(function() {
             .to('.btn_nav_open i', .4, {scale:0}, 0)
             .to('.btn_nav_open', .2, {autoAlpha:0})
             .to('#allStageNav', .6, {autoAlpha:1,zIndex:110, height:'calc(100vh - 50px)',top:'50px'});
+    stageNavOpen.eventCallback('onReverseComplete', function(){
+      $('.menu_ctrl.close').click();
+    });
 
     $('.btn_nav_open, #stageNav .label').on('click', function(e){
         e.preventDefault();
@@ -84,38 +87,46 @@ $(function() {
     });
     $('.btn_nav_close').on('click', function(e){
         e.preventDefault();
-        TweenMax.staggerTo($('ol.menus'), 0.1, {display:'none'});
-        TweenMax.staggerTo($('.stage_nav_container'), 0.5, {display:'block'});
         stageNavOpen.reverse();
     });
-    TweenMax.set('ol.menus',{display:'none'})
-    $('.stage_nav_container').on('click', function(){
-        var openNav = $(this).find('.menus');
-        var toggle = openNav.height();
-        if(toggle !=0 ) { 
-        TweenMax.staggerTo($('.stage_nav_container'), 0.1, {display:'block',height:'calc(100vh - 50px)'});
-        TweenMax.staggerTo($(this), 0.5, {display:'block'});
-        TweenMax.staggerTo(openNav, 0.5, {display:'block'});
-        console.log(openNav);
-        TweenMax.staggerTo($(this).find('.menu_ctrl.open'), 0.5, {className:'menu_ctrl close',overwrite:'none'});
-    } else {
-        TweenMax.staggerTo($(this), 0.5, {display:'block', height:'calc(25vh - 12.5px'});
-        TweenMax.staggerTo(openNav, 0.5, {display:'block'});
-        TweenMax.staggerTo($(this).find('.menu_ctrl.close'), 0.5, {className:'menu_ctrl open',overwrite:'none'});
+    TweenMax.set('ol.menus',{display:'none'});
+  //   $('.stage_nav_container').on('click', function(){
+  //       var openNav = $(this).find('.menus');
+  //       var toggle = openNav.height();
+  //       if(toggle !=0 ) {
+  //       TweenMax.staggerTo($('.stage_nav_container'), 0.1, {display:'block',height:'calc(100vh - 50px)'});
+  //       TweenMax.staggerTo($(this), 0.5, {display:'block'});
+  //       TweenMax.staggerTo(openNav, 0.5, {display:'block'});
+  //       console.log(openNav);
+  //       TweenMax.staggerTo($(this).find('.menu_ctrl.open'), 0.5, {className:'menu_ctrl close',overwrite:'none'});
+  //   } else {
+  //       TweenMax.staggerTo($(this), 0.5, {display:'block', height:'calc(25vh - 12.5px'});
+  //       TweenMax.staggerTo(openNav, 0.5, {display:'block'});
+  //       TweenMax.staggerTo($(this).find('.menu_ctrl.close'), 0.5, {className:'menu_ctrl open',overwrite:'none'});
+  //
+  //   }
+  // });
 
-    }
+    $('.menu_ctrl').click(function(e){
+        e.preventDefault();
 
-  })
-    $('.menu_ctrl.open').click(function(){
-         TweenMax.staggerTo($(this).prev('.menus'), 0.1, {display:'block'});
-         TweenMax.staggerTo($(this), 0.1, {className:'menu_ctrl close',overwrite:'none'});
-    })
-    $('.menu_ctrl.close').click(function(){
-        TweenMax.staggerTo($('ol.menus'), 0.1, {display:'none'});
-        TweenMax.staggerTo($('.stage_nav_container'), 0.5, {display:'block', height:'calc(25vh - 12.5px'});
-        TweenMax.staggerTo($(this), 0.1, {className:'menu_ctrl open',overwrite:'none'});
+        var container = $(this).closest('.stage_nav_container');
 
-    })
+        if ($(this).hasClass('open')) {
+            // 열기
+            TweenMax.set(container.find('.menus'), {display:'block'});
+            TweenMax.set($(this), {className:'menu_ctrl close',overwrite:'none'});
+            TweenMax.set($('.stage_nav_container').not(container), {display:'none'});
+            TweenMax.set(container, {height:'100%'});
+            TweenMax.from(container, .4, { opacity: '0'});
+            TweenMax.from(container.find('.nav_inner'), .6, { top: '-50px'});
+        } else {
+            // 닫기
+            TweenMax.set(container.find('.menus'), {display:'none'});
+            TweenMax.set($(this), {className:'menu_ctrl open',overwrite:'none'});
+            TweenMax.set($('.stage_nav_container'), {height:'', display: ''});
+        }
+    });
     // 스테이지 네비게이션
     var sectionBar = [];
     var sectionCount = $('.section_wrap').length;

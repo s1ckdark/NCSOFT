@@ -395,7 +395,7 @@ $(function() {
                   canvas.width = winWidth;
                 canvas.height = winHeight;
 
-                mp = 0.35 * winWidth;
+                mp = 0.25 * winWidth;
 
                 particles = [];
 
@@ -663,6 +663,14 @@ $('#pinContainer .swiper-slide').each(function(){
         .on('enter',function(){pinSwiper.slideTo(indexPin)})
         .addTo(controller);
     });
+
+/* section Share */
+var section_url = encodeURIComponent( $("meta[property='og:url']").attr("content") ); //공유 URL
+var section_tit = encodeURIComponent( thisSlide.find('.title').text() );
+var section_txt = encodeURIComponent( thisSlide.find('.txt').text() );
+
+
+
 });
 
 

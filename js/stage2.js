@@ -44,7 +44,7 @@ $(function() {
     });
 
         $('#video3').fnSetVideo({
-        'ovpUrl': 'http://v.ovp.joins.com/mcozx2XE',
+        'ovpUrl': 'http://v.ovp.joins.com/2eVyAECk',
         'ovpRo': 1, // 1 = 16:9, 2 = 1:1
         'ctrls': true,
         'loop': false,

@@ -477,7 +477,7 @@ h2 {font-weight:300;}
 // 인트로
 .intro_wrap {
     position: relative;
-    width:100vw;
+    width: 100%;
     height: ~'calc(100vh - 50px)';
     background: @dark-color url('@{img-url}/bg_intro.jpg') no-repeat 50% 50%;
     background-size: cover;
@@ -507,37 +507,49 @@ h2 {font-weight:300;}
         }
     }
 }
+.intro_play {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin-top: -100px;
+    text-align: center;
+    a {
+        display: block;
+    }
+    .title {
+        line-height: 1;
+        .slogan {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: -0.08em;
+        }
+        .brand {
+            margin-top: 10px;
+            .font-eng();
+            font-size: 3rem;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+        }
+    }
+    .button {
+        margin-top: 10px;
+    }
+}
 .intro_title {
     position: absolute;
     top: 48%; left: 50%;
-    width: 100vw; height: 340px;
+    width: 100vw; height: 320px;
     overflow: hidden;
     margin-left: -50%; margin-top: -50%;
     text-align: center;
-    .title {
-            margin-bottom: 17%;
-            white-space: nowrap;
-            line-height: 1;
-            letter-spacing: -0.08em;
-            text-transform: uppercase;
-            height:50px;
-            font-size: 50px;
-            .korTitle {font-size:1.5rem;}
-            .engTitle {font-size:3rem;.font-eng();letter-spacing:4px;}
-    }
+    font-size: 15/16rem;
     ul {
         padding-top: 10%;
     }
     li {
         margin-top: 5vh; margin-bottom: 10vh;
-        &.first {
-            white-space: nowrap;
-            line-height: 1;
-            letter-spacing: -0.08em;
-            text-transform: uppercase;
-            .font-eng;
-            font-size: 2.5em;
-        }
     }
     p {
         width: 80vw;margin:0 auto;
@@ -546,7 +558,7 @@ h2 {font-weight:300;}
         display: block;
         margin-bottom: 1em;
         line-height: 1;
-        font-size: 1.2rem;
+        font-size: 20/16rem;
         font-weight: 300;
         &:before,
         &:after {
@@ -580,7 +592,7 @@ h2 {font-weight:300;}
 }
 .intro_mask {
     position: absolute; z-index: 20;
-    top: 0; left: 0; 
+    top: -1px; left: 0;
     width: 100%; height: 22px;
     background: -moz-linear-gradient(top, rgba(6,10,20,.8) 0%, rgba(6,10,20,0.63) 43%, rgba(6,10,20,0) 100%);
     background: -webkit-linear-gradient(top, rgba(6,10,20,.8) 0%,rgba(6,10,20,0.63) 43%,rgba(6,10,20,0) 100%);

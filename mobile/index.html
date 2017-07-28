@@ -307,16 +307,21 @@
     <!-- // 스테이지 네비게이션 -->
 
    <section id="intro" class="intro_wrap">
-            <canvas class="star_black"></canvas>
+       <canvas class="star_black"></canvas>
+
+       <div id="introPlay" class="intro_play">
+           <a href="#" id="introPlayLink">
+               <div class="title">
+                   <div class="slogan">2억 명이 모이는 놀이터</div>
+                   <div class="brand">NCSOFT</div>
+               </div>
+               <svg class="button" id="play_button" data-name="play button" xmlns="http://www.w3.org/2000/svg" width="65.5" height="82.5" viewBox="0 0 131 165"><defs><style>.cls-1 { fill: #1d3363; fill-opacity: 0; } .cls-1, .cls-3 { stroke: #faf9f7; stroke-width: 1px; } .cls-2 { fill: #fff; } .cls-2, .cls-3 { fill-rule: evenodd; } .cls-3 { fill: none; }</style></defs><circle id="circle" class="cls-1" cx="65.5" cy="99.5" r="65"/><path id="Polygon_1" data-name="Polygon 1" class="cls-2" d="M84.8 98l-30 17.2V80.6z"/><path id="line" class="cls-3" d="M67.5.5v57"/></svg>
+           </a>
+       </div>
+
             <div id="introTitle" class="intro_title">
                 <div class="intro_mask"></div>
                 <ul id="introText">
-                    <li class="first">
-                        <div class="title inner">
-                            <span class="korTitle">2억 명이 모이는 놀이터</span><br>
-                            <span class="engTitle">NCSOFT</span>
-                        </div>
-                    </li>
                     <li>
                         <div class="inner">
                             <p>
@@ -348,7 +353,7 @@
                 </li>
             </ul>
         </div>
-        <div class="intro_progress">
+        <div id="introProgress" class="intro_progress">
             <div class="bar"></div>
         </div>
 

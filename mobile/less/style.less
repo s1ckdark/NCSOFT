@@ -2,6 +2,7 @@
 // @import 'common';
 @import url('https://fonts.googleapis.com/css?family=Oswald:300|Quantico');
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400');
 @import 'fonts';
 
 @navy-color:#060a14;
@@ -704,17 +705,17 @@ h2 {font-weight:300;}
     .font-cond();
     text-transform: uppercase;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1rem;
     line-height:1;
     color: @theme-color;
     width:100%;
-
+    letter-spacing: 0;
 
     &:after {
         content: '';
         display: block;
-        width: 50px; height: 2px;
-        margin: 10px auto 0;
+        width: 25px; height: 2px;
+        margin: 5px auto 0;
         background-color: @theme-color;
     }
 
@@ -785,13 +786,12 @@ canvas.star_black, canvas.star_gold, canvas.star_ligh {
             }
         }
         aside {
-            margin-top: 15px;
         }
         .job {
             color: @theme-color;
             margin-bottom: 5px;
             line-height: 1;
-            font-size: 1rem;
+            font-size: 13/16rem;
             letter-spacing:-1px;
             &:after {
                 content: '';
@@ -816,7 +816,8 @@ canvas.star_black, canvas.star_gold, canvas.star_ligh {
         }
         .name {
             line-height: 1;
-            font-size: 1.5rem;
+            font-size: 20/16rem;
+            font-weight: 400;
         }
     }
 }
@@ -1132,8 +1133,8 @@ canvas.star_black, canvas.star_gold, canvas.star_ligh {
                 color: #fff;
                 font-style: normal;
                 font-weight: 200;
-                font-size: .9rem;
-                line-height: 1.6;
+                font-size: 15/16rem;
+                line-height: 1.5;
  
             }
             .desc {

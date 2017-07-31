@@ -3,23 +3,32 @@
         .bg_navy();
         width:100vw;height:auto;
         .inner {.inner();padding:0 0 30px;}
-        header {padding:50px 0 30px;}
-        header > h2 {.font('Quantico', 1.5rem, @theme-color, 300, center);}
-        header > h3 {.font('Quantico', 1.8rem, #fff, 300, center);}
+        header {padding:70px 0 35px;line-height:1;}
+        header > h2 {.font('Quantico', 15/16rem, @theme-color, 400, center);}
+        header > h3 {.font('Quantico', 25/16rem, #fff, 300, center);margin-top:5px;}
         div.subtitle {.inner();
-            &:before {content:'';width:30%;height:1px;background-color:@theme-color;display:inline-block;}
-            h2 {font-size:1.5rem;font-weight:300;line-height:1.6;letter-spacing:-1px;padding:10px;}
-            h3 {font-size:1.2rem;line-height:1.2;font-weight:300;
-                span {font-size:1rem;line-height:1.2;}
-            }
+            line-height: 1;
+            padding: 0;
+            margin-bottom: 25px;
+            &:before {content:'';width:30%;height:1px;background-color:@theme-color;display:block;margin:0 auto;}
+            h2 {font-size:24/16rem;font-weight: 200;letter-spacing:-1px;margin-top: 12px;}
+            h3 {font-size:15/16rem;font-weight: 200;margin-top: 9px;}
         }
-        div.contents {width:100%;height:auto;margin-top:30px;
-            p {.inner();line-height:1.6;margin:0px auto; padding:10px 0;}
+        div.contents {
+            width: 100%;
+            height: auto;
+            margin-top: 30px;
+            p {
+                .inner();
+                line-height: 1.6;
+                margin: 0 auto;
+                padding: 25px 0 40px;
+            }
         }
     }
     #section2 { 
     .part_one {
-        padding:0 0 100px;
+        padding:0 0 70px;
         div.subtitle {.inner();.clearfix();
              display:flex;
         flex-wrap:nowrap;
@@ -32,27 +41,27 @@
             .interviewBox2 {max-width:220px;max-height:220px;position:absolute;top:5px;left:20px;z-index:-1;background-image:url('@{img-url}/stage2_interviewBoxImg2.jpg');background-size:cover;width:30vw;height:30vw;display:block;}
         }
         div.contents {width:100%;height:auto;text-align:center;
-            h2 {font-size:1.5rem;line-height:35px;margin:20px 0 40px;}
-            p {font-size:1rem;margin:0 auto;.inner();line-height:1.6;}
+            h2 {font-size:1.5rem;line-height:1;margin:40px 0 20px;}
+            p {margin:0 auto;.inner();line-height:1.5;}
     }
 }
     .part_two {
-        padding:0 0 50px;
+        padding:70px 0;
         background-color:#fff;
         color:#000;
-        header > h2 {.font('Quantico', 1.8rem, #000, 300, center);text-transform: uppercase;margin:50px 0 0 0px;}
+        header > h2 {.font('Quantico', 27/16rem, #000, 400, center);text-transform: uppercase;line-height:1;}
         .NCsoftPeople_status {
             padding:0;
             width:90vw;
-            margin:0 auto;
+            margin:30px auto 0;
             .clearfix();
-            div.item {width:calc(~'50% - 1px');height:25vh;border:1px solid @theme-color;float:left;text-align:center;color:#000;line-height:32px;position:relative;display:block;
-                p {.font('Roboto', 3rem, #000, 400, center);letter-spacing:-1px;display:block;line-height:1.2;margin:0;
-                    &.club {font-size:1rem;line-height:1.4;}
+            div.item {box-sizing:border-box;width:calc(~'50% - 1px');height:110px;padding:15px 5px;border:1px solid @theme-color;float:left;text-align:center;color:#000;line-height:1;position:relative;display:block;
+                p {.font('Roboto Condensed',42/16rem, #000, 400, center);letter-spacing:-1px;display:block;line-height:1.2;margin:0;
+                    &.club {font-size:13/16rem;line-height:1.6;}
                 }
-                span.unit {font-size:1.5rem;}
-                span.hoverDesc {font-size:.8rem;text-align:center;color:#000;line-height:1rem;background:#fff;height:0.8rem;content:'';display:inline-block;}
-                label {font-size:18px;color:@theme-color;letter-spacing:-2px;}
+                span.unit {font-size:20/16rem;}
+                span.hoverDesc {font-size:13/16rem;text-align:center;color:#000;line-height:1;font-weight:400;min-height:1em;display:block;}
+                label {font-size:14/16rem;color:@theme-color;font-weight:400;}
                 &:nth-child(1) {border-color:@theme-color;border-width:1px 0px 1px 1px !important;}
                 &:nth-child(2) {border-color:@theme-color;border-width:1px 1px 1px 1px !important;}
                 &:nth-child(2n) {width:calc(~'50%  - 2px');border-color:@theme-color;border-width:0 1px 1px 1px;}
@@ -60,7 +69,7 @@
                 &:nth-child(6) {width:calc(~'50%  - 1px');border-left:0;}
             }
         }
-    .clubSwiper {margin:30px 0 50px;}
+    .clubSwiper {margin:30px 0 0;}
     .clubSwiper .swiper-slide {background-size:cover;width:75vw;height:calc(~'286 * 75vw / 455');display:block;}
     .club1 {background-image:url('@{img-url}/stage2_club1.jpg');}
     .club2 {background-image:url('@{img-url}/stage2_club2.jpg');}
@@ -80,7 +89,7 @@
 #section4 {background-color:#000;
 
    .jobDesc {
-        p {line-height:1.6;text-align:center;font-weight:200;}
+        p {font-size:15/16rem;line-height:1.5;text-align:center;font-weight:200;}
 }
 }
 #section5 {
@@ -101,7 +110,7 @@
             .image {
                 background-image: url('@{mobile-img-url}/stage2_pin1.jpg');}
                 .desc {background-color:#1d3363;z-index:1;
-               header > h2 {font-size:1.8rem;letter-spacing:-2px;margin:5vh 0 5vh; }
+               header > h2 {font-size:20/16rem;letter-spacing:-2px;margin:5vh 0 5vh; }
             
             }
             }
@@ -123,9 +132,9 @@
     display: block;
     padding-top: 100px;
       header {    text-align:center;
-            h2 {font-size:1.5rem;}
-            h3 {font-size:.9rem;font-weight:300;}
-   .goldLine {width:80px;height:1px;background-color:@theme-color;display:block;margin:0 auto;}
+            h2 {font-size:22/16rem;font-weight:200;line-height:1.333;}
+            h3 {font-size:10/16rem;font-weight:200;}
+   .goldLine {width:60px;height:1px;background-color:@theme-color;display:block;margin:0 auto 7px;}
 
         }
     .status_one {
@@ -150,7 +159,11 @@
             h2 {font-size:1.5em;}
          }
 
-    .contents {.clearfix();position:relative;margin-top:50px;
+    .contents {.clearfix();position:relative;
+        h3 {
+            font-size:10/16rem;
+            font-weight:200;
+        }
         .statusBox {position:relative;margin:10vh auto;text-align:center;
             .boxImg {width:230px;height:165px;display:block;background-image:url('@{img-url}/stage2_boxImg.jpg');margin:0 auto;}
         }
@@ -168,9 +181,15 @@
                 i {font-size:1rem;color:@theme-color;}
                 span {background-color:@theme-color;color:#000;position:absolute;}
             }
-             .barchart.s1997 {
-                i {font-size:.9rem;color:@theme-color;}
-                span {background-color:@theme-color;position:absolute;}
+            .barchart.s1997 {
+                i {
+                    font-size: .9rem;
+                    color: @theme-color;
+                }
+                span {
+                    background-color: @theme-color;
+                    position: absolute;
+                }
             }
         }
 
@@ -189,9 +208,9 @@
     height:calc(~'1148 * 100vw / 640');
     position:relative;
     // height:100%;
-    .inner {padding-top:150px;}
-    header > h2 {font-size:1.6rem;text-align:center;}
-    header > h3 {font-size:1.4rem;text-align:center;font-weight:300;}
+    .inner {padding-top:70px;}
+    header > h2 {font-size:22/16rem;text-align:center;line-height:1.4;}
+    header > h3 {font-size:18/16rem;text-align:center;margin-top:16px;font-weight:200;}
     .bg_slide {background-color:#0f1a32;width:100%;height:auto;position:relative;background-size:cover;background-repeat:no-repeat;background-position:50% 100%;top:0px;left:0px;}
     .blue_grident {width:100%;height:364px;position:absolute;top:50%;
     background-color:#0f1a32; /* For browsers that do not support gradients */
@@ -213,12 +232,12 @@
 #section13 {
     .inner {.inner();.clearfix();;margin:0 auto;
         .pointBlue.point {font-size:28px;}
-    header > h2 {.font('NotoSansKR', 1.8rem, @blue-color, 300, center);letter-spacing:-1px;margin:50px 0;}
-    header > h3 {.font('NotoSansKR', 1rem, #191919, 300, center);margin:30px auto 50px;}
-    .desc {.inner();.font('NotoSansKR', 0.9rem, #191919, 300, center)}
+    header > h2 {.font('NotoSansKR', 25/16rem, @blue-color, 400, center);letter-spacing:-1px;margin:70px 0 35px;}
+    header > h3 {.font('NotoSansKR', 15/16rem, #191919, 300, center);margin:0 auto 30px;}
+    .desc {.inner();.font('NotoSansKR', 15/16rem, #191919, 300, center);margin-bottom:70px;}
     .chart {margin:1em 0;
-        header > h2 {font-size:25px;margin:0 0 30px;}
-        h3 {font-size:15px;text-align:center;color:#222;font-weight:300;}
+        header > h2 {font-size:20/16rem;margin:0 0 30px;font-weight:400;}
+        h3 {font-size:13/16rem;text-align:center;color:#222;font-weight:300;}
         .barchart {position:relative;padding:0;
             .bar {display:block;height:30px;}
                 i {left:-25vw;position:absolute;padding: 5px 5px 5px 0;line-height:100%;border-right:1px solid @theme-color;display:inline-block;font-style:normal;color:@blue-color;font-size:.9rem;width:20vw;text-align:right;color:@blue-color;}

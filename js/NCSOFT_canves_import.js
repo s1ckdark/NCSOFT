@@ -10,7 +10,7 @@ function init() {
     canvas = document.getElementById("canvas");
     anim_container = document.getElementById("animation_container");
     dom_overlay_container = document.getElementById("dom_overlay_container");
-    var comp=AdobeAn.getComposition("6E0F2A2B378B424FBFA3192930A40FE0");
+    var comp=AdobeAn.getComposition("6E0F2A2B378B424FBFA3192930A40FE1");
     var lib=comp.getLibrary();
     var loader = new createjs.LoadQueue(false);
     loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
@@ -98,7 +98,7 @@ function init2() {
     canvas2 = document.getElementById("canvas2");
     anim_container2 = document.getElementById("animation_container2");
     dom_overlay_container2 = document.getElementById("dom_overlay_container2");
-    var comp=AdobeAn.getComposition("7E0F2A2B378B424FBFA3192930A40FE0");
+    var comp=AdobeAn.getComposition("6E0F2A2B378B424FBFA3192930A40FE0");
     var lib=comp.getLibrary();
     var loader = new createjs.LoadQueue(false);
     loader.addEventListener("fileload", function(evt){handleFileLoad2(evt,comp)});

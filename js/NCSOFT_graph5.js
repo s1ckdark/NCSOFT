@@ -36,11 +36,11 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 
 	// Layer 1
 	this.shape = new cjs.Shape();
-	this.shape.graphics.f("#EEF4F8").s().p("AgKApIgIgFQgEgFgBgDQgCgEAAgGIAPAAQABAGACACQACADAFAAQAFAAACgDIADgFIABgIQgBgIgBgDQgDgDgGAAQgCAAgEABIgEAFIgNAAIAAgvIAvAAIAAAOIgiAAIAAASIAGgDIAGgBQAGAAAEABIAGAEQAGAGABAEQACAGgBAGQABAIgCAFQgCAGgEAEIgIAFQgGACgFAAQgDAAgHgCg");
+	this.shape.graphics.f("#AF9878").s().p("AgKApIgIgFQgEgFgBgDQgCgEAAgGIAPAAQABAGACACQACADAFAAQAFAAACgDIADgFIABgIQgBgIgBgDQgDgDgGAAQgCAAgEABIgEAFIgNAAIAAgvIAvAAIAAAOIgiAAIAAASIAGgDIAGgBQAGAAAEABIAGAEQAGAGABAEQACAGgBAGQABAIgCAFQgCAGgEAEIgIAFQgGACgFAAQgDAAgHgCg");
 	this.shape.setTransform(-56.5,59.5,0.967,0.967);
 
 	this.shape_1 = new cjs.Shape();
-	this.shape_1.graphics.f("#EEF4F8").s().p("AgZArIAAgOIAfgkIADgFIACgFQAAgFgDgDQgDgDgFAAQgEAAgCACQgEADABAGIgQAAQAAgLAHgHQAHgHALAAQALAAAIAHQAHAHAAALQAAAGgCAEIgeAkIAgAAIAAAOg");
+	this.shape_1.graphics.f("#AF9878").s().p("AgZArIAAgOIAfgkIADgFIACgFQAAgFgDgDQgDgDgFAAQgEAAgCACQgEADABAGIgQAAQAAgLAHgHQAHgHALAAQALAAAIAHQAHAHAAALQAAAGgCAEIgeAkIAgAAIAAAOg");
 	this.shape_1.setTransform(-62.8,59.4,0.967,0.967);
 
 	this.shape_2 = new cjs.Shape();
@@ -52,7 +52,7 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 	this.shape_3.setTransform(79.9,1,0.967,0.967);
 
 	this.shape_4 = new cjs.Shape();
-	this.shape_4.graphics.f("#EEF4F8").s().p("AkiKxQiGg5hohnQhnhog5iGQg7iLAAiYQAAiXA7iLQA5iGBnhoQBohnCGg5QCLg7CXAAQCYAACLA7QCGA5BoBnQBnBoA5CGQA7CLAACXQAACYg7CLQg5CGhnBoQhoBniGA5QiLA7iYAAQiXAAiLg7g");
+	this.shape_4.graphics.f("#080B10").s().p("AkiKxQiGg5hohnQhnhog5iGQg7iLAAiYQAAiXA7iLQA5iGBnhoQBohnCGg5QCLg7CXAAQCYAACLA7QCGA5BoBnQBnBoA5CGQA7CLAACXQAACYg7CLQg5CGhnBoQhoBniGA5QiLA7iYAAQiXAAiLg7g");
 	this.shape_4.setTransform(0,0,0.967,0.967);
 
 	this.shape_5 = new cjs.Shape();
@@ -76,11 +76,11 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 	this.shape_9.setTransform(-2.5,-48.4,0.967,0.967);
 
 	this.shape_10 = new cjs.Shape();
-	this.shape_10.graphics.f("#DFCDB4").s().p("AB6GrQivhHiJiEQiJiDhQiqQhSiwgKjEIPngzIAAPpQjFAAi1hKg");
+	this.shape_10.graphics.f("#FFFFFF").s().p("AB6GrQivhHiJiEQiJiDhQiqQhSiwgKjEIPngzIAAPpQjFAAi1hKg");
 	this.shape_10.setTransform(-48.4,48.5,0.967,0.967);
 
 	this.shape_11 = new cjs.Shape();
-	this.shape_11.graphics.f("#EEF4F8").s().p("AmVPAQi7hPiQiQQiQiRhPi6QhSjCAAjUQAAjTBSjBQBPi8CQiQQCQiQC7hPQDChSDTAAQDUAADBBSQC7BPCRCQQCQCQBPC8QBSDBAADTQAADUhSDCQhPC6iQCRQiRCQi7BPQjBBSjUAAQjTAAjChSg");
+	this.shape_11.graphics.f("#080B10").s().p("AmVPAQi7hPiQiQQiQiRhPi6QhSjCAAjUQAAjTBSjBQBPi8CQiQQCQiQC7hPQDChSDTAAQDUAADBBSQC7BPCRCQQCQCQBPC8QBSDBAADTQAADUhSDCQhPC6iQCRQiRCQi7BPQjBBSjUAAQjTAAjChSg");
 	this.shape_11.setTransform(0,0,0.967,0.967);
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape_11},{t:this.shape_10},{t:this.shape_9},{t:this.shape_8},{t:this.shape_7},{t:this.shape_6},{t:this.shape_5},{t:this.shape_4},{t:this.shape_3},{t:this.shape_2},{t:this.shape_1},{t:this.shape}]}).wait(1));
@@ -260,21 +260,22 @@ p.nominalBounds = new cjs.Rectangle(-600.7,-307.3,942.3,628.3);
 (lib.NCSOFT_graph5 = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
-	// timeline functions:
-	this.frame_0 = function() {
-		this.stop();
+    // timeline functions:
+    this.frame_0 = function() {
+        //this.stop();
         nc_chart05 = this;
-	}
-	this.frame_64 = function() {
+    }
+    this.frame_64 = function() {
 		/* Stop at This Frame
-		The  timeline will stop/pause at the frame where you insert this code.
-		Can also be used to stop/pause the timeline of movieclips.
-		*/
-		
-		this.stop();
-	}
+		 The  timeline will stop/pause at the frame where you insert this code.
+		 Can also be used to stop/pause the timeline of movieclips.
+		 */
 
-	// actions tween:
+        this.stop();
+    }
+
+
+    // actions tween:
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(64).call(this.frame_64).wait(1));
 
 	// man
@@ -357,7 +358,7 @@ lib.properties = {
 	color: "#333333",
 	opacity: 1.00,
 	manifest: [
-		{src:"img/Image.png?1499930665732", id:"Image"}
+		{src:"img/Image.png?1501814172100", id:"Image"}
 	],
 	preloads: []
 };

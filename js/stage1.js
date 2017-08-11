@@ -8,13 +8,14 @@ $(function() {
     var currentStage = $('#viewport').attr('class');
         
     var controller = new ScrollMagic.Controller(); 
+    init(); // 그래프 1번 - 콘텐츠산업 내 수출기여도
+    init2(); // 그래프 2번 - 콘텐츠산업 내 매출비중?
+    init3(); // 그래프 2번 - 콘텐츠산업 내 매출비중?
+    init4(); // 그래프 2번 - 콘텐츠산업 내 매출비중?
+    init5(); // 그래프 2번 - 콘텐츠산업 내 매출비중?
+    // init6(); // 그래프 2번 - 콘텐츠산업 내 매출비중?
 
-    init();// 그래프 1번 - 콘텐츠산업 내 수출기여도
-    init2();// 그래프 2번 - 콘텐츠산업 내 매출비중?
-    init3();// 그래프 3번 - 야구장 그래프
-    init4();// 그래프 4번 - 바 그래프
-    init5();// 그래프 5번 - 바 그래프
-
+    
   function jsySwiper(){
     var swiper = new Swiper('.jsySwiper', {
     preloadImages: false,
@@ -31,23 +32,6 @@ jsySwiper();
 
         $('.panel').css({'height': winHeight });
         $('#pinContainer').css({'height': winHeight });
-
-
-        // var wipeAnimation1 = new TimelineMax()
-        //     .fromTo(".panel.pin1 .image", 1, {y: "0%" }, {y: "-100%",  ease: Linear.easeNone }, .5)  
-        //     .fromTo(".panel.pin1 .desc", 1, {y:  "0%" }, {y: "100%", ease: Linear.easeNone}, .5)
-        //     .fromTo(".panel.pin2 .image", 1, {y: "100%"}, {y: "0%",  ease: Linear.easeNone }, .5)  
-        //     .fromTo(".panel.pin2 .desc", 1, {y:  "-100%"}, {y: "0%",ease: Linear.easeNone}, .5);
-        // // create scene to pin and link animation
-        // new ScrollMagic.Scene({
-        //         triggerElement: '#pinContainer',
-        //         triggerHook:'onLeave',
-        //         duration:winHeight*2
-        //     })
-        //     .setPin("#pinContainer")
-        //     // .setTween(wipeAnimation1)
-        //     .addTo(controller);
-
 
 
     // ovp 연동하기
@@ -86,8 +70,6 @@ jsySwiper();
         'preload': 'none',
         'poster': '/project/NCsoft/video/stage1_video4.jpg'
     });
-
-    // 이기석 챠트 영역 트리거 호출 하자!!
 
   var chartnc1 = new ScrollMagic.Scene({triggerElement: '.gp_class_box01',triggerHook:0.5})
         .on('enter', function(){
@@ -161,6 +143,63 @@ jsySwiper();
         .setPin("section#pin")
         .addTo(controller);
 
+
+TweenMax.set(['.star_black', '.star_gold'],{display:'none'});
+$(window).load(function(){
+var star_black_on_triggers = ['#section1','#section3', '#section6', '#section7 .interview_wrap','#section9','#section10','#section12'];
+var star_black_off_triggers = ['#section2','#section4', '#section5','#section8','#section11-1','#foot'];
+
+var star_gold_on_triggers = ['#section2 .part_three'];
+var star_gold_off_triggers = ['#section3','#section5','#section7','#section8'];
+
+star_black_on_triggers.forEach(function (trigger, index) {
+    // make tween
+    // make scene
+    var star_black_on = TweenMax.set('.star_black',{display:'block'});
+    new ScrollMagic.Scene({
+        triggerElement: trigger,
+        triggerHook:'enter'
+    })
+    .setTween(star_black_on)
+    .addTo(controller);
+});
+
+star_black_off_triggers.forEach(function (trigger, index) {
+    // make tween
+    // make scene
+    var star_black_off = TweenMax.set('.star_black',{display:'none'});
+    var blackoff = new ScrollMagic.Scene({
+        triggerElement: trigger,
+        triggerHook:'leave'
+    })
+    .setTween(star_black_off)
+    .addTo(controller);
+});
+
+star_gold_on_triggers.forEach(function (trigger, index) {
+    // make tween
+    // make scene
+    var star_gold_on = TweenMax.set('.star_gold',{display:'block'});
+    new ScrollMagic.Scene({
+        triggerElement: trigger,
+        triggerHook:.5
+    })
+    .setTween(star_gold_on)
+    .addTo(controller);
+});
+
+star_gold_off_triggers.forEach(function (trigger, index) {
+    // make tween
+    // make scene
+    var star_gold_off = TweenMax.set('.star_gold',{display:'none'});
+    new ScrollMagic.Scene({
+        triggerElement: trigger,
+        triggerHook:'leave'
+    })
+    .setTween(star_gold_off)
+    .addTo(controller);
+});
+})
         
 
 });

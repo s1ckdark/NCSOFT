@@ -13,12 +13,14 @@ $(function() {
     slidesPerView: 'auto',
     paginationClickable: true,
     spaceBetween: 10,
-    // autoplay:true,
-     // autoplay: 2500,
+    autoplay:true,
+    autoplay: 2500,
+    loop:true,
     lazyLoadingOnTransitionStart:true,
     pagination: '.progress_num',
     paginationClickable: true,
     paginationType: "custom",
+    nextButton: '.arrow-next',
     paginationCustomRender: function (swiper, current, total) {
       return '<span class="current">'+ current + '</span><span class="last">' + total +'</span>';
   }
@@ -27,53 +29,41 @@ $(function() {
 
 jsySwiper();
 
+   // ovp 연동하기
+    $('#video1').fnSetVideo({
+        'ovpUrl': 'http://v.ovp.joins.com/nxSoq3gI',
+        'ovpRo': 1, // 1 = 16:9, 2 = 1:1
+        'ctrls': true,
+        'loop': false,
+        'preload': 'auto',
+        'poster': '/project/NCSOFT/video/stage1_video1.jpg'
+    });
 
- var chartnc1 = new ScrollMagic.Scene({
-        triggerElement: '.gp_class_box01',triggerHook:0.5,
-    })
-        .addTo(controller)
-        .on('enter', function(){
-            // init();
-            nc_chart01.gotoAndPlay(1);
-        });
+      $('#video2').fnSetVideo({
+        'ovpUrl': 'http://v.ovp.joins.com/9UcwlLLT',
+        'ovpRo': 1, // 1 = 16:9, 2 = 1:1
+        'ctrls': true,
+        'loop': false,
+        'preload': 'auto',
+        'poster': '/project/NCSOFT/video/stage1_video2.jpg'
+    });
 
-    var chartnc2 = new ScrollMagic.Scene({
-        triggerElement: '.gp_class_box02',triggerHook:0.5,
-    })
-        .addTo(controller)
-        .on('enter', function(){
-            // init2();
-            nc_chart02.gotoAndPlay(1);
-        });
+        $('#video3').fnSetVideo({
+        'ovpUrl': 'http://v.ovp.joins.com/2vT0q3gl',
+        'ovpRo': 1, // 1 = 16:9, 2 = 1:1
+        'ctrls': true,
+        'loop': false,
+     'preload': 'auto',
+        'poster': '/project/NCSOFT/video/stage1_video3.jpg'
+    });
 
-    var chartnc3 = new ScrollMagic.Scene({
-        triggerElement: '.gp_class_box03',triggerHook:0.5,
-    })
+         $('#video4').fnSetVideo({
+        'ovpUrl': 'http://v.ovp.joins.com/nY0ox2XE',
+        'ovpRo': 1, // 1 = 16:9, 2 = 1:1
+        'ctrls': true,
+        'loop': false,
+       'preload': 'auto',
+        'poster': '/project/NCSOFT/video/stage1_video4.jpg'
+    });
 
-        .addTo(controller)
-        .on('enter', function(){
-            // init3();
-            nc_chart03.gotoAndPlay(1);
-        });
-
-
-    var chartnc4 = new ScrollMagic.Scene({
-        triggerElement: '.gp_class_box05',triggerHook:0.5,
-    })
-
-        .addTo(controller)
-        .on('enter', function(){
-            // init4();
-            nc_chart04.gotoAndPlay(1);
-        });
-
-
-    var chartnc5 = new ScrollMagic.Scene({
-        triggerElement: '.gp_class_box04',triggerHook:0.5,
-    })
-        .addTo(controller)
-        .on('enter', function(){
-            // init5();
-            nc_chart05.gotoAndPlay(1);
-        });
 });

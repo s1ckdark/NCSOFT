@@ -3,7 +3,7 @@
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [
-		{name:"NCSOFT_graph1_atlas_", frames: [[0,0,520,553],[522,0,520,553],[1044,0,520,553],[1044,1665,520,553],[0,555,520,553],[522,555,520,553],[1044,555,520,553],[0,2775,520,553],[0,3330,520,553],[522,2220,520,553],[1044,2220,520,553],[522,2775,520,553],[522,3330,520,553],[1044,2775,520,553],[1044,3330,520,553],[0,1110,520,553],[522,1110,520,553],[1044,1110,520,553],[0,1665,520,553],[522,1665,520,553],[0,2220,520,553]]}
+		{name:"NCSOFT_graph1_atlas_", frames: [[1044,0,520,553],[0,0,520,553],[522,0,520,553],[0,555,520,553],[0,1665,520,553],[522,2220,520,553],[1044,2220,520,553],[522,2775,520,553],[522,3330,520,553],[1044,2775,520,553],[1044,3330,520,553],[522,1665,520,553],[1044,1665,520,553],[0,2220,520,553],[0,2775,520,553],[0,3330,520,553],[522,555,520,553],[1044,555,520,553],[0,1110,520,553],[522,1110,520,553],[1044,1110,520,553]]}
 ];
 
 
@@ -1061,8 +1061,8 @@ p.nominalBounds = new cjs.Rectangle(-11.7,-158.9,520,553);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		this.stop();
-		nc_chart01 = this;
+		// this.stop();
+        nc_chart01 = this;
 	}
 	this.frame_74 = function() {
 		/* Stop at This Frame
@@ -1187,16 +1187,16 @@ p.nominalBounds = new cjs.Rectangle(-11.7,-158.9,520,553);
 	// tit3
 	this.instance_12 = new lib.ti3("synched",0);
 	this.instance_12.parent = this;
-	this.instance_12.setTransform(252.5,168.1);
+	this.instance_12.setTransform(252.5,163.1);
 	this.instance_12.alpha = 0;
 	this.instance_12._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_12).wait(15).to({_off:false},0).to({y:148.1,alpha:1},4).wait(56));
+	this.timeline.addTween(cjs.Tween.get(this.instance_12).wait(15).to({_off:false},0).to({y:143.1,alpha:1},4).wait(56));
 
 	// tit2
 	this.instance_13 = new lib.ti2("synched",0);
 	this.instance_13.parent = this;
-	this.instance_13.setTransform(449.7,119.2);
+	this.instance_13.setTransform(449.7,111.2);
 	this.instance_13.alpha = 0;
 	this.instance_13._off = true;
 
@@ -1205,7 +1205,7 @@ p.nominalBounds = new cjs.Rectangle(-11.7,-158.9,520,553);
 	// tit1
 	this.instance_14 = new lib.ti1("synched",0);
 	this.instance_14.parent = this;
-	this.instance_14.setTransform(178.7,118.5);
+	this.instance_14.setTransform(178.7,110.5);
 	this.instance_14.alpha = 0;
 	this.instance_14._off = true;
 
@@ -1214,23 +1214,23 @@ p.nominalBounds = new cjs.Rectangle(-11.7,-158.9,520,553);
 	// icon
 	this.instance_15 = new lib.g1_gp("synched",0);
 	this.instance_15.parent = this;
-	this.instance_15.setTransform(250.7,71,0.233,0.233);
+	this.instance_15.setTransform(250.7,62,0.233,0.233);
 	this.instance_15.alpha = 0;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_15).to({regY:-0.1,scaleX:0.55,scaleY:0.55,y:51,alpha:1},5).to({regX:0.1,regY:0,scaleX:0.69,scaleY:0.69,y:51.1},2).to({regX:0,regY:-0.1,scaleX:0.55,scaleY:0.55,y:51},2).wait(66));
+	this.timeline.addTween(cjs.Tween.get(this.instance_15).to({regY:-0.1,scaleX:0.55,scaleY:0.55,y:42,alpha:1},5).to({regX:0.1,regY:0,scaleX:0.69,scaleY:0.69,y:42.1},2).to({regX:0,regY:-0.1,scaleX:0.55,scaleY:0.55,y:42},2).wait(66));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(491.2,333.1,39,28.7);
+p.nominalBounds = new cjs.Rectangle(491.2,324.1,39,28.7);
 // library properties:
 lib.properties = {
-	id: '6E0F2A2B378B424FBFA3192930A40FE0',
+	id: '6E0F2A2B378B424FBFA3192930A40FE1',
 	width: 520,
 	height: 553,
 	fps: 24,
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"img/NCSOFT_graph1_atlas_.png?1500445445192", id:"NCSOFT_graph1_atlas_"}
+		{src:"img/NCSOFT_graph1_atlas_.png?1499930601882", id:"NCSOFT_graph1_atlas_"}
 	],
 	preloads: []
 };
@@ -1268,7 +1268,7 @@ an.bootstrapCallback=function(fnCallback) {
 };
 
 an.compositions = an.compositions || {};
-an.compositions['6E0F2A2B378B424FBFA3192930A40FE0'] = {
+an.compositions['6E0F2A2B378B424FBFA3192930A40FE1'] = {
 	getStage: function() { return exportRoot.getStage(); },
 	getLibrary: function() { return lib; },
 	getSpriteSheet: function() { return ss; },

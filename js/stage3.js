@@ -9,61 +9,6 @@ $(function() {
         
     var controller = new ScrollMagic.Controller(); 
 
-	// var $offsetH = $(window).innerHeight();
- //    var productDesignScene = new ScrollMagic.Scene({
- //        triggerElement: "#pinContainer2",
- //        triggerHook: 'onLeave',
- //        duration: $offsetH*4 // 2100 + 1500
- //        })
- //        .setPin("#pinContainer2")
- //        .addTo(controller);
-
-  
-    // var pin1 = new ScrollMagic.Scene({
-    //     triggerElement: "#pinContainer2",
-    //     offset: 600
-    //     })
-    //     .setTween(
-    //         new TimelineMax().fromTo(".scene1 .image1", 1, {opacity: 1}, {opacity: 1, ease: Linear.easeNone})
-    //         .fromTo(".scene1 .desc",1, {opacity: 1}, {opacity: 1, ease: Linear.easeNone})
-    //         .fromTo(".scene1 .desc p",1, {opacity: 0}, {opacity: 1, ease: Linear.easeNone})
-    //     )
-    //     .addTo(controller);
-    // var pin2 = new ScrollMagic.Scene({
-    //     triggerElement: "#pinContainer2",
-    //     offset: 1200
-    //     })
-    //     .setTween(
-    //         new TimelineMax().fromTo(".scene2 .image2", 1, {opacity: 0}, {opacity: 1, ease: Linear.easeNone})
-    //      .fromTo(".scene2 .desc",0.5, {opacity: 0}, {opacity: 1, ease: Linear.easeNone})
-    //      .fromTo(".scene2 .desc p",1, {opacity: 0}, {opacity: 1, ease: Linear.easeNone})
-    //     )
-    //     .addTo(controller);
-
-    // var pin3 = new ScrollMagic.Scene({
-    //     triggerElement: "#pinContainer2",
-    //     offset:  1800
-    //     })
-    //     .setTween(
-    //         new TimelineMax().fromTo(".scene .image3", 1, {opacity: 0}, {opacity: 1, ease: Linear.easeNone})
-    //       .fromTo(".scene3 .desc",1, {opacity: 0}, {opacity: 1, ease: Linear.easeNone})
-    //       .fromTo(".scene3 .desc p",1, {opacity: 0}, {opacity: 1, ease: Linear.easeNone})
-    //     )
-    //     .addTo(controller);
-
-    //     var pin4 = new ScrollMagic.Scene({
-    //     triggerElement: "#pinContainer2",
-    //     offset:  1200
-    //     })
-    //     .setTween(
-    //         new TimelineMax().fromTo(".scene .image4", 1, {opacity: 0}, {opacity: 1, ease: Linear.easeNone})
-    //       .fromTo(".scene4 .desc",1, {opacity: 0}, {opacity: 1, ease: Linear.easeNone})
-    //       .fromTo(".scene4 .desc p",1, {opacity: 0}, {opacity: 1, ease: Linear.easeNone})
-    //     )
-    //     .addTo(controller);
-   
- 
-
 function gameScreenShotSwiper(){
     var swiper = new Swiper('.gameScreenShotSwiper', {
     preloadImages: false,
@@ -77,4 +22,61 @@ function gameScreenShotSwiper(){
     });
 }  
 gameScreenShotSwiper();
+
+TweenMax.set(['.star_black', '.star_gold'],{display:'none'});
+$(window).load(function(){
+var star_black_on_triggers = ['#section1','#section3', '#section8','#section10'];
+var star_black_off_triggers = ['#section1 .part_three', '#section2', '#section4', '#section5','#section8','#section9','#section11'];
+
+var star_gold_on_triggers = ['#section1 .part_four','#section7'];
+var star_gold_off_triggers = ['#section1', '#section2',  '#section5','#section8','#section9'];
+
+star_black_on_triggers.forEach(function (trigger, index) {
+    // make tween
+    // make scene
+    var star_black_on = TweenMax.set('.star_black',{display:'block'});
+    new ScrollMagic.Scene({
+        triggerElement: trigger,
+        triggerHook:'enter'
+    })
+    .setTween(star_black_on)
+    .addTo(controller);
+});
+
+star_black_off_triggers.forEach(function (trigger, index) {
+    // make tween
+    // make scene
+    var star_black_off = TweenMax.set('.star_black',{display:'none'});
+    var blackoff = new ScrollMagic.Scene({
+        triggerElement: trigger,
+        triggerHook:'leave'
+    })
+    .setTween(star_black_off)
+    .addTo(controller);
+});
+
+star_gold_on_triggers.forEach(function (trigger, index) {
+    // make tween
+    // make scene
+    var star_gold_on = TweenMax.set('.star_gold',{display:'block'});
+    new ScrollMagic.Scene({
+        triggerElement: trigger,
+        triggerHook:.5
+    })
+    .setTween(star_gold_on)
+    .addTo(controller);
+});
+
+star_gold_off_triggers.forEach(function (trigger, index) {
+    // make tween
+    // make scene
+    var star_gold_off = TweenMax.set('.star_gold',{display:'none'});
+    new ScrollMagic.Scene({
+        triggerElement: trigger,
+        triggerHook:'leave'
+    })
+    .setTween(star_gold_off)
+    .addTo(controller);
+});
+})
     });

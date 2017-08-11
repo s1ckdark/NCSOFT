@@ -57,31 +57,93 @@ $(function() {
     var controller = new ScrollMagic.Controller(); 
 
 
+        TweenMax.set('.star_black', {display:'block'});
     /*
         스크립트 시작
     */
 
-        // $('#hiddenStage').fnSetVideo({
-    // 'ovpUrl': 'http://v.ovp.joins.com/ExXst2VK',
-    // 'ovpRo': 1, // 1 = 16:9, 2 = 1:1
-    // 'ctrls': false,
-    // 'loop': false,
-    // 'preload': 'none',
-    // 'poster': '/project/NCsoft/video/main_interview_poster.jpg'
-    // });
+    $('.onhiddenstage video').fnSetVideo({
+    'ovpUrl': 'http://v.ovp.joins.com/ExXst2VK',
+    'ovpRo': 1, // 1 = 16:9, 2 = 1:1
+    'ctrls': false,
+    'loop': false,
+    'auto':true,
+    'preload': 'metadata',
+    'poster': '/project/NCSOFT/img/hiddenstage_poster.jpg'
+    });
 
+   function checkHidden(){
+        var ls1=localStorage.getItem('stage1'), ls2=localStorage.getItem('stage2'), ls3=localStorage.getItem('stage3');
+        if(ls1 == 'complete' && ls2 == 'complete' && ls3 == 'complete') { 
+        TweenMax.set('.onhiddenstage',{display:'block'});
+        // TweenMax.set(['#introTitle','.intro_progress','.scroller.hiddenstage','.btn_nav_open'],{display:'none'});
+        TweenMax.set(['.btn_nav_open'],{display:'none'});
+        TweenMax.fromTo('.onhiddenstage .completebox', 1,{opacity:0,scale:0,y:100}, {opacity:1, scale:1.2,y:0,zIndex:22}, 2);
+        TweenMax.fromTo('.onhiddenstage .completeTitle', 1,{opacity:0,scale:0,y:100}, {opacity:1, scale:1.2,ease: Bounce.easeOut,y:0,zIndex:22}, 3);
+        $('.onhiddenstage video')[0].pause();
+     
+     var introPlay = document.getElementById('introPlay');
+     var introPlayLink = document.querySelector('.close_video');
+     if(introPlay != null) {
+    // 플레이 버튼 사라지기
+    var playTween = new TimelineMax({paused:true})
+        .to(introPlay, .6, {opacity: '0'}, .1)
+        .to(introPlay, 0, {display: 'none'}, .1)
+        .to('.onhiddenstage', .1 ,{display:'none', opacity:0}, .5)
+        .to('#introTitle', 1 ,{display:'block'}, .1)
+        .to('#intro_progress',1,{display:'block'}, .1)
+        .to(['.billboard_nav', '#intro'],.1,{display:'block'}, .1)
 
+    // 인트로 텍스트 자동 스크롤 트윈
+   setTimeout(function() {
+            // console.log('show hiddenstage');
+            // console.log("remove localstorage");
+            removeHidden();
+            $('.onhiddenstage video')[0].play();
+            TweenMax.to('.onhiddenstage video', 0.6, {zIndex:99});
+            TweenMax.to('.onhiddenstage .completebox', 0.6, {visibility:'hidden',opactiy:0});
+        }, 4000); 
+   $('.close_video').click(function(){
+    TweenMax.to(['.onhiddenstage', '.close_video'], .6, {display:'none'});
+    TweenMax.to('btn_nav_open', .6, {display:'block'});
+            playTween.restart();
+
+})
+    // 인트로 플레이 버튼 클릭 이벤트
+    introPlayLink.addEventListener('click', function(e) {
+        e.preventDefault();
+         removeHidden();
+        playTween.restart();
+     });}
+       } else {
+         TweenMax.set('.onhiddenstage',{display:'none'});
+       }
+   }
+   function removeHidden(){
+  localStorage.removeItem('stage1');
+  localStorage.removeItem('stage2');
+  localStorage.removeItem('stage3');
+}
+
+   checkHidden();
     // 네비게이션
+    // TweenMax.set('#hiddenIntro',{display:'none'});
     var stageNavOpen = new TimelineMax({paused:true})
             .to('#stageNav', .4, {x:'100%'})
             .to('.btn_nav_open i', .4, {scale:0}, 0)
             .to('.btn_nav_open', .2, {autoAlpha:0})
             .to('#allStageNav', .6, {autoAlpha:1,zIndex:110});
-
-    $('.btn_nav_open, #stageNav .label').on('click', function(e){
+    function checkNext(){
+            var ls1=localStorage.getItem('stage1'), ls2=localStorage.getItem('stage2'), ls3=localStorage.getItem('stage3'); 
+        if(ls1 && ls2 && ls3) {location.href="index.html"} else {
+            alert('모든 컨텐츠를 다 감상하시면 열립니다');}
+    }
+    $('.btn_nav_open, #stageNav .label').not('.label.sns').on('click', function(e){
         e.preventDefault();
         if( $(this).parent().hasClass('nav_hidden') ){
-            alert('모든 컨텐츠를 다 감상하시면 열립니다');
+        var ls1=localStorage.getItem('stage1'), ls2=localStorage.getItem('stage2'), ls3=localStorage.getItem('stage3'); 
+        if(ls1 && ls2 && ls3) {location.href="index.html"} else {
+            alert('모든 컨텐츠를 다 감상하시면 열립니다');}
         } else {
             stageNavOpen.restart();
         }
@@ -107,51 +169,198 @@ $(function() {
         sectionBar.push('<b><i></i></b>');
     }
     $('#stageNav .bar').append( sectionBar.join('') );
-    $(window).load(function(){
+   
+   $(window).load(function(){
         $('.section_wrap').each(function(){
-            var $this = $(this);
-            var index = $this.index();
+            var index =  $('.section_wrap').index(this);
             var mission = {};
-            mission.stage = currentStage;
             new ScrollMagic.Scene({
                 triggerElement: this,
                 triggerHook: 1,
                 offset: -roofHeight,
-                duration: $this.height()
+                duration: $(this).height()
             })
             .addTo(controller)
             .reverse(false) // 거꾸로 방지
             .on('enter leave progress', function (e) {
                 if ( e.type == 'enter') {
                     // console.log('깜빡꺼리기')
-                    TweenMax.set('#stageNav .bar b:eq('+$this.index()+') i', {backgroundColor:'#fff'})
-                    TweenMax.to('#stageNav .bar b:eq('+$this.index()+') i', .4, {backgroundColor:'#fff' ,opacity:0, repeat:-1, yoyo:true})
-               
+                    TweenMax.set('#stageNav .bar b:eq('+index+') i', {backgroundColor:'#fff'})
+                    TweenMax.to('#stageNav .bar b:eq('+index+') i', .4, {backgroundColor:'#fff' ,opacity:0, repeat:-1, yoyo:true})
                 }
-                if ( e.type == 'leave') {
-                    // console.log('멈추기')
-                        TweenMax.to('#stageNav .bar b:eq('+$this.index()+') i', .3, {opacity:1})
-                        mission.progress = $this.attr('id'); 
-                        console.log(JSON.stringify(mission));
-                        localStorage.setItem('mission', JSON.stringify(mission));
-                                              }
+                // if ( e.type == 'leave') {
+                //     // console.log('멈추기')
+                //         TweenMax.to('#stageNav .bar b:eq('+$this.index()+') i', .3, {opacity:1})
+                //          mission.progress = $this.attr('id'); 
+    
+                //         // console.log(JSON.stringify(mission));
+                //         // mission.currentStage = { progress: index };
+                //          // localStorage.setItem('mission', JSON.stringify(mission));
+                //                               }
                 if ( e.type == 'progress') {
                     // 색깔 칠하기 완료
                     var scrollProgress = Math.floor(e.progress*100);
                     if( scrollProgress == 100 ) {
                        // console.log('색칠 완료')
-                        TweenMax.to('#stageNav .bar b:eq('+$this.index()+') i', .3, {opacity:1, backgroundColor:'#d8b17e', clearProps:'all', onComplete:barOn})
-                 
+                       TweenMax.to('#stageNav .bar b:eq('+index+') i', .3, {opacity:1, backgroundColor:'#d8b17e', clearProps:'all', onComplete:barOn})
+                
                     }
                 }
             });
             function barOn(){
-                $('#stageNav .bar b:eq('+$this.index()+')').addClass('on') // B태그에 완료 표시
-                 $('#stageNav .num').text(($this.index()+1) +'/'+ sectionCount);
-
+                $('#stageNav .bar b:eq('+index+')').addClass('on') // B태그에 완료 표시
+                $('#stageNav .num').text(index+1 +'/'+ sectionCount);
+                if(index+1 == sectionCount) localStorage.setItem(currentStage, "complete");
             }
+
+            var mission_ok = new TimelineMax({paused:true})
+            .fromTo('.nav_'+currentStage+' label', .4, {y:0},{y:20});
+          
         })
+
+ // function pinSwiper(){
+$('.panel').css({height:winHeight});
+$('.pinScene').css({height:winHeight});
+$('#pinContainer').css({height:winHeight});
+var slideLen = $('#pinContainer .swiper-slide').length;
+        var pinSwiper = new Swiper('#pinContainer', {
+        pagination: '.fixedPinNavi',
+        direction: 'vertical',
+        paginationClickable: true,
+           paginationBulletRender: function (swiper, index, className) {
+            return '<span class="' + className + '">' + (index + 1) + '</span>';
+        }
+    })
+  
+var Slide = new ScrollMagic.Scene({
+            triggerElement: '#pinContainer', 
+            triggerHook:'onLeave',
+            duration:winHeight*slideLen
+        })
+        .setPin('#pinContainer')
+        .addTo(controller);
+
+
+$('#pinContainer .swiper-slide').each(function(){
+    var indexPin = $(this).index();
+    var Slide = new ScrollMagic.Scene({
+            triggerElement: '#pinContainer', 
+            offset:winHeight*indexPin,
+        })
+        .on('enter',function(){pinSwiper.slideTo(indexPin)})
+        .addTo(controller);
     });
+
+// /* section Share */
+
+$('.section_wrap').each(function(i,e){
+    var dur = $(this).eq(0).height();
+    var sectionShare = new ScrollMagic.Scene({
+        triggerElement:e,
+        triggerHook:'onCenter',
+        duration:dur
+    })
+    .setClassToggle(e, "active_section") 
+    .addTo(controller)
+}) // 활성화된 section class check - add active_section
+
+$('.type_e').map(function(i,e){
+    var videoSection = new ScrollMagic.Scene({
+        triggerElement:e,
+        triggerHook:0.5
+    })
+    .on('enter', function(){
+         $e = $(e).find('.video_wrap');
+         TweenMax.fromTo($e, .6, {x:0}, {x:30});
+    })
+    .addTo(controller)
+}) // video section motion 
+
+$('.sns a').click(function(){
+var target = $(this).data('sns');
+var share = $('.active_section');
+if(share.length != 0) {
+var shareUrl = $("meta[property='og:url']").attr("content")+'#'+$('.active_section').attr('id');
+var shareImg = $("meta[property='og:image']").attr("content");
+var shareTitle = share.data('title');
+var string = share.find('h2').text().split(' ').join('').slice(0,200);
+} else {
+var shareUrl = $("meta[property='og:url']").attr("content");
+var shareImg = $("meta[property='og:image']").attr("content");
+var string = $("meta[property='og:description']").attr("content")
+var shareTitle = $("meta[property='og:title']").attr("content");
+}
+var section_url = encodeURIComponent( shareUrl ); //공유 URL
+var section_tit = encodeURIComponent( shareTitle);
+var section_txt = encodeURIComponent( string);
+var section_img = encodeURIComponent( shareImg);
+
+function openWindow(url) { 
+    window.open(url, 'feedDialog', 'toolbar=0,status=0,width=626,height=436');
+}
+if(target =='fb'){
+    // $(this).attr({
+    //    'href':'https://www.facebook.com/dialog/feed?app_id=978722652150941&display=popup&name='+section_tit+'&description='+section_txt+'&link='+section_url+'&redirect_uri='+section_url+'&picture='+section_img,
+    //    'target':'_blank'});
+    var href = 'https://www.facebook.com/dialog/feed?app_id=978722652150941&display=popup&name='+section_tit+'&description='+section_txt+'&link='+section_url+'&redirect_uri='+section_url+'&picture='+section_img;
+    openWindow(href, 'feedDialog', 'toolbar=0,status=0,width=626,height=436');
+} else if(target == 'tw') {
+    // $(this).attr({
+    //    'href':'https://twitter.com/share?url='+section_url+'&text='+section_tit,
+    //    'target':'_blank'});
+    var href ='https://twitter.com/share?url='+section_url+'&text='+section_tit;
+    openWindow(href, 'feedDialog', 'toolbar=0,status=0,width=626,height=436');
+} else if(target == 'kakao') {
+   alert("서비스 준비 중 입니다.");
+ //     $(this).attr({
+ //         'href':'https://story.kakao.com/s/share?url='+section_url+'&text='+section_txt+'&imageurl='+section_img+'&title='+section_tit+'&kakao_agent=sdk%2F1.3.0%20os%2Fjavascript%20lang%2Fko%20device%2FWin32%20origin%2Fhttp%253A%252F%252Filab.joins.com&app_key=0ea6b97767c7ca7b384389c25beb691f',
+ //         'target':'_blank'
+ // });
+    // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+    // Kakao.Link.createDefaultButton({
+    //   container: '$(this)',
+    //   objectType: 'feed',
+    //   content: {
+    //     title: '딸기 치즈 케익',
+    //     description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
+    //     imageUrl: 'http://mud-kage.kakao.co.kr/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
+    //     link: {
+    //       mobileWebUrl: 'https://developers.kakao.com',
+    //       webUrl: 'https://developers.kakao.com'
+    //     }
+    //   },
+    //   buttons: [
+    //     {
+    //       title: '웹으로 보기',
+    //       link: {
+    //         mobileWebUrl: 'https://developers.kakao.com',
+    //         webUrl: 'https://developers.kakao.com'
+    //       }
+    //     }
+    //   ]
+    // });
+} else if(target == 'kakaostory') {
+//     $(this).attr({
+//         'href':'https://story.kakao.com/share?url='+section_url,
+//         'target':'_blank'
+// });   
+    var href ='https://story.kakao.com/share?url='+section_url;
+    openWindow(href, 'feedDialog', 'toolbar=0,status=0,width=626,height=436');
+} else if(target == 'copytoclip') {
+     // $(this).attr({
+     //   'data-clipboard-target':shareUrl});
+        //   var clip = new Clipboard('.shareBtn')
+        //   clip.on('success', function(e){
+        //   console.log(shareUrl);
+        // });
+        // function copyToClipboard(text) {
+  window.prompt("Copy to clipboard: Ctrl+C, Enter", shareUrl);
+// }
+}
+
+})
+    });
+
 
 
     // 인트로 페이지
@@ -162,7 +371,7 @@ $(function() {
     $(window).load(function(){
         var introTextTween = new TimelineMax({onUpdate:introProgress, repeat:-1})
             .fromTo('#introText', .1, {opacity:0}, {opacity:1, ease: Power0.easeNone})
-            .fromTo('#introTitle .title', 2, {opaity:1}, {opacity:0, ease:Power1.easeInOut}, 1)
+            .fromTo('#introTitle .title', 3, {opaity:1}, {opacity:0, ease:Power1.easeInOut}, 4)
             .to('#introText', 40, {y:'-100%', ease: Power0.easeNone}, .1)
 
         var introScrollerTween = new TimelineMax({paused:true})
@@ -271,10 +480,10 @@ $(function() {
             step();
         });
     }
-    function initCanvasLight() {
-        var win = jQuery(window);
 
-        jQuery('.star_white').each(function() {
+     function initCanvasGold() {
+        var win = jQuery(window);
+        jQuery('.star_gold').each(function() {
             var canvas = this;
             var ctx = canvas.getContext("2d");
             var fps = 30;
@@ -288,7 +497,7 @@ $(function() {
             function draw() {
                 ctx.clearRect(0, 0, winWidth, winHeight);
 
-                ctx.fillStyle = '#b98746';
+                ctx.fillStyle = '#d8b17e';
                 ctx.beginPath();
                 for(var i = 0; i < mp; i++) {
                     var p = particles[i];
@@ -320,7 +529,7 @@ $(function() {
                 canvas.width = winWidth;
                 canvas.height = winHeight;
 
-                mp = 0.35 * winWidth;
+                mp = 0.18 * winWidth;
 
                 particles = [];
 
@@ -346,85 +555,11 @@ $(function() {
         });
     }
 
-   function initCanvasGold() {
-        var win = jQuery(window);
 
-        jQuery('.star_gold').each(function() {
-            var canvas = this;
-            var ctx = canvas.getContext("2d");
-            var fps = 30;
-            var winWidth, winHeight;
-            var mp; //max particles
-            var particles = [];
-            // var color;
+     
 
-            resizeHandler();
-
-            function draw() {
-                ctx.clearRect(0, 0, winWidth, winHeight);
-                
-                ctx.fillStyle = '#d8b17e';
-                ctx.beginPath();
-                for(var i = 0; i < mp; i++) {
-                    var p = particles[i];
-                    ctx.moveTo(p.x, p.y);
-                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2, true);
-                }
-                ctx.fill();
-                update();
-            }
-
-            function update() {
-                for(var i = 0; i < mp; i++) {
-                    var p = particles[i];
-                    p.y += Math.cos(p.d) + 1 + p.r/2;
-                        if(p.y > winHeight) {
-                            if(i%3 > 0) //66.67% of the flakes
-                        {
-                            particles[i] = {x: Math.random() * winWidth, y: -10, r: p.r, d: p.d};
-                        }
-                    }
-                }
-            }
-
-            function resizeHandler() {
-                //canvas dimensions
-                var $star_height=$(canvas.parentNode);
-                winWidth = window.innerWidth;
-                winHeight =  $star_height.innerHeight;
-                  canvas.width = winWidth;
-                canvas.height = winHeight;
-
-                mp = 0.25 * winWidth;
-
-                particles = [];
-
-                for(var i = 0; i < mp; i++){
-                    particles.push({
-                        x: Math.random() * winWidth, //x-coordinate
-                        y: Math.random() * winHeight, //y-coordinate
-                        r: Math.random() * 1.5, //radius
-                        d: Math.random() * mp //density
-                    })
-                }
-            };
-
-            win.on('resize', resizeHandler);
-
-            function step() {
-                setTimeout(function() {
-                    draw();
-                    requestAnimationFrame(step);
-                }, 1200 / fps);
-            };
-            step();
-        });
-    }
-   
-
-    // initCanvasGold();
+    initCanvasGold();
     initCanvasDark();
-    // initCanvasLight();
 
  
     /*
@@ -472,14 +607,15 @@ $(function() {
         var interviewArticle = $wrapper.find('.interview_content .article');
         var interviewAsideChildren = $wrapper.find('.interview_quote aside div');
 
-        TweenMax.set(interviewCoverTop, {scale:1.2});
-        TweenMax.set(interviewCoverBot, {opacity:0, y:'10%'});
-        TweenMax.set(interviewParagraph, {y:20, opacity:0});
-        TweenMax.set(interviewAsideChildren, {x:15, opacity:0});
-
+        // TweenMax.set(interviewCoverTop, {scale:1.2});
+        // TweenMax.set(interviewCoverBot, {opacity:0, y:'10%'});
+        // TweenMax.set(interviewParagraph, {y:20, opacity:0});
+        // TweenMax.set(interviewAsideChildren, {x:15, opacity:0});
+        TweenMax.set(interviewQuote, {opacity:1})
         var interviewCoverTween = new TimelineMax()
-            .to(interviewCoverTop, .4, {scale:1, force3D:true})
-            .fromTo(interviewQuote, .6, {opacity:0, scale:0}, {opacity:1, scale:1})
+            // .to(interviewCoverTop, .4, {scale:1, force3D:true})
+             .to(interviewCoverTop, .4, {scale:1})
+            // .fromTo(interviewQuote, .1, {opacity:0, scale:1}, {opacity:1, scale:1})
             .to(interviewParagraph, .4, {y:0, opacity:1})
             .staggerTo(interviewAsideChildren, .4, {x:0, opacity:1}, .2);
 
@@ -491,14 +627,14 @@ $(function() {
         .addTo(controller);
 
         var interviewArticleTween = new TimelineMax()
-            .fromTo([interviewCoverTop, interviewQuoteBox], .5, {opacity:1}, {opacity:0})
-            .fromTo([interviewCoverBot, interviewArticle], .5, {opacity:0,y:'10%'}, {opacity:1,y:'0%'}, 0)
-            .fromTo(contentMask, .5, {autoAlpha:0}, {autoAlpha:1}, 0);
+            .fromTo([interviewCoverTop, interviewQuoteBox], .1, {opacity:1}, {opacity:0})
+            .fromTo([interviewCoverBot, interviewArticle], .1, {opacity:0,y:'0%'}, {opacity:1,y:'0%'}, 0)
+            .fromTo(contentMask, .1, {autoAlpha:0}, {autoAlpha:1}, 0);
 
         new ScrollMagic.Scene({
             triggerElement: this,
             offset: $this.height()+200,
-            duration: 300
+            // duration: 300
         })
         .setTween(interviewArticleTween)
         .addTo(controller);
@@ -524,32 +660,6 @@ function textTween(e, hook, exception){
         .addTo(controller);
 })
 }
-
-// $('.star_black').each(function()
-// {
-// var scene = new ScrollMagic.Scene({
-//             triggerElement: this, 
-//             offset: -$(window).height()*0.7,
-//             logleve :2
-//         })
-//         .on('enter', function(){
-//             initCanvasDark();
-//             console.log("FallingStar");})
-//         // .addIndicators()
-//         .addTo(controller);
-// });
-  // $('.star_gold').each(function()
-  //   {
-  //       var scene = new ScrollMagic.Scene({
-  //           triggerElement: this, 
-  //           offset: -$(window).height()*0.7
-  //       })
-  //       .on('enter', function(){
-  //           initCanvasGold();
-  //           console.log("FallingStar");})
-  //       // .addIndicators()
-  //       .addTo(controller);
-  //   });
 
 
  $('.video_wrap.autoplay').each(function(){
@@ -629,45 +739,6 @@ function textTween(e, hook, exception){
             }
         }
     });
-
-
- // function pinSwiper(){
-$('.panel').css({height:winHeight});
-$('.pinScene').css({height:winHeight});
-$('#pinContainer').css({height:winHeight});
-var slideLen = $('#pinContainer .swiper-slide').length;
-        var pinSwiper = new Swiper('#pinContainer', {
-        pagination: '.fixedPinNavi',
-        direction: 'vertical',
-        paginationClickable: true,
-           paginationBulletRender: function (swiper, index, className) {
-            return '<span class="' + className + '">' + (index + 1) + '</span>';
-        }
-    })
-  
-var Slide = new ScrollMagic.Scene({
-            triggerElement: '#pinContainer', 
-            triggerHook:'onLeave',
-            duration:winHeight*slideLen
-        })
-        .setPin('#pinContainer')
-        .addTo(controller);
-
-
-$('#pinContainer .swiper-slide').each(function(){
-    var indexPin = $(this).index();
-    var Slide = new ScrollMagic.Scene({
-            triggerElement: '#pinContainer', 
-            offset:winHeight*indexPin,
-        })
-        .on('enter',function(){pinSwiper.slideTo(indexPin)})
-        .addTo(controller);
-    });
-
-/* section Share */
-var section_url = encodeURIComponent( $("meta[property='og:url']").attr("content") ); //공유 URL
-var section_tit = encodeURIComponent( thisSlide.find('.title').text() );
-var section_txt = encodeURIComponent( thisSlide.find('.txt').text() );
 
 
 

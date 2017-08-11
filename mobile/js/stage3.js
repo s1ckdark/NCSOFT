@@ -19,6 +19,8 @@ function gameScreenShotSwiper(){
     lazyLoadingOnTransitionStart:true,
     pagination: '.progress_num',
     paginationClickable: true,
+    loop:true,
+    nextButton: '.arrow-next',
     paginationType: "custom",
     paginationCustomRender: function (swiper, current, total) {
       return '<span class="current">'+ current + '</span><span class="last">' + total +'</span>';

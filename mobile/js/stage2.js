@@ -1,5 +1,40 @@
 $(function() {
-        var controller = new ScrollMagic.Controller();  
+           var scrollTop, roofHeight, winHeight;
+    var roofHeight = $('#roof').outerHeight();
+    var winHeight = $(window).height();
+    var viewportWidth = $('#viewport').innerWidth();
+   
+    var controller = new ScrollMagic.Controller();
+
+    // init6();
+
+     // ovp 연동하기
+    $('#video1').fnSetVideo({
+        'ovpUrl': 'http://v.ovp.joins.com/pIdBq3gz',
+        'ovpRo': 1, // 1 = 16:9, 2 = 1:1
+         'ctrls': true,
+        'loop': false,
+         'preload': 'auto',
+        'poster': '/project/NCSOFT/video/stage2_video1.jpg'
+    });
+
+      $('#video2').fnSetVideo({
+        'ovpUrl': 'http://v.ovp.joins.com/9BGGq3ge',
+        'ovpRo': 1, // 1 = 16:9, 2 = 1:1
+        'ctrls': true,
+        'loop': false,
+        'preload': 'auto',
+        'poster': '/project/NCSOFT/video/stage2_video2.jpg'
+    });
+
+        $('#video3').fnSetVideo({
+        'ovpUrl': 'http://v.ovp.joins.com/2eVyAECk',
+        'ovpRo': 1, // 1 = 16:9, 2 = 1:1
+        'ctrls': true,
+        'loop': false,
+        'preload': 'auto',
+        'poster': '/project/NCSOFT/video/stage2_video3.jpg'
+    });
 
  $('.part_three .item').each(function(){
  	var $target = $(this).children('.hoverDesc');
@@ -8,13 +43,12 @@ $(function() {
  	$(this).hover(over, out);
  	function over(){
  		hoverTween.play();
- 
  	}
  	function out(){
 		hoverTween.reverse()
 }
  })
-    init6(); 
+    // init6(); 
 function clubSwiper(){
     var swiper = new Swiper('.clubSwiper', {
     preloadImages: false,
@@ -24,39 +58,25 @@ function clubSwiper(){
     spaceBetween: 10,
     autoplay:true,
     autoplay: 2500,
+    loop:true,
     lazyLoadingOnTransitionStart:true,
     pagination: '.progress_num',
     paginationClickable: true,
     paginationType: "custom",
+    nextButton: '.arrow-next',
     paginationCustomRender: function (swiper, current, total) {
       return '<span class="current">'+ current + '</span><span class="last">' + total +'</span>';
   }
     });
 }  
-
-
-function pinSwiper(){
-    var swiper = new Swiper('.pinSwiper', {
-    preloadImages: false,
-    lazyLoading: true,
-    slidesPerView: '1',
-    paginationClickable: true,
-    nextButton:'.pin-next',
-    prevButton:'.pin-prev',
-    lazyLoadingOnTransitionStart:true,
-    pagination: '.progress_pin',
-    });
-}  
 clubSwiper();
-
-pinSwiper();
-
-    var $left = $('.boxImg').offset().left+120;
+ 
+    var $left = $('.boxImg').offset().left+200;
      var skullTween = new TimelineMax()
-      .fromTo('.skull', 2, {scale:0,opacity:0}, {ease: Bounce.easeOut,left:$left, scale:1,opacity:1,zIndex:999});
+      .fromTo('.skull', 2, {scale:0,opacity:0,x:-100}, {ease: Bounce.easeOut,left:$left, y:-100, scale:1,opacity:1,zIndex:999});
         var skullScene = new ScrollMagic.Scene({
         triggerElement:'.skull',
-        triggerHook:.7,
+        triggerHook:.6,
         duration:300
     })
     .setTween(skullTween)
@@ -73,195 +93,15 @@ pinSwiper();
     .addTo(controller)
 
 
-/* d3 js circle chart */
-// var data = [
-//         { label: '기타', instances: 6.4 },
-//         { label: '유럽', instances: 10.8 },
-//         { label: '동남아', instances: 11.2 },
-//         { label: '북미', instances: 17.2 },
-//         { label: '일본', instances: 21.5 },
-//         { label: '중화권', instances: 32.9 }
-//     ];
-
-// svg = d3.select("svg");
-// canvas = d3.select("#pieChart");
-// art = d3.select("#art");
-// labels = d3.select("#labels");
-
-// // Create the pie layout function.
-// // This function will add convenience
-// // data to our existing data, like 
-// // the start angle and end angle
-// // for each data element.
-// jhw_pie = d3.layout.pie()
-// jhw_pie.value(function (d, i) {
-//     // Tells the layout function what
-//     // property of our data object to
-//     // use as the value.
-//     return d.instances;
-// });
-
-// // Store our chart dimensions
-// cDim = {
-//     height: 500,
-//     width: 500,
-//     innerRadius: 120,
-//     outerRadius: 150,
-//     labelRadius: 175
-// }
-
-// // Set the size of our SVG element
-// svg.attr({
-//     height: cDim.height,
-//     width: cDim.width
-// });
-
-// // This translate property moves the origin of the group's coordinate
-// // space to the center of the SVG element, saving us translating every
-// // coordinate individually. 
-// canvas.attr("transform", "translate(" + (cDim.width / 2) + "," + (cDim.width / 2) + ")");
-
-// pied_data = jhw_pie(data);
-
-// // The pied_arc function we make here will calculate the path
-// // information for each wedge based on the data set. This is 
-// // used in the "d" attribute.
-// pied_arc = d3.svg.arc()
-//     .innerRadius(120)
-//     .outerRadius(150);
-
-// // This is an ordinal scale that returns 10 predefined colors.
-// // It is part of d3 core.
-// pied_colors = d3.scale.ordinal()
-//  .range(["#e3caa9", "#d1a975", "#bb915a", "#a18055", "#8e6938", "#ffffff"]);
-
-
-// // Let's start drawing the arcs.
-// enteringArcs = art.selectAll(".wedge").data(pied_data).enter();
-
-
-// enteringArcs.append("path")
-//     .attr("class", "wedge")
-//     .attr("d", pied_arc)
-//     .style("opacity", 1)
-//     .style("fill", function (d, i) {
-//     return pied_colors(i);
-// });
-
-// // Now we'll draw our label lines, etc.
-// enteringLabels = labels.selectAll(".label").data(pied_data).enter();
-// labelGroups = enteringLabels.append("g").attr("class", "label");
-
-// // // "When am I ever going to use this?" I said in 
-// // // 10th grade trig.
-// // textLines = labelGroups.append("line").attr({
-// //     x1: function (d, i) {
-// //         return pied_arc.centroid(d)[0];
-// //     },
-// //     y1: function (d, i) {
-// //         return pied_arc.centroid(d)[1];
-// //     },
-// //     x2: function (d, i) {
-// //         centroid = pied_arc.centroid(d);
-// //         midAngle = Math.atan2(centroid[1], centroid[0]);
-// //         x = Math.cos(midAngle) * cDim.labelRadius;
-// //         return x;
-// //     },
-// //     y2: function (d, i) {
-// //         centroid = pied_arc.centroid(d);
-// //         midAngle = Math.atan2(centroid[1], centroid[0]);
-// //         y = Math.sin(midAngle) * cDim.labelRadius;
-// //         return y;
-// //     },
-// //         'class': "label-line"
-// // });
-
-// textLabels = labelGroups.append("text").attr({
-//     x: function (d, i) {
-//         centroid = pied_arc.centroid(d);
-//         midAngle = Math.atan2(centroid[1], centroid[0]);
-//         x = Math.cos(midAngle) * cDim.labelRadius;
-//         sign = (x > 0) ? 1 : -1
-//         labelX = x + (5 * sign)
-//         return labelX;
-//     },
-//     y: function (d, i) {
-//         centroid = pied_arc.centroid(d);
-//         midAngle = Math.atan2(centroid[1], centroid[0]);
-//         y = Math.sin(midAngle) * cDim.labelRadius;
-//         return y;
-//     },
-//         'text-anchor': function (d, i) {
-//         centroid = pied_arc.centroid(d);
-//         midAngle = Math.atan2(centroid[1], centroid[0]);
-//         x = Math.cos(midAngle) * cDim.labelRadius;
-//         return (x > 0) ? "start" : "end";
-//     },
-//         'class': 'label-text'
-// }).text(function (d) {
-//     return d.data.label+"\n"+d.data.instances+"%";
-// });
-
-// alpha = 0.5;
-// spacing = 15;
-
-// function relax() {
-//     again = false;
-//     textLabels.each(function (d, i) {
-//         a = this;
-//         da = d3.select(a);
-//         y1 = da.attr("y");
-//         textLabels.each(function (d, j) {
-//             b = this;
-//             // a & b are the same element and don't collide.
-//             if (a == b) return;
-//             db = d3.select(b);
-//             // a & b are on opposite sides of the chart and
-//             // don't collide
-//             if (da.attr("text-anchor") != db.attr("text-anchor")) return;
-//             // Now let's calculate the distance between
-//             // these elements. 
-//             y2 = db.attr("y");
-//             deltaY = y1 - y2;
-            
-//             // Our spacing is greater than our specified spacing,
-//             // so they don't collide.
-//             if (Math.abs(deltaY) > spacing) return;
-            
-//             // If the labels collide, we'll push each 
-//             // of the two labels up and down a little bit.
-//             again = true;
-//             sign = deltaY > 0 ? 1 : -1;
-//             adjust = sign * alpha;
-//             da.attr("y",+y1 + adjust);
-//             db.attr("y",+y2 - adjust);
-//         });
-//     });
-//     // Adjust our line leaders here
-//     // so that they follow the labels. 
-//     if(again) {
-//         labelElements = textLabels[0];
-//         textLines.attr("y2",function(d,i) {
-//             labelForLine = d3.select(labelElements[i]);
-//             return labelForLine.attr("y");
-//         });
-//         setTimeout(relax,20)
-//     }
-// }
-
-// relax();
-
-
-    
-    function barChart(target, to){
+    function barChart(target, to, trigger){
         var $target = $(target), $to = to * .5;
          var barchartTween = new TimelineMax()
-         .fromTo($target.find('q')[0], 1, {opacity:0,visibility:'hidden'}, {opacity:1,visibility:'visible'},1)
-         .fromTo($target, 1, {width:0,visibility:'hidden'}, {visibility:'visible',width:$to},0);
+         .fromTo($target.find('q')[0], .5, {opacity:0,visibility:'hidden'}, {opacity:1,visibility:'visible'},1)
+         .fromTo($target, .5, {width:0,visibility:'hidden'}, {visibility:'visible',width:$to},0);
      $(target).each(function(){
          var y2016 = new ScrollMagic.Scene({
-        triggerElement:this,
-        triggerHook:0.7
+        triggerElement:trigger,
+        triggerHook:0.6
     })
     .setTween(barchartTween)
     .addTo(controller)
@@ -269,53 +109,92 @@ pinSwiper();
 
   }
    
-   barChart('.s2016 .bar',400);
-   barChart('.s2015 .bar',380);
-   barChart('.s2009 .bar',320);
-   barChart('.s2003 .bar',160);
-   barChart('.s1997 .bar',30);
 
-   barChart('.y2016 .bar', 400);
-   barChart('.y2012 .bar', 200);
-   barChart('.y2008 .bar', 150);
-   barChart('.y2004 .bar', 180);
-   barChart('.y2000 .bar', 30);
+    TweenMax.set('.bars2 .bar', {width:0});
+    TweenMax.set(['.bars2 .name', '.bars2 .data'], {opacity:0});
+    TweenMax.set('.bars2 cite', {y:15, opacity:0});
 
-//    var pinScene02Tl = new TimelineMax()
-//     .to($('#slide02 h1'), 0.2, {autoAlpha: 0, ease:Power1.easeNone}, 1.5)
-//     .to($('#slide02 section'), 0.2, {autoAlpha: 0, ease:Power1.easeNone}, 1.5)
-//     .to($('#slide02 .bcg'), 0.6, {scale: 1.2, transformOrigin: '0% 0%', ease:Power0.easeNone})
-//     .fromTo($('#slide02 h1'), 0.7, {y: '+=20'}, {y: 0, autoAlpha: 1, ease:Power1.easeOut}, '+=0.4')
-//     .fromTo($('#slide02 section'), 0.6, {y: '+=20'}, {y: 0, autoAlpha: 1, ease:Power1.easeOut}, '-=0.6')
-//     .set($('#slide02 h1'), {autoAlpha: 1}, '+=2.5');
- 
-// var pinScene02 = new ScrollMagic.Scene({
-//     triggerElement: '#slide02',
-//     triggerHook: 0,
-//     duration: "300%"
-// })
-// .setPin("#slide02")
-// .setTween(pinScene02Tl)
-// .addTo(controller);
+    var data6Count = $('#data6').data('count'), // 인포그래픽 데이타1
+        data7Count = $('#data7').data('count'), // 인포그래픽 데이타1
+        data8Count = $('#data8').data('count'), // 인포그래픽 데이타1
+        data9Count = $('#data9').data('count'), // 인포그래픽 데이타1
+        data10Count = $('#data10').data('count'); // 인포그래픽 데이타1
+
+    var percentDataOption = {useEasing:false, useGrouping:false, separator:'', decimal:'억 ', suffix:'만원'}
+        data6 = new CountUp( 'data6', 0, data6Count, 4, .8, percentDataOption),
+        data7 = new CountUp( 'data7', 0, data7Count, 4, .8, percentDataOption),
+        data8 = new CountUp( 'data8', 0, data8Count, 4, .8, percentDataOption),
+        data9 = new CountUp( 'data9', 0, data9Count, 4, .8, percentDataOption),
+        data10 = new CountUp( 'data10', 0, data10Count, 4, .8, percentDataOption)
+
+    var barBox2Tween = new TimelineMax({onComplete:bars2Anim})
+        .to('.bars2 .name', .4, {opacity:1});
+        // .staggerTo('.bars2 .data', .6, {opacity:1}, .2);
+
+    function bars2Anim(){
+        data6.start();
+        data7.start();
+        data8.start();
+        data9.start();
+        data10.start();
+        TweenMax.to('.bars2 .bar6', .8, {width: $('.bars2 .bar6').data('max') });
+        TweenMax.to('.bars2 .bar7', .8, {width: $('.bars2 .bar7').data('max') });
+        TweenMax.to('.bars2 .bar8', .8, {width: $('.bars2 .bar8').data('max') });
+        TweenMax.to('.bars2 .bar9', .8, {width: $('.bars2 .bar9').data('max') });
+        TweenMax.to('.bars2 .bar10', .8, {width: $('.bars2 .bar10').data('max') });
+        TweenMax.staggerTo('.bars2 .data', .4, {opacity:1}, .2);
+        TweenMax.to('.bars2 cite', .4, {y:0, opacity:1, delay:.4});
+    }
+
+        var barBoxScene = new ScrollMagic.Scene({
+            triggerElement: '.statusChart'
+        })
+        .setTween(barBox2Tween)
+        .reverse(false)
+        .addTo(controller);
 
 
-// var interviewScene = new ScrollMagic.Scene({
-//     triggerElement: '#section3',
-//     triggerHook: 0,
-//     duration:'100vh'
-// })
-// .setPin("#section3")
-// .on('start', function(){
-//     interviewSwiper('#section3 .inverviewSwiper');
-// })
-// .addTo(controller);
-        var chartnc6 = new ScrollMagic.Scene({
-        triggerElement: '.gp_class_box06',triggerHook:0.5
-    })
-        .addTo(controller)
-        .on('enter', function(){
-            // init6();
-            nc_chart06.gotoAndPlay(1);
-        });
+    TweenMax.set('.bars .bar', {width:0});
+    TweenMax.set(['.bars .name', '.bars .data'], {opacity:0});
+    TweenMax.set('.bars cite', {y:15, opacity:0});
+
+    var data1Count = $('#data1').data('count'), // 인포그래픽 데이타1
+        data2Count = $('#data2').data('count'), // 인포그래픽 데이타1
+        data3Count = $('#data3').data('count'), // 인포그래픽 데이타1
+        data4Count = $('#data4').data('count'), // 인포그래픽 데이타1
+        data5Count = $('#data5').data('count'); // 인포그래픽 데이타1
+
+    var percentDataOption = {useEasing:false, useGrouping:false, separator:'', decimal:'억 ', suffix:'만원'}
+        data1 = new CountUp( 'data1', 0, data1Count, 4, .8, percentDataOption),
+        data2 = new CountUp( 'data2', 0, data2Count, 4, .8, percentDataOption),
+        data3 = new CountUp( 'data3', 0, data3Count, 4, .8, percentDataOption),
+        data4 = new CountUp( 'data4', 0, data4Count, 4, .8, percentDataOption),
+        data5 = new CountUp( 'data5', 0, data5Count, 4, .8, percentDataOption)
+
+    var barBox1Tween = new TimelineMax({onComplete:bars1Anim})
+        .to('.bars .name', .6, {opacity:1});
+
+    function bars1Anim(){
+        data1.start();
+        data2.start();
+        data3.start();
+        data4.start();
+        data5.start();
+        TweenMax.to('.bars .bar1', .8, {width: $('.bars .bar1').data('max') });
+        TweenMax.to('.bars .bar2', .8, {width: $('.bars .bar2').data('max') });
+        TweenMax.to('.bars .bar3', .8, {width: $('.bars .bar3').data('max') });
+        TweenMax.to('.bars .bar4', .8, {width: $('.bars .bar4').data('max') });
+        TweenMax.to('.bars .bar5', .8, {width: $('.bars .bar5').data('max') });
+        TweenMax.staggerTo('.bars .data', .4, {opacity:1}, .2);
+        TweenMax.to('.bars cite', .4, {y:0, opacity:1, delay:.4});
+    }
+
+        var barBoxScene = new ScrollMagic.Scene({
+            triggerElement: '.incomingfrom'
+        })
+        .setTween(barBox1Tween)
+        .reverse(false)
+        .addTo(controller);
+
 
 });

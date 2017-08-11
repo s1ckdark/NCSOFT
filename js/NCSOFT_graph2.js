@@ -3,7 +3,7 @@
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [
-		{name:"NCSOFT_graph2_atlas_", frames: [[522,555,520,553],[1044,555,520,553],[0,555,520,553],[0,1110,520,553],[522,1110,520,553],[1044,1110,520,553],[0,1665,520,553],[522,2775,520,553],[1044,2220,520,553],[522,2220,520,553],[0,3330,520,553],[0,2775,520,553],[1044,2775,520,553],[522,3330,520,553],[1044,0,520,553],[522,0,520,553],[0,0,520,553],[1044,3330,520,553],[522,1665,520,553],[1044,1665,520,553],[0,2220,520,553]]}
+		{name:"NCSOFT_graph2_atlas_", frames: [[0,0,520,553],[522,0,520,553],[522,1665,520,553],[1044,0,520,553],[0,555,520,553],[1044,2220,520,553],[522,2775,520,553],[522,3330,520,553],[1044,2775,520,553],[1044,3330,520,553],[522,555,520,553],[1044,1665,520,553],[0,2220,520,553],[0,2775,520,553],[0,3330,520,553],[522,2220,520,553],[1044,555,520,553],[0,1110,520,553],[522,1110,520,553],[1044,1110,520,553],[0,1665,520,553]]}
 ];
 
 
@@ -193,13 +193,13 @@ p.nominalBounds = new cjs.Rectangle(0,0,97.2,15.3);
 
 	// Layer 1
 	this.shape = new cjs.Shape();
-	this.shape.graphics.f("#D8B27E").s().p("AGwCdQgLgKAAgRIAAgJQAAgRALgKQAKgKASAAQASAAAKAKQAKAKAAASIAAAIQAAARgKAKQgKAKgSAAQgSAAgKgKgAHBBtQgEAEAAAIIAAAKQAAAHAEAEQAEAFAHAAQAPAAAAgRIAAgJQAAgHgEgFQgFgEgGAAQgHAAgEAEgAADCcQgJgKAAgSQAAgTAIgJQAKgJATAAQATAAAJAJQAKAKAAASQAAARgKAKQgJAKgTAAQgTAAgJgJgAjqB6QgcgqAAhQQAAhWAcgnQAcgpA4AAQA4AAAcAqQAdArAABRQAABTgcAoQgbApg6AAQg3AAgdgqgAi4hVQgKAbAAA6QAAA6AKAaQAKAZAYAAQAYAAAKgaQALgbAAg4QAAg6gLgbQgKgagYAAQgYAAgKAagACGCgIB4kIIieAAIAAg5IDmAAIAAArIh5EWgAmWCgIACj5QgRARgHAFIglAeIgggpIBnhTIA4AAIAAFBgAFtCOIBWiLIASAJIhXCLgAFbA4QgLgJAAgSIAAgIQAAgRALgJQALgKARAAQARAAALAKQAKAJAAARIAAAJQAAAQgKALQgLAKgRAAQgSAAgKgLgAFsAJQgEAEAAAIIAAAJQAAAIAEAEQAEAEAHAAQAHAAAEgEQAEgFAAgHIAAgJQAAgHgEgFQgEgFgHAAQgHAAgEAFg");
-	this.shape.setTransform(49.8,16.7);
+	this.shape.graphics.f("#D8B27E").s().p("AhsCdQgKgKAAgSQAAgTAKgJQAJgKAUABQASgBAKAKQAKAKAAASQAAARgKAKQgKAKgSAAQgTAAgKgJgAlZB7QgcgrAAhQQAAhVAcgoQAbgoA5AAQA4AAAcAqQAdArAABQQAABUgcAoQgcApg5AAQg4AAgcgqgAkohUQgJAbgBA5QABA7AJAaQALAZAYAAQAXAAALgaQALgbAAg5QAAg5gLgbQgLgagXAAQgYAAgLAagAHcCKQgTgZAAgyQAAhkBLAAQAmABAUAaQATAYABAxQAAAzgUAZQgTAZgnAAQgjAAgVgagAIFAWQgEANgBAcQABAdAEANQAFAOALAAQAVAAAAg4QAAg3gVAAQgKAAgGAOgAExCgICylAIA1AAIizFAgAAXCgIB4kHIidAAIAAg5IDlAAIAAAqIh5EWgAoFCgIACj5QgRASgHAFIglAdIgggoIBnhTIA3AAIAAFAgAD8AKQgUgaAAgwQAAhlBMAAQAlAAAUAbQAUAaAAAwQAAAzgUAYQgTAZgmAAQglAAgTgagAElhpQgGANAAAcQAAAcAGAOQAEANAMAAQAUAAABg3QgBg3gUAAQgMAAgEAOg");
+	this.shape.setTransform(61,16.6);
 
 	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(0,0,99.7,33.4);
+p.nominalBounds = new cjs.Rectangle(0,0,121.9,33.2);
 
 
 (lib.gp2_ti1 = function(mode,startPosition,loop) {
@@ -1064,8 +1064,8 @@ p.nominalBounds = new cjs.Rectangle(-16.6,-158.7,520,553);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		this.stop();
-		nc_chart02 = this;
+		// this.stop();
+        nc_chart02 = this;
 	}
 	this.frame_75 = function() {
 		/* Stop at This Frame
@@ -1217,23 +1217,23 @@ p.nominalBounds = new cjs.Rectangle(-16.6,-158.7,520,553);
 	// Layer 1
 	this.instance_15 = new lib.g2_gp("synched",0);
 	this.instance_15.parent = this;
-	this.instance_15.setTransform(249.6,61.5,0.253,0.253,0,0,0,0.4,0.6);
+	this.instance_15.setTransform(249.6,62.3,0.267,0.267,0,0,0,0,0.2);
 	this.instance_15.alpha = 0;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_15).to({regX:0.1,regY:0.1,scaleX:0.54,scaleY:0.54,y:46.3,alpha:1},6).to({scaleX:0.6,scaleY:0.6},2).to({scaleX:0.54,scaleY:0.54},2).wait(66));
+	this.timeline.addTween(cjs.Tween.get(this.instance_15).to({regY:0.1,scaleX:0.57,scaleY:0.57,x:249.5,y:46.3,alpha:1},6).to({regX:0.1,scaleX:0.63,scaleY:0.63,x:249.6},2).to({regX:0,scaleX:0.57,scaleY:0.57,x:249.5},2).wait(66));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(489.3,319.1,40.4,37.5);
+p.nominalBounds = new cjs.Rectangle(488.2,319.1,42.6,39.5);
 // library properties:
 lib.properties = {
-	id: '7E0F2A2B378B424FBFA3192930A40FE0',
+	id: '6E0F2A2B378B424FBFA3192930A40FE0',
 	width: 520,
 	height: 553,
 	fps: 24,
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"img/NCSOFT_graph2_atlas_.png?1500445428738", id:"NCSOFT_graph2_atlas_"}
+		{src:"img/NCSOFT_graph2_atlas_.png?1499930649071", id:"NCSOFT_graph2_atlas_"}
 	],
 	preloads: []
 };
@@ -1271,7 +1271,7 @@ an.bootstrapCallback=function(fnCallback) {
 };
 
 an.compositions = an.compositions || {};
-an.compositions['7E0F2A2B378B424FBFA3192930A40FE0'] = {
+an.compositions['6E0F2A2B378B424FBFA3192930A40FE0'] = {
 	getStage: function() { return exportRoot.getStage(); },
 	getLibrary: function() { return lib; },
 	getSpriteSheet: function() { return ss; },
